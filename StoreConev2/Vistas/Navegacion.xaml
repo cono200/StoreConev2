@@ -2,10 +2,28 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="StoreConev2.Vistas.Navegacion"
-             Title="Navegacion">
+             Title="Navegacion"
+             xmlns:magic="clr-namespace:MagicGradients;assembly=MagicGradients"
+>
 
-    <StackLayout>
-        <Button Text="Página 1" Clicked="OnPage1Clicked" />
+    <Grid>
+        
+        <magic:GradientView VerticalOptions="FillAndExpand">
+            <magic:GradientView.GradientSource>
+                <magic:LinearGradient Angle="180">
+                    <magic:GradientStop Color="#020024" Offset="0"></magic:GradientStop>
+                    <magic:GradientStop Color="#eb9754" Offset=".30"></magic:GradientStop>
+                    <magic:GradientStop Color="#241d00" Offset=".86"></magic:GradientStop>
+
+                </magic:LinearGradient>
+            </magic:GradientView.GradientSource>
+        </magic:GradientView>
+        <StackLayout>
+
+            <Button Text="Inicio " Command="{Binding Iniciocomand}" />
         <Button Text="Página 2"  />
+            
     </StackLayout>
+    </Grid>
+
 </ContentPage>
