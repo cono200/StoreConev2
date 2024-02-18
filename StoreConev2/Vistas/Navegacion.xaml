@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="StoreConev2.Vistas.Navegacion"
+             Title="Navegacion">
+
+    <StackLayout>
+        <Button Text="Página 1" Clicked="OnPage1Clicked" />
+        <Button Text="Página 2"  />
+    </StackLayout>
+</ContentPage>
