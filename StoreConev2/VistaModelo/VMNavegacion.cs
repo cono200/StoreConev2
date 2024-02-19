@@ -25,6 +25,11 @@ namespace StoreConev2.VistaModelo
             App.MasterDet.Detail = new NavigationPage(new VistaPreviaProducto());
             App.MasterDet.IsPresented = false;
         }
+        public async Task MListaProductos()
+        {
+            App.MasterDet.Detail = new NavigationPage(new ListaProductos());
+            App.MasterDet.IsPresented = false;
+        }
         #endregion
         #region OBJETOS
         public string Texto
@@ -47,6 +52,8 @@ namespace StoreConev2.VistaModelo
         public ICommand ProcesoAsyncomand => new Command(async () => await ProcesoAsyncrono());
         public ICommand ProcesoSimpcomand => new Command(procesoSimple);
         public ICommand Iniciocomand => new Command(async () => await Inicio());
+        public ICommand MenuListaProductoscomand => new Command(async () => await MListaProductos());
+
 
         #endregion
     }

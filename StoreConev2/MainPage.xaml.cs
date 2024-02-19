@@ -14,9 +14,12 @@ namespace StoreConev2
     {
         public MainPage()
         {
+            
             Master = new Navegacion();
             Detail = new NavigationPage(new IniciarSesion());
             Detail = new NavigationPage(new VistaPreviaProducto());
+            Detail = new NavigationPage(new ListaProductos());
+
         }
 
 

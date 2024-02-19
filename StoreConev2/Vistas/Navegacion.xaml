@@ -22,8 +22,9 @@
 
             <Button Text="Inicio " Command="{Binding Iniciocomand}" />
         <Button Text="Página 2"  />
-            
-    </StackLayout>
+            <Button Text="Inventario Productos" Command="{Binding MenuListaProductoscomand}" />
+
+        </StackLayout>
     </Grid>
 
 </ContentPage>
