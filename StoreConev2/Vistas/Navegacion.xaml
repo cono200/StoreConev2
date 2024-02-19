@@ -2,12 +2,12 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="StoreConev2.Vistas.Navegacion"
-             Title="Navegacion"
-             xmlns:magic="clr-namespace:MagicGradients;assembly=MagicGradients"
->
+             xmlns:local="clr-namespace:StoreConev2.Triggers"
 
+             Title="Navegacion"
+
+             xmlns:magic="clr-namespace:MagicGradients;assembly=MagicGradients">
     <Grid>
-        
         <magic:GradientView VerticalOptions="FillAndExpand">
             <magic:GradientView.GradientSource>
                 <magic:LinearGradient Angle="180">
@@ -18,13 +18,72 @@
                 </magic:LinearGradient>
             </magic:GradientView.GradientSource>
         </magic:GradientView>
-        <StackLayout>
+        <Grid>
 
-            <Button Text="Inicio " Command="{Binding Iniciocomand}" />
-        <Button Text="Página 2"  />
-            <Button Text="Inventario Productos" Command="{Binding MenuListaProductoscomand}" />
+            <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
 
-        </StackLayout>
+        <StackLayout Grid.Row="1" Spacing="15" Padding="20,40,0,0">
+            <StackLayout Orientation="Horizontal">
+                <Image Source="https://i.ibb.co/0X1hPHz/casa-silueta-negra-sin-puerta.png" WidthRequest="30" HeightRequest="30" />
+                    <Button FontFamily="kawaii4" Text="Inicio" TextColor="AliceBlue" BackgroundColor="Transparent"  Command="{Binding Iniciocomand}">
+                        <Button.Triggers>
+                            <EventTrigger Event="Clicked">
+                                <local:Botones />
+                            </EventTrigger>
+                        </Button.Triggers>
+                    </Button>
+                </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Image Source="https://i.ibb.co/V9yjyJt/inventario.png" WidthRequest="30" HeightRequest="30" />
+                <Button FontFamily="kawaii4" Text="Lista productos" TextColor="Black" BackgroundColor="Transparent" Command="{Binding MenuListaProductoscomand}">
+                        <Button.Triggers>
+                            <EventTrigger Event="Clicked">
+                                <local:Botones />
+                            </EventTrigger>
+                        </Button.Triggers>
+                    </Button>
+
+                </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Image Source="https://i.ibb.co/ZxBKkNt/registro-en-linea.png" WidthRequest="30" HeightRequest="30" />
+                <Button FontFamily="kawaii4" Text="Registrar producto" TextColor="AliceBlue" BackgroundColor="Transparent" Command="{Binding RegistrarProductoCommand}">
+                        <Button.Triggers>
+                            <EventTrigger Event="Clicked">
+                                <local:Botones />
+                            </EventTrigger>
+                        </Button.Triggers>
+                    </Button>
+
+                </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Image Source="https://i.ibb.co/jgYPKVb/perdida-de-dinero.png" WidthRequest="30" HeightRequest="30" />
+                <Button Text="Registrar merma" FontFamily="kawaii4" TextColor="Black" BackgroundColor="Transparent"  Command="{Binding RegistroMermasCommand}">
+                        <Button.Triggers>
+                            <EventTrigger Event="Clicked">
+                                <local:Botones />
+                            </EventTrigger>
+                        </Button.Triggers>
+                    </Button>
+
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Image Source="https://i.ibb.co/GWQ9n5J/boton-salir-a-la-aplicacion.png" WidthRequest="30" HeightRequest="30" />
+                    <Button Text="Cerrar Sesión" FontFamily="kawaii4" TextColor="Black" BackgroundColor="Transparent"  Command="{Binding CerrarsesionCommand}">
+                        <Button.Triggers>
+                            <EventTrigger Event="Clicked">
+                                <local:Botones />
+                            </EventTrigger>
+                        </Button.Triggers>
+                    </Button>
+
+                </StackLayout>
+
+            </StackLayout>
+        </Grid>
+
+
     </Grid>
-
 </ContentPage>

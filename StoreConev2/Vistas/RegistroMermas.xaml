@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="StoreConev2.Vistas.RegistroMermas"
+             Title="RegistroMermas">
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout BackgroundColor="Gray" Padding="15">
+                <Grid>
+                    <Label Text="Registro | Mermas" FontSize="30" FontAttributes="Bold" TextColor="Black" HorizontalOptions="Center" Grid.Column="1" Margin="-350,0,50,0"/>
+                    <Image Source="https://i.ibb.co/0MtrR1f/logo-2.png" HeightRequest="60" Margin="-800,0,360,0" Grid.Column="1"/>
+                </Grid>
+            </StackLayout>
+            <Grid Padding="15,15,15,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Label Grid.Row="0"
+                   Text="Tipo de merma"
+                   FontAttributes="Bold" 
+                       Padding="0,15,0,0"/>
+                <Entry Grid.Column="1"
+                   Placeholder="Ingrese tipo de merma"
+                   Text="{Binding TypeOfMerma}" />
+
+                <Label Grid.Row="1"
+                   Text="Codigo"
+                   FontAttributes="Bold" 
+                       Padding="0,15,0,0"/>
+                <Entry Grid.Column="1" Grid.Row="1"
+                   Placeholder="Ingrese código"
+                   Text="{Binding Code}" />
+
+                <Label Grid.Row="2"
+                   Text="Fecha de ingreso"
+                   FontAttributes="Bold" 
+                       Padding="0,15,0,0"/>
+                <DatePicker Grid.Column="1" Grid.Row="2"
+                        Date="{Binding EntryDate}" />
+
+
+                <Label Grid.Row="3"
+                   Text="Nombre del producto"
+                   FontAttributes="Bold" 
+                       Padding="0,15,0,0"/>
+                <Entry Grid.Column="1" Grid.Row="3"
+                   Placeholder="Ingrese nombre del producto"
+                   Text="{Binding ProductName}" />
+            </Grid>
+
+            <Button Text="Registrar"
+                Command="{Binding SubmitCommand}" 
+                BorderColor="Black"
+                    VerticalOptions="EndAndExpand"
+                    Margin="145,0,145,20"
+                    BackgroundColor="Gray"
+                    FontAttributes="Bold"
+                    CornerRadius="15"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

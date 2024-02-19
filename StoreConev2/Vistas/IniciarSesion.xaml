@@ -12,7 +12,7 @@
 
                 <Grid.RowDefinitions>
                     <RowDefinition Height="100" />
-                    <RowDefinition Height="40"  />
+                    <RowDefinition Height="*"  />
                     <RowDefinition Height="auto" />
                     <RowDefinition Height="auto" />
 
@@ -47,10 +47,12 @@
 
                 <StackLayout Grid.Row="3"  VerticalOptions="End" HorizontalOptions="Center">
 
-                    <Label HorizontalTextAlignment="Center" Text="¿No tiene una cuenta?" FontSize="12" TextColor="Brown" FontAttributes="Bold"/>
-                    <Image Source="https://i.ibb.co/zN6BcB8/boton3.png" HeightRequest="90" WidthRequest="250"></Image>
+                    <Image Source="https://i.ibb.co/zN6BcB8/boton3.png" HeightRequest="90" WidthRequest="250">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding Insertarcomand}"/>
+                        </Image.GestureRecognizers>
+                    </Image>
 
-                    <Button Text="Iniciar Sesión" FontFamily="kawaii3" FontSize="20" FontAttributes="Italic" BackgroundColor="Brown" CornerRadius="20" HeightRequest="50" WidthRequest="200" />
                 </StackLayout>
             </Grid>
         </Grid>
