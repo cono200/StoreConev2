@@ -10,10 +10,10 @@
     <Grid>
         <magic:GradientView VerticalOptions="FillAndExpand">
             <magic:GradientView.GradientSource>
-                <magic:LinearGradient Angle="180">
+                <magic:LinearGradient Angle="90">
                     <magic:GradientStop Color="#020024" Offset="0"></magic:GradientStop>
-                    <magic:GradientStop Color="#eb9754" Offset=".30"></magic:GradientStop>
-                    <magic:GradientStop Color="#241d00" Offset=".86"></magic:GradientStop>
+                    <magic:GradientStop Color="#00d4ff" Offset=".22"></magic:GradientStop>
+                    <magic:GradientStop Color="#00e5eb" Offset=".36"></magic:GradientStop>
 
                 </magic:LinearGradient>
             </magic:GradientView.GradientSource>
