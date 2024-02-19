@@ -10,8 +10,8 @@
                 <magic:GradientView.GradientSource>
                     <magic:LinearGradient Angle="180">
                         <magic:GradientStop Color="#020024" Offset="0"></magic:GradientStop>
-                        <magic:GradientStop Color="#eb9754" Offset=".30"></magic:GradientStop>
-                        <magic:GradientStop Color="#241d00" Offset=".86"></magic:GradientStop>
+                        <magic:GradientStop Color="#eb9754" Offset="0"></magic:GradientStop>
+                        <magic:GradientStop Color="#241d00" Offset="1"></magic:GradientStop>
 
                     </magic:LinearGradient>
                 </magic:GradientView.GradientSource>
