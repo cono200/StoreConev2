@@ -4,26 +4,34 @@
              x:Class="StoreConev2.Vistas.Navegacion"
              Title="Navegacion"
              xmlns:magic="clr-namespace:MagicGradients;assembly=MagicGradients"
->
+             >
 
     <Grid>
-        
-        <magic:GradientView VerticalOptions="FillAndExpand">
-            <magic:GradientView.GradientSource>
-                <magic:LinearGradient Angle="180">
-                    <magic:GradientStop Color="#020024" Offset="0"></magic:GradientStop>
-                    <magic:GradientStop Color="#eb9754" Offset=".30"></magic:GradientStop>
-                    <magic:GradientStop Color="#241d00" Offset=".86"></magic:GradientStop>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
 
-                </magic:LinearGradient>
-            </magic:GradientView.GradientSource>
-        </magic:GradientView>
-        <StackLayout>
+        <Label Text="Store Cone " TextColor="Red" FontSize="Large" HorizontalOptions="Start" Margin="20,40,0,0"/>
 
-            <Button Text="Inicio " Command="{Binding Iniciocomand}" />
-        <Button Text="Página 2"  />
-            <Button Text="Inventario Productos" Command="{Binding MenuListaProductoscomand}" />
-
+        <StackLayout Grid.Row="1" Spacing="15" Padding="20,40,0,0">
+            <StackLayout Orientation="Horizontal">
+                <Image Source="https://i.ibb.co/0X1hPHz/casa-silueta-negra-sin-puerta.png" WidthRequest="30" HeightRequest="30" />
+                <Button Text="Inicio" TextColor="Black" BackgroundColor="Transparent"  Command="{Binding Iniciocomand}"/>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Image Source="https://i.ibb.co/V9yjyJt/inventario.png" WidthRequest="30" HeightRequest="30" />
+                <Button Text="Lista productos" TextColor="Black" BackgroundColor="Transparent" Command="{Binding MenuListaProductoscomand}" />
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Image Source="https://i.ibb.co/ZxBKkNt/registro-en-linea.png" WidthRequest="30" HeightRequest="30" />
+                <Button Text="Registrar producto" TextColor="Black" BackgroundColor="Transparent" Command="{Binding RegistrarProductoCommand}"  />
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Image Source="https://i.ibb.co/jgYPKVb/perdida-de-dinero.png" WidthRequest="30" HeightRequest="30" />
+                <Button Text="Registrar merma" TextColor="Black" BackgroundColor="Transparent"  Command="{Binding RegistroMermasCommand}"/>
+            </StackLayout>
+           
         </StackLayout>
     </Grid>
 

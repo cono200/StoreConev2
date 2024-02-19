@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="StoreConev2.Vistas.RegistrarProducto"
+             Title="RegistrarProducto">
+    <ContentPage.Content>
+        <StackLayout>
+
+            <Grid Padding="0,15,0,15" BackgroundColor="#9fa407">
+                <Label Text="Registrar / Producto" FontSize="25" FontAttributes="Bold"
+                       TextColor="Black" HorizontalOptions="CenterAndExpand" Padding="0,5,0,0"/>
+                <Frame  Padding="15,0,0,0"  Grid.Column="0" Grid.Row="0" BackgroundColor="Transparent" >
+                    <Image Source="https://i.ibb.co/0MtrR1f/logo-2.png" HeightRequest="130" HorizontalOptions="Start"/>
+                </Frame>
+            </Grid>
+
+            <Grid Margin="0" Padding="15,0,15,15">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+
+                <Label Text="Código"
+                   VerticalOptions="Center" />
+                <Entry Placeholder="Ingresar código"
+                   Grid.Column="1"
+                   Text="{Binding Code}" FontSize="12"/>
+
+
+                <Label Text="Nombre"
+                   Grid.Row="1"
+                   VerticalOptions="Center" />
+                <Entry Placeholder="Ingresa el nombre"
+                   Grid.Row="1"
+                   Grid.Column="1"
+                   Text="{Binding Name}" FontSize="12"/>
+
+
+                <Label Text="Sección"
+                   Grid.Row="2"
+                   VerticalOptions="Center" />
+                <Entry Placeholder="Ingresa  la sección"
+                   Grid.Row="2"
+                   Grid.Column="1"
+                   Text="{Binding Section}" FontSize="12"/>
+
+
+                <Label Text="Proveedor"
+                   Grid.Row="3"
+                   VerticalOptions="Center" />
+                <Entry Placeholder="Ingresar proveedor"
+                   Grid.Row="3"
+                   Grid.Column="1"
+                   Text="{Binding Provider}" FontSize="12"/>
+
+
+                <Label Text="Quantity"
+                   Grid.Row="4"
+                   VerticalOptions="Center" />
+                <Entry Placeholder="Cantidad"
+                   Grid.Row="4"
+                   Grid.Column="1"
+                   Keyboard="Numeric"
+                   Text="{Binding Quantity}" FontSize="12"/>
+
+
+                <Label Text="Descripción"
+                   Grid.Row="5"
+                   VerticalOptions="Center" />
+                <Editor Placeholder="Agregar descripción"
+                    Grid.Row="5"
+                    Grid.Column="1"
+                    Text="{Binding Description}" FontSize="12"/>
+
+
+                <Label Text="Precio"
+                   Grid.Row="6"
+                   VerticalOptions="Center" />
+                <Entry Placeholder="Ingresar el precio"
+                   Grid.Row="6"
+                   Grid.Column="1"
+                   Keyboard="Numeric"
+                   Text="{Binding Price}" FontSize="12"/>
+
+
+                <StackLayout Grid.Column="2" Grid.Row="3">
+                    <Image Source="https://i.ibb.co/0MtrR1f/logo-2.png"
+                           HeightRequest="100"
+                           HorizontalOptions="Center" />
+                </StackLayout>
+            </Grid>
+
+            <Button Text="Registrar"
+                    Command="{Binding RegisterCommand}"
+                    HorizontalOptions="Center"
+                    CornerRadius="15"
+                    Margin="0,0,0,15"
+                    BackgroundColor="#F8F000"
+                    TextColor="Black"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

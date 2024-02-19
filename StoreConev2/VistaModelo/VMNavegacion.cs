@@ -30,6 +30,17 @@ namespace StoreConev2.VistaModelo
             App.MasterDet.Detail = new NavigationPage(new ListaProductos());
             App.MasterDet.IsPresented = false;
         }
+        
+        public async Task RegistrarProducto()
+        {
+            App.MasterDet.Detail = new NavigationPage(new RegistrarProducto());
+            App.MasterDet.IsPresented = false;
+        }
+        public async Task RegistroMermas()
+        {
+            App.MasterDet.Detail = new NavigationPage(new RegistroMermas());
+            App.MasterDet.IsPresented = false;
+        }
         #endregion
         #region OBJETOS
         public string Texto
@@ -53,6 +64,8 @@ namespace StoreConev2.VistaModelo
         public ICommand ProcesoSimpcomand => new Command(procesoSimple);
         public ICommand Iniciocomand => new Command(async () => await Inicio());
         public ICommand MenuListaProductoscomand => new Command(async () => await MListaProductos());
+        public ICommand RegistrarProductoCommand => new Command(async () => await RegistrarProducto());
+        public ICommand RegistroMermasCommand => new Command(async () => await RegistroMermas());
 
 
         #endregion

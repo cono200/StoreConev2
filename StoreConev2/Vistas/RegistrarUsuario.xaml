@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="StoreConev2.Vistas.RegistrarUsuario"
+             xmlns:magic="clr-namespace:MagicGradients;assembly=MagicGradients"
+             Title="RegistrarUsuario">
+    <ContentPage.Content>
+        <Grid>
+
+            <Image IsOpaque="True" Opacity=".6" Source="https://i.ibb.co/KsJXy5T/cajas.jpg" Aspect="AspectFill" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"/>
+            <Grid RowDefinitions="80,*,auto">
+                <Grid>
+
+                    <StackLayout BackgroundColor="Maroon"  Orientation="Horizontal" Padding="5">
+                        <Image Source="https://i.ibb.co/vh18Bqc/pngwing-com.png"></Image>
+                        <Image Margin="210,0,0,0"  IsOpaque="True" Source="https://i.ibb.co/0MtrR1f/logo-2.png"  HeightRequest="50"></Image>
+                        <Label  Text="StoreCone" TextColor="AliceBlue" FontFamily="kawaii" FontAttributes="Italic" FontSize="40" />
+                    </StackLayout>
+                </Grid>
+
+                <StackLayout Margin="20,0" Spacing="1" Grid.Row="1" Orientation="Vertical">
+                    <Label Text="Nombre de Usuario" FontSize="16" TextColor="Brown" FontAttributes="Bold"/>
+                    <Entry FontSize="16" TextColor="Black" Placeholder="Ingrese su nombre" FontAttributes="Bold"/>
+                    <Label Text="Correo" FontSize="16" TextColor="Brown" FontAttributes="Bold"/>
+                    <Entry FontSize="16" TextColor="Black" Placeholder="Ingrese su correo" FontAttributes="Bold"/>
+                    <Label Text="Contraseña" FontSize="16" TextColor="Brown" FontAttributes="Bold"/>
+                    <Entry FontSize="16" TextColor="Black" Placeholder="Ingrese su Contraseña" IsPassword="True" FontAttributes="Bold"/>
+                    <Label Text="Confirmar contraseña" FontSize="16" TextColor="Brown" FontAttributes="Bold"/>
+                    <Entry FontSize="16" TextColor="Black" Placeholder="Ingrese su contraseña" FontAttributes="Bold"/>
+                </StackLayout>
+                <StackLayout Grid.Row="2" Padding="0" VerticalOptions="End" HorizontalOptions="Center">
+
+                    <Image Source="https://i.ibb.co/Nry0rHZ/boton.png" HeightRequest="90" WidthRequest="250"></Image>
+                </StackLayout>
+            </Grid>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
