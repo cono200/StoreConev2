@@ -28,7 +28,7 @@
         <StackLayout Grid.Row="1" Spacing="15" Padding="20,40,0,0">
             <StackLayout Orientation="Horizontal">
                 <Image Source="https://i.ibb.co/0X1hPHz/casa-silueta-negra-sin-puerta.png" WidthRequest="30" HeightRequest="30" />
-                    <Button FontFamily="kawaii4" Text="Inicio" TextColor="AliceBlue" BackgroundColor="Transparent"  Command="{Binding Iniciocomand}">
+                    <Button FontFamily="kawaii4" Text="Inicio" TextColor="Black" BackgroundColor="Transparent"  Command="{Binding Iniciocomand}">
                         <Button.Triggers>
                             <EventTrigger Event="Clicked">
                                 <local:Botones />
@@ -49,7 +49,7 @@
                 </StackLayout>
             <StackLayout Orientation="Horizontal">
                 <Image Source="https://i.ibb.co/ZxBKkNt/registro-en-linea.png" WidthRequest="30" HeightRequest="30" />
-                <Button FontFamily="kawaii4" Text="Registrar producto" TextColor="AliceBlue" BackgroundColor="Transparent" Command="{Binding RegistrarProductoCommand}">
+                    <Button FontFamily="kawaii4" Text="Registrar producto" TextColor="Black" BackgroundColor="Transparent" Command="{Binding RegistrarProductoCommand}">
                         <Button.Triggers>
                             <EventTrigger Event="Clicked">
                                 <local:Botones />
