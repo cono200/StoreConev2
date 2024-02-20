@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:microcharts="clr-namespace:Microcharts.Forms;assembly=Microcharts.Forms"
+             x:Class="StoreConev2.Vistas.Graficos"
+             >
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Spacing="10" BackgroundColor="AliceBlue">
+                <Label HorizontalOptions="Center" Text="Productos Más Vendidos del mes"
+                       FontSize="25" FontFamily="kawaii"> </Label>
+                <Label Text="Grafica de Pastel" FontFamily="kawaii3"></Label>
+                
+        <microcharts:ChartView x:Name="PastelChart" HeightRequest="300"/>
+                <Label Text="Grafica de Barras" FontFamily="kawaii3"></Label>
+
+                <microcharts:ChartView x:Name="BarrasChart" HeightRequest="350"/>
+            </StackLayout>
+
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
