@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using StoreConev2.VistaModelo;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -15,6 +15,8 @@ namespace StoreConev2.Vistas
         public IniciarSesion()
         {
             InitializeComponent();
+            BindingContext = new VMiniciarsesion(Navigation);
+            
         }
     }
 }
