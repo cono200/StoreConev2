@@ -71,14 +71,13 @@
                 </StackLayout>
                 <StackLayout Orientation="Horizontal">
                     <Image Source="https://i.ibb.co/0ywvVHq/estrategia.png" WidthRequest="30" HeightRequest="30" />
-                    <Button Text="Analisis" FontFamily="kawaii4" TextColor="Black" BackgroundColor="Transparent"  Command="{Binding AnalisisAccesoCommand}">
+                    <Button Text="Estadisticas" FontFamily="kawaii4" TextColor="Black" BackgroundColor="Transparent"  Command="{Binding GraficosCommand}">
                         <Button.Triggers>
                             <EventTrigger Event="Clicked">
                                 <local:Botones />
                             </EventTrigger>
                         </Button.Triggers>
                     </Button>
-
                 </StackLayout>
                 <StackLayout Orientation="Horizontal">
                     <Image Source="https://i.ibb.co/GWQ9n5J/boton-salir-a-la-aplicacion.png" WidthRequest="30" HeightRequest="30" />
@@ -91,6 +90,7 @@
                     </Button>
 
                 </StackLayout>
+               
 
             </StackLayout>
         </Grid>

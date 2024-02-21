@@ -1,6 +1,8 @@
-﻿using StoreConev2.Vistas;
+﻿using StoreConev2.Modelo;
+using StoreConev2.Vistas;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
@@ -18,7 +20,7 @@ namespace StoreConev2.VistaModelo
         public VMNavegacion(INavigation navigation)
         {
             Navigation = navigation;
-
+            ListaProductos = new VMListaProductos();
         }
         public async Task Inicio()
         {
@@ -45,6 +47,8 @@ namespace StoreConev2.VistaModelo
             App.MasterDet.Detail = new NavigationPage(new IniciarSesion());
             App.MasterDet.IsPresented = false;
         }
+        public VMListaProductos ListaProductos { get; set; }
+
         #endregion
         #region OBJETOS
         public string Texto
@@ -62,6 +66,13 @@ namespace StoreConev2.VistaModelo
         {
 
         }
+        
+        public async Task NavegarAGraficos()
+        {
+            ObservableCollection<Producto> misProductos = ListaProductos.Productos;
+            App.MasterDet.Detail = new NavigationPage(new Graficos(misProductos));
+            App.MasterDet.IsPresented = false;
+        }
         #endregion
         #region COMANDOS
         public ICommand ProcesoAsyncomand => new Command(async () => await ProcesoAsyncrono());
@@ -71,6 +82,7 @@ namespace StoreConev2.VistaModelo
         public ICommand RegistrarProductoCommand => new Command(async () => await RegistrarProducto());
         public ICommand RegistroMermasCommand => new Command(async () => await RegistroMermas());
         public ICommand CerrarsesionCommand => new Command(async () => await Cerrarsesion());
+        public ICommand GraficosCommand => new Command(async () => await NavegarAGraficos());
 
 
         #endregion
