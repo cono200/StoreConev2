@@ -9,25 +9,34 @@
             <magic:GradientView VerticalOptions="FillAndExpand">
                 <magic:GradientView.GradientSource>
                     <magic:LinearGradient Angle="180">
-                        <magic:GradientStop Color="#00FFFB" Offset="0"></magic:GradientStop>
-                        <magic:GradientStop Color="#7EBEFF" Offset="0"></magic:GradientStop>
-                        <magic:GradientStop Color="#00376F" Offset="1"></magic:GradientStop>
+                        <magic:GradientStop Color="#B7F8F4" Offset="0"></magic:GradientStop>
+                        <magic:GradientStop Color="#B7F8F4" Offset="0"></magic:GradientStop>
+                        <magic:GradientStop Color="#B7F8F4" Offset="1"></magic:GradientStop>
                     </magic:LinearGradient>
                 </magic:GradientView.GradientSource>
             </magic:GradientView>
             <StackLayout>
-                <Grid Padding="0,0,0,15" BackgroundColor="Gray" >
+                <Grid Padding="0,0,0,15" BackgroundColor="#00B91F" >
                     
                         <Image Source="https://i.ibb.co/0MtrR1f/logo-2.png" HeightRequest="130" HorizontalOptions="Start" />
-                    
-                    <StackLayout Orientation="Horizontal" Grid.Column="1" HorizontalOptions="StartAndExpand" BackgroundColor="Gray" Padding="-130,10,0,0">
+
+                    <StackLayout Orientation="Horizontal" Grid.Column="1" HorizontalOptions="StartAndExpand" BackgroundColor="#00B91F" Padding="-130,10,0,0">
                         <Label FontFamily="kawaii" Text="Registrar / Producto" FontSize="25" FontAttributes="Bold"
-                   TextColor="Black" HorizontalOptions="CenterAndExpand" Padding="0,5,0,0" BackgroundColor="Gray"/>
-                        <Image Source="https://i.ibb.co/3pvWwdR/campana.png" WidthRequest="40">
-                            <Image.GestureRecognizers>
-                                <TapGestureRecognizer Command="{Binding IrNotificacionescomand}"/>
-                            </Image.GestureRecognizers>
-                        </Image>
+                   TextColor="Black" HorizontalOptions="CenterAndExpand" Padding="0,5,0,0" BackgroundColor="#00B91F"/>
+                        <StackLayout>
+                            <Image Source="https://i.ibb.co/3pvWwdR/campana.png" WidthRequest="40">
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding IrNotificacionescomand}"/>
+                                </Image.GestureRecognizers>
+                            </Image>
+                            <Label Text="2" 
+           HorizontalOptions="End" 
+           VerticalOptions="Start" 
+           TextColor="White" 
+           WidthRequest="20" 
+           HeightRequest="20"
+                                   Margin="0,-37,5,0"/>
+                        </StackLayout>
 
                     </StackLayout>
                 </Grid>
@@ -42,63 +51,70 @@
                     </Grid.RowDefinitions>
 
 
-                    <Label TextColor="AliceBlue" Text="Código"
-                   VerticalOptions="Center" />
+                    <Label TextColor="Orange" Text="Código"
+                   VerticalOptions="Center" 
+                           FontAttributes="Bold"/>
                     <Entry  TextColor="AliceBlue" Placeholder="Ingresar código"
                    Grid.Column="1"
                    Text="{Binding Code}" FontSize="12"/>
 
 
-                    <Label TextColor="AliceBlue" Text="Nombre"
+                    <Label TextColor="Orange" Text="Nombre"
                    Grid.Row="1"
+                            FontAttributes="Bold"
                    VerticalOptions="Center" />
-                    <Entry TextColor="AliceBlue" Placeholder="Ingresa el nombre"
+                    <Entry TextColor="Orange" Placeholder="Ingresa el nombre"
                    Grid.Row="1"
                    Grid.Column="1"
                    Text="{Binding Name}"  FontSize="12"/>
 
 
-                    <Label TextColor="AliceBlue" Text="Sección"
+                    <Label TextColor="Orange" Text="Sección"
                    Grid.Row="2"
+                            FontAttributes="Bold"
                    VerticalOptions="Center" />
-                    <Entry TextColor="AliceBlue" Placeholder="Ingresa  la sección"
+                    <Entry TextColor="Orange" Placeholder="Ingresa  la sección"
                    Grid.Row="2"
                    Grid.Column="1"
                    Text="{Binding Section}" FontSize="12"/>
 
 
-                    <Label TextColor="AliceBlue" Text="Proveedor"
+                    <Label TextColor="Orange" Text="Proveedor"
                    Grid.Row="3"
+                            FontAttributes="Bold"
                    VerticalOptions="Center" />
-                    <Entry TextColor="AliceBlue" Placeholder="Ingresar proveedor"
+                    <Entry TextColor="Orange" Placeholder="Ingresar proveedor"
                    Grid.Row="3"
                    Grid.Column="1"
                    Text="{Binding Provider}" FontSize="12"/>
 
 
-                    <Label TextColor="AliceBlue" Text="Quantity"
+                    <Label TextColor="Orange" Text="Cantidad"
                    Grid.Row="4"
+                            FontAttributes="Bold"
                    VerticalOptions="Center" />
-                    <Entry TextColor="AliceBlue" Placeholder="Cantidad"
+                    <Entry TextColor="Orange" Placeholder="Cantidad"
                    Grid.Row="4"
                    Grid.Column="1"
                    Keyboard="Numeric"
                    Text="{Binding Quantity}" FontSize="12"/>
 
 
-                    <Label TextColor="AliceBlue" Text="Descripción"
+                    <Label TextColor="Orange" Text="Descripción"
                    Grid.Row="5"
+                            FontAttributes="Bold"
                    VerticalOptions="Center" />
-                    <Editor TextColor="AliceBlue" Placeholder="Agregar descripción"
+                    <Editor TextColor="Orange" Placeholder="Agregar descripción"
                     Grid.Row="5"
                     Grid.Column="1"
                     Text="{Binding Description}" FontSize="12"/>
 
 
-                    <Label TextColor="AliceBlue" Text="Precio"
+                    <Label TextColor="Orange" Text="Precio"
                    Grid.Row="6"
+                            FontAttributes="Bold"
                    VerticalOptions="Center" />
-                    <Entry TextColor="AliceBlue" Placeholder="Ingresar el precio"
+                    <Entry TextColor="Orange" Placeholder="Ingresar el precio"
                    Grid.Row="6"
                    Grid.Column="1"
                    Keyboard="Numeric"
@@ -117,7 +133,7 @@
                     HorizontalOptions="Center"
                     CornerRadius="15"
                     Margin="0,0,0,2"
-                    BackgroundColor="Azure"
+                    BackgroundColor="Tomato"
                     TextColor="Black"/>
             </StackLayout>
         </Grid>

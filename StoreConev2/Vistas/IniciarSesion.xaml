@@ -49,7 +49,7 @@
 
                     <Image Source="https://i.ibb.co/zN6BcB8/boton3.png" HeightRequest="90" WidthRequest="250">
                         <Image.GestureRecognizers>
-                            <TapGestureRecognizer Command="{Binding Insertarcomand}"/>
+                            <TapGestureRecognizer Command="{Binding BotonIniciarSesioncomand}"/>
                         </Image.GestureRecognizers>
                     </Image>
 
