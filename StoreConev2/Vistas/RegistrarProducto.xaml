@@ -52,7 +52,8 @@
 
 
                     <Label TextColor="Orange" Text="Código"
-                   VerticalOptions="Center" />
+                   VerticalOptions="Center" 
+                           FontAttributes="Bold"/>
                     <Entry  TextColor="AliceBlue" Placeholder="Ingresar código"
                    Grid.Column="1"
                    Text="{Binding Code}" FontSize="12"/>
@@ -60,6 +61,7 @@
 
                     <Label TextColor="Orange" Text="Nombre"
                    Grid.Row="1"
+                            FontAttributes="Bold"
                    VerticalOptions="Center" />
                     <Entry TextColor="Orange" Placeholder="Ingresa el nombre"
                    Grid.Row="1"
@@ -69,6 +71,7 @@
 
                     <Label TextColor="Orange" Text="Sección"
                    Grid.Row="2"
+                            FontAttributes="Bold"
                    VerticalOptions="Center" />
                     <Entry TextColor="Orange" Placeholder="Ingresa  la sección"
                    Grid.Row="2"
@@ -78,6 +81,7 @@
 
                     <Label TextColor="Orange" Text="Proveedor"
                    Grid.Row="3"
+                            FontAttributes="Bold"
                    VerticalOptions="Center" />
                     <Entry TextColor="Orange" Placeholder="Ingresar proveedor"
                    Grid.Row="3"
@@ -87,6 +91,7 @@
 
                     <Label TextColor="Orange" Text="Cantidad"
                    Grid.Row="4"
+                            FontAttributes="Bold"
                    VerticalOptions="Center" />
                     <Entry TextColor="Orange" Placeholder="Cantidad"
                    Grid.Row="4"
@@ -97,6 +102,7 @@
 
                     <Label TextColor="Orange" Text="Descripción"
                    Grid.Row="5"
+                            FontAttributes="Bold"
                    VerticalOptions="Center" />
                     <Editor TextColor="Orange" Placeholder="Agregar descripción"
                     Grid.Row="5"
@@ -106,6 +112,7 @@
 
                     <Label TextColor="Orange" Text="Precio"
                    Grid.Row="6"
+                            FontAttributes="Bold"
                    VerticalOptions="Center" />
                     <Entry TextColor="Orange" Placeholder="Ingresar el precio"
                    Grid.Row="6"
