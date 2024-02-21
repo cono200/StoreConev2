@@ -34,19 +34,28 @@ namespace StoreConev2.VistaModelo
         {
 
         }
-        public async  Task IrNotificaciones()
+        public async Task IrNotificaciones()
         {
-            await Navigation.PushAsync( new Notificaciones());
+            await Navigation.PushAsync(new Notificaciones());
         }
         public void procesoSimple()
         {
 
         }
+        //public void IrNotificaciones()
+        //{
+        //    Device.BeginInvokeOnMainThread(async () =>
+        //    {
+        //        await Navigation.PushModalAsync(new Notificaciones());
+        //    });
+        //}
         #endregion
         #region COMANDOS
         public ICommand ProcesoAsyncomand => new Command(async () => await ProcesoAsyncrono());
         public ICommand IrNotificacionescomand => new Command(async () => await IrNotificaciones());
         public ICommand ProcesoSimpcomand => new Command(procesoSimple);
+       // public ICommand IrNotificacionescomand => new Command(IrNotificaciones);
+
         #endregion
     }
 }

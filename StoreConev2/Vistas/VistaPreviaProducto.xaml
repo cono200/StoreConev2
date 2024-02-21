@@ -5,8 +5,8 @@
              xmlns:magic="clr-namespace:MagicGradients;assembly=MagicGradients"
              Title="VistaPreviaProducto">
     <Grid BackgroundColor="#B7F8F4">
-        
-<Grid.RowDefinitions>
+
+        <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
@@ -19,27 +19,41 @@
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
 
-        <StackLayout Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="0" BackgroundColor="#9FA407" Margin="0,0,0,0">
-            
-            <Label Text="Store Cone" FontFamily="kawaii" VerticalOptions="Center" FontSize="25" HorizontalOptions="Center" TextColor="Yellow" />
-            <Frame  Padding="0"   BackgroundColor="#9FA407">
-                <Image Source="https://i.ibb.co/0MtrR1f/logo-2.png" HeightRequest="60" Margin="0,0,0,0" />
-            </Frame>
-        </StackLayout>
+        <Grid Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="0" BackgroundColor="#00B91F" Margin="0,0,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Image Source="https://i.ibb.co/0MtrR1f/logo-2.png" HeightRequest="60" Margin="0,0,0,0" Grid.Column="0" HorizontalOptions="Start"/>
+            <Label Text="Store Cone" FontFamily="kawaii" VerticalOptions="Center" FontSize="25" HorizontalOptions="CenterAndExpand" TextColor="Black" Grid.Column="1" Padding="-300,0,0,0" />
+            <StackLayout Grid.Column="1" Padding="10,10,-300,10">
+                <Image Source="https://i.ibb.co/3pvWwdR/campana.png" WidthRequest="40">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding IrNotificacionescomand}"/>
+                    </Image.GestureRecognizers>
+                </Image>
+                <Label Text="2" 
+    HorizontalOptions="CenterAndExpand" 
+    VerticalOptions="EndAndExpand" 
+    TextColor="White" 
+    WidthRequest="20" 
+    HeightRequest="20"
+     Margin="65,-37,50,23"
+                     />
+            </StackLayout>
+        </Grid>
+
         <Label Text="Nombre:" Grid.Row="1" Grid.Column="0" Margin="10"  FontSize="20" TextColor="#D57E00" />
         <Entry Grid.Row="1" Grid.Column="1" Margin="10" />
 
-
         <Label Text="Cantidad:" Grid.Row="2" Grid.Column="0" Margin="10"  FontSize="20" TextColor="#D57E00"/>
         <Entry Grid.Row="2" Grid.Column="1" Margin="10" Keyboard="Numeric" />
-
 
         <Label Text="Código:" Grid.Row="3" Grid.Column="0" Margin="10" FontSize="20" TextColor="#D57E00" />
         <Entry Grid.Row="3" Grid.Column="1" Margin="10" Keyboard="Numeric" />
 
         <Label Text="Sección:" Grid.Row="4" Grid.Column="0" Margin="10"  FontSize="20" TextColor="#D57E00"/>
         <Entry Grid.Row="4" Grid.Column="1" Margin="10" />
-
 
         <StackLayout Grid.Row="1" Spacing="40" Margin="0,0,0,0" Orientation="Horizontal" Grid.Column="2"   HorizontalOptions="CenterAndExpand">
             <Button Text="Sumar" FontFamily="kawaii3" CornerRadius="21" BackgroundColor="#F8F000" TextColor="#013715" FontSize="25"/>
