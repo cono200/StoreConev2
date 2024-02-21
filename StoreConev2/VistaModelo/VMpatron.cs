@@ -11,7 +11,7 @@ namespace StoreConev2.VistaModelo
     {
         #region VARIABLES
         string _Texto;
-
+        ///AAAAAAAAA
         #endregion
         #region CONSTRUCTOR
         public VMpatron(INavigation navigation)
