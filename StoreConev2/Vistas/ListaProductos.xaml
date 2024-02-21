@@ -1,12 +1,18 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:local="clr-namespace:StoreConev2.VistaModelo"
-             x:Class="StoreConev2.Vistas.ListaProductos"
-             Title="ListaProductos">
-    <ContentPage.BindingContext>
-        <local:VMListaProductos />
-    </ContentPage.BindingContext>
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:StoreConev2.VistaModelo"
+    x:Class="StoreConev2.Vistas.ListaProductos"
+    Title="ListaProductos">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Label">
+                <Setter Property="VerticalOptions" Value="Start" />
+                <Setter Property="HorizontalOptions" Value="Start" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
     <ContentPage.Content>
 
         <ScrollView HorizontalScrollBarVisibility="Always" VerticalScrollBarVisibility="Always">
@@ -15,57 +21,32 @@
 
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="4*" />
-                    <ColumnDefinition Width="3*" />
-                    <ColumnDefinition Width="3*" />
-                    <ColumnDefinition Width="4*" />
-                    <ColumnDefinition Width="3*" />
-                    <ColumnDefinition Width="3*" />
-                    <ColumnDefinition Width="4*" />
-
-
-
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
 
                 <!-- Celda 1 -->
-                <Frame Grid.Row="0" Grid.Column="0" BackgroundColor="LightGray" BorderColor="Tomato" >
-
-                    <Label VerticalTextAlignment="Start" HorizontalTextAlignment="Start" Text="Codigo" />
-                </Frame>
+                <Label Grid.Row="0" Grid.Column="0" Text="Código" />
                 <!-- Celda 2 -->
-                <Frame Grid.Row="0" Grid.Column="1" BackgroundColor="Gray" BorderColor="Tomato" >
-                    <Label  Text="Nombre"  />
-                </Frame>
-
+                <Label Grid.Row="0" Grid.Column="1" Text="Nombre" />
                 <!-- Celda 3 -->
-                <Frame Grid.Row="0" Grid.Column="2" BackgroundColor="LightGray" BorderColor="Tomato" >
-
-                    <Label VerticalTextAlignment="Start" HorizontalTextAlignment="Start" Text="Sección" />
-                </Frame>
+                <Label Grid.Row="0" Grid.Column="2" Text="Sección" />
                 <!-- Celda 4 -->
-                <Frame Grid.Row="0" Grid.Column="3" BackgroundColor="Gray" BorderColor="Tomato" >
-
-                    <Label  Text="Proveedor"  />
-                </Frame>
-
+                <Label Grid.Row="0" Grid.Column="3" Text="Proveedor" />
                 <!-- Celda 5 -->
-                <Frame Grid.Row="0" Grid.Column="4" BackgroundColor="LightGray" BorderColor="Tomato" >
-
-                    <Label Text="Cantidad"  />
-                </Frame>
-
+                <Label Grid.Row="0" Grid.Column="4" Text="Precio" />
                 <!-- Celda 6 -->
-                <Frame Grid.Row="0" Grid.Column="6" BackgroundColor="Gray" BorderColor="Tomato" >
-
-                    <Label Text="Descripción"  />
-                </Frame>
-                <Frame Grid.Row="0" Grid.Column="5" BackgroundColor="LightGray" BorderColor="Tomato" >
-
-
-                    <Label  Text="Precio"  />
-                </Frame>
+                <Label Grid.Row="0" Grid.Column="5" Text="Quantity" />
+                <!-- Celda 7 -->
+                <Label Grid.Row="0" Grid.Column="6" Text="Descripción" />
 
                 <!-- Datos de productos -->
                 <ListView ItemsSource="{Binding Productos}" Grid.Row="1" Grid.ColumnSpan="7">
@@ -74,20 +55,20 @@
                             <ViewCell>
                                 <Grid>
                                     <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="4*" />
-                                        <ColumnDefinition Width="3*" />
-                                        <ColumnDefinition Width="3*" />
-                                        <ColumnDefinition Width="4*" />
-                                        <ColumnDefinition Width="3*" />
-                                        <ColumnDefinition Width="3*" />
-                                        <ColumnDefinition Width="4*" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
                                     </Grid.ColumnDefinitions>
-                                    <Label Grid.Column="0" TextColor="Black" Text="{Binding Codigo}" />
+                                    <Label Grid.Column="0" Text="{Binding Codigo}" />
                                     <Label Grid.Column="1" Text="{Binding Nombre}" />
                                     <Label Grid.Column="2" Text="{Binding Seccion}" />
                                     <Label Grid.Column="3" Text="{Binding Proveedor}" />
-                                    <Label Grid.Column="4" Text="{Binding Cantidad}" />
-                                    <Label Grid.Column="5" Text="{Binding Precio}" />
+                                    <Label Grid.Column="4" Text="{Binding Precio}" />
+                                    <Label Grid.Column="5" Text="{Binding Quantity}" />
                                     <Label Grid.Column="6" Text="{Binding Descripcion}" />
                                 </Grid>
                             </ViewCell>

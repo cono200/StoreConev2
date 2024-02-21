@@ -6,54 +6,61 @@
              Title="IniciarSesion">
     <ContentPage.Content>
         <Grid>
-            <Image IsOpaque="True" Opacity=".6" Source="https://i.ibb.co/KsJXy5T/cajas.jpg" Aspect="AspectFill" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" InputTransparent="True"/>
+            <Image IsOpaque="True" Opacity=".3" Source="https://i.ibb.co/FYmVPtM/STORECONELOGO.jpg" Aspect="AspectFill" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" InputTransparent="True"/>
 
             <Grid>
 
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="100" />
-                    <RowDefinition Height="*"  />
+                    <RowDefinition Height="100"/>
+                    <RowDefinition Height="*"/>
                     <RowDefinition Height="auto" />
                     <RowDefinition Height="auto" />
 
                 </Grid.RowDefinitions>
 
-                <Grid>
-                    <magic:GradientView VerticalOptions="FillAndExpand">
-                        <magic:GradientView.GradientSource>
-                            <magic:LinearGradient Angle="180">
-                                <magic:GradientStop Color="#020024" Offset="0"></magic:GradientStop>
-                                <magic:GradientStop Color="#eb9754" Offset=".30"></magic:GradientStop>
-                                <magic:GradientStop Color="#241d00" Offset=".86"></magic:GradientStop>
+                <StackLayout>
+                    <Grid>
+                        <magic:GradientView VerticalOptions="FillAndExpand">
+                            <magic:GradientView.GradientSource>
+                                <magic:LinearGradient Angle="180">
+                                    <magic:GradientStop Color="#F3" Offset="0"></magic:GradientStop>
+                                    <magic:GradientStop Color="#3535" Offset=".30"></magic:GradientStop>
+                                    <magic:GradientStop Color="#3535" Offset=".86"></magic:GradientStop>
 
-                            </magic:LinearGradient>
-                        </magic:GradientView.GradientSource>
-                    </magic:GradientView>
-                    <StackLayout   Orientation="Horizontal" Padding="5">
+                                </magic:LinearGradient>
+                            </magic:GradientView.GradientSource>
+                        </magic:GradientView>
+                        <StackLayout   Orientation="Horizontal" Padding="5">
 
-                        <Image Margin="250,0,0,0"  IsOpaque="True" Source="https://i.ibb.co/0MtrR1f/logo-2.png"  HeightRequest="50"></Image>
-                        <Label  Text="StoreCone" VerticalOptions="CenterAndExpand" TextColor="Beige" FontFamily="kawaii" FontAttributes="Italic" FontSize="40" />
+                            <Image Margin="250,0,0,0"  IsOpaque="False" Source="https://i.ibb.co/0MtrR1f/logo-2.png"  HeightRequest="50"></Image>
+                            <Label  Text="StoreCone" VerticalOptions="CenterAndExpand" TextColor="#152738" FontFamily="roboto" FontAttributes="Bold" FontSize="40" />
+                        </StackLayout>
+                    </Grid>
+                </StackLayout>
+
+                <StackLayout Padding="-280,120,0,0">
+                    <Grid>
+                        <StackLayout Grid.Row="0" Grid.Column="0">
+                            <StackLayout WidthRequest="310" HorizontalOptions="CenterAndExpand"  Spacing="15" Grid.Row="2" Orientation="Vertical" Grid.Column="0">
+                                <Label  Text="Nombre de Usuario o Correo" FontSize="20" TextColor="Black" FontAttributes="Bold"/>
+                                <Entry FontSize="16" TextColor="Black" Placeholder="Ingrese su usuario o correo" FontAttributes="Bold"/>
+                                <Label Text="Contraseña" FontSize="20" TextColor="Black" FontAttributes="Bold"/>
+                                <Entry FontSize="16" TextColor="Black" Placeholder="Ingrese su Contraseña" IsPassword="True" FontAttributes="Bold"/>
+
+                            </StackLayout>
+
+                            <StackLayout Grid.Column="0" Grid.Row="35"  VerticalOptions="End" HorizontalOptions="Center">
+
+                                <Button Text="Registrar" CornerRadius="15"  BorderColor="#3535" BorderWidth="3" BackgroundColor="#5F6C78"/>
+
+                            </StackLayout>
+                        </StackLayout>
+                    </Grid>
+                    <StackLayout Padding="350,-50,-250,0"  Grid.Row="0" Grid.Column="0">
+                        <Image Source="https://i.ibb.co/51KbfsT/IMG-0886.png" />
                     </StackLayout>
-                </Grid>
-
-
-                <StackLayout WidthRequest="310" HorizontalOptions="CenterAndExpand"  Spacing="15" Grid.Row="2" Orientation="Vertical">
-                    <Label  Text="Nombre de Usuario o Correo" FontSize="16" TextColor="Brown" FontAttributes="Bold"/>
-                    <Entry FontSize="16" TextColor="Black" Placeholder="Ingrese su usuario o correo" FontAttributes="Bold"/>
-                    <Label Text="Contraseña" FontSize="16" TextColor="Brown" FontAttributes="Bold"/>
-                    <Entry FontSize="16" TextColor="Black" Placeholder="Ingrese su Contraseña" IsPassword="True" FontAttributes="Bold"/>
-
                 </StackLayout>
 
-                <StackLayout Grid.Row="3"  VerticalOptions="End" HorizontalOptions="Center">
-
-                    <Image Source="https://i.ibb.co/zN6BcB8/boton3.png" HeightRequest="90" WidthRequest="250">
-                        <Image.GestureRecognizers>
-                            <TapGestureRecognizer Command="{Binding Insertarcomand}"/>
-                        </Image.GestureRecognizers>
-                    </Image>
-
-                </StackLayout>
             </Grid>
         </Grid>
 

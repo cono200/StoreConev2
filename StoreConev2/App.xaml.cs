@@ -15,7 +15,8 @@ namespace StoreConev2
         {
             InitializeComponent();
 
-            // Crear instancia de VMListaProductos para obtener los productos
+
+          // Crear instancia de VMListaProductos para obtener los productos
             VMListaProductos vmListaProductos = new VMListaProductos();
 
             // Crear una instancia de Graficos pasando la lista de productos como argumento
