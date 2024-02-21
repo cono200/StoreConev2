@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="StoreConev2.Vistas.Notificaciones"
+             Title="Notificaciones"
+             x:Name="Navegacion"
+             BackgroundColor="#AC75AD">
+    <StackLayout Padding="0,-10,0,0" x:Name="stackLayout">
+        <StackLayout BackgroundColor="Gray" Margin="10" Padding="10,0,10,-1" VerticalOptions="Start">
+            <Grid>
+                <Label Text="Notificaciones" FontSize="30" FontAttributes="Bold" FontFamily="kawaii" TextColor="Black" HorizontalOptions="Center" Grid.Column="1" Margin="-350,0,50,0"/>
+                <Image Source="https://i.ibb.co/0MtrR1f/logo-2.png" HeightRequest="60" Margin="-800,0,360,0" Grid.Column="1"/>
+            </Grid>
+        </StackLayout>
+   
+        <Frame BorderColor="Gray"
+               CornerRadius="10"
+               BackgroundColor="LightGreen"
+               Padding="10">
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Producto añadido al almacén"
+                       TextColor="Black"
+                       FontAttributes="Bold"
+                       VerticalOptions="Center" />
+                <Label Text="Se ha añadido el producto X con el código Y al almacén Z"
+                       TextColor="Black"
+                       VerticalOptions="Center" />
+                <Label Text="10:15 AM"
+                       TextColor="Black"
+                       VerticalOptions="Center" />
+            </StackLayout>
+        </Frame>
+        <Frame BorderColor="Gray"
+               CornerRadius="10"
+               BackgroundColor="LightBlue"
+               Padding="10">
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Producto quitado del almacén"
+                       FontAttributes="Bold"
+                       TextColor="Black"
+                       VerticalOptions="Center" />
+                <Label Text="Se ha quitado el producto A con el código B del almacén C"
+                       TextColor="Black"
+                       VerticalOptions="Center" />
+                <Label Text="11:30 AM"
+                       TextColor="Black"
+                       VerticalOptions="Center" />
+            </StackLayout>
+        </Frame>
+        <Frame BorderColor="Gray"
+               CornerRadius="10"
+               BackgroundColor="LightPink"
+               Padding="10">
+            <StackLayout Orientation="Horizontal" >
+                <Label Text="Producto enviado a merma"
+                       TextColor="Black"
+                       FontAttributes="Bold"
+                       VerticalOptions="Center" />
+                <Label Text="El producto  'papas' se caduca en 2 dias!"
+                       VerticalOptions="Center"
+                       TextColor="Black"/>
+                <Label Text="12:45 PM"
+                       VerticalOptions="Center"
+                       TextColor="Black"/>
+            </StackLayout>
+        </Frame>
+    </StackLayout>
+</ContentPage>

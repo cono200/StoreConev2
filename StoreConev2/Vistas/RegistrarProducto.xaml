@@ -9,31 +9,27 @@
             <magic:GradientView VerticalOptions="FillAndExpand">
                 <magic:GradientView.GradientSource>
                     <magic:LinearGradient Angle="180">
-                        <magic:GradientStop Color="#020024" Offset="0"></magic:GradientStop>
-                        <magic:GradientStop Color="#eb9754" Offset="0"></magic:GradientStop>
-                        <magic:GradientStop Color="#241d00" Offset="1"></magic:GradientStop>
-
+                        <magic:GradientStop Color="#00FFFB" Offset="0"></magic:GradientStop>
+                        <magic:GradientStop Color="#7EBEFF" Offset="0"></magic:GradientStop>
+                        <magic:GradientStop Color="#00376F" Offset="1"></magic:GradientStop>
                     </magic:LinearGradient>
                 </magic:GradientView.GradientSource>
             </magic:GradientView>
             <StackLayout>
+                <Grid Padding="0,0,0,15" BackgroundColor="Gray" >
+                    
+                        <Image Source="https://i.ibb.co/0MtrR1f/logo-2.png" HeightRequest="130" HorizontalOptions="Start" />
+                    
+                    <StackLayout Orientation="Horizontal" Grid.Column="1" HorizontalOptions="StartAndExpand" BackgroundColor="Gray" Padding="-130,10,0,0">
+                        <Label FontFamily="kawaii" Text="Registrar / Producto" FontSize="25" FontAttributes="Bold"
+                   TextColor="Black" HorizontalOptions="CenterAndExpand" Padding="0,5,0,0" BackgroundColor="Gray"/>
+                        <Image Source="https://i.ibb.co/3pvWwdR/campana.png" WidthRequest="40">
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding IrNotificacionescomand}"/>
+                            </Image.GestureRecognizers>
+                        </Image>
 
-                <Grid Padding="0,15,0,15" >
-                    <magic:GradientView VerticalOptions="FillAndExpand">
-                        <magic:GradientView.GradientSource>
-                            <magic:LinearGradient Angle="180">
-                                <magic:GradientStop Color="#5da4c8" Offset=".12"></magic:GradientStop>
-                                <magic:GradientStop Color="#567cb5" Offset=".43"></magic:GradientStop>
-                                <magic:GradientStop Color="#828744" Offset=".86"></magic:GradientStop>
-
-                            </magic:LinearGradient>
-                        </magic:GradientView.GradientSource>
-                    </magic:GradientView>
-                    <Label FontFamily="kawaii" Text="Registrar / Producto" FontSize="25" FontAttributes="Bold"
-                       TextColor="Black" HorizontalOptions="CenterAndExpand" Padding="0,5,0,0"/>
-                    <Frame  Padding="15,0,0,0"  Grid.Column="0" Grid.Row="0" BackgroundColor="Transparent" >
-                        <Image Source="https://i.ibb.co/0MtrR1f/logo-2.png" HeightRequest="130" HorizontalOptions="Start"/>
-                    </Frame>
+                    </StackLayout>
                 </Grid>
 
                 <Grid Margin="0" Padding="15,0,15,0">
