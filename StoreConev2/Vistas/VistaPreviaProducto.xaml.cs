@@ -16,5 +16,8 @@ namespace StoreConev2.Vistas
         {
             InitializeComponent();
         }
+        
+
+
     }
 }
