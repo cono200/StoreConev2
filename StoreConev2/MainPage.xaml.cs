@@ -19,6 +19,7 @@ namespace StoreConev2
             Detail = new NavigationPage(new IniciarSesion());
             Detail = new NavigationPage(new VistaPreviaProducto());
             Detail = new NavigationPage(new ListaProductos());
+
         }
 
 
@@ -26,5 +27,5 @@ namespace StoreConev2
     }
 
 }
-    
+
 

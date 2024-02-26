@@ -38,7 +38,8 @@ public class VMiniciarsesion : BaseViewModel
     }
     public async void IniciarSesion()
         {
-            await Navigation.PushAsync(new VistaPreviaProducto());
+            App.MasterDet.Detail = new NavigationPage(new VistaPreviaProducto());
+            App.MasterDet.IsPresented = false;
         }
     #endregion
     #region COMANDOS
