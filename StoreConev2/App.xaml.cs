@@ -15,33 +15,20 @@ namespace StoreConev2
         {
             InitializeComponent();
 
-            InitializeComponent();
+            // Crear instancia de VMListaProductos para obtener los productos
+            VMListaProductos vmListaProductos = new VMListaProductos();
 
-            // Crear una instancia de la otra vista que deseas que sea la primera en mostrarse
-            IniciarSesion iniciarSesion = new IniciarSesion();
+            // Crear una instancia de Graficos pasando la lista de productos como argumento
+            Graficos graficosPage = new Graficos(vmListaProductos.Productos);
 
-            // Establecer la otra vista como MainPage
-            MainPage = new NavigationPage(iniciarSesion);
+            // Configurar la página maestra y de detalle
+            App.MasterDet = new MasterDetailPage
+            {
+                Master = new Navegacion(),
+                Detail = new NavigationPage(graficosPage)
+            };
 
-
-
-
-
-
-            //// Crear instancia de VMListaProductos para obtener los productos
-            //VMListaProductos vmListaProductos = new VMListaProductos();
-
-            //// Crear una instancia de Graficos pasando la lista de productos como argumento
-            //Graficos graficosPage = new Graficos(vmListaProductos.Productos);
-
-            //// Configurar la página maestra y de detalle
-            //App.MasterDet = new MasterDetailPage
-            //{
-            //    Master = new Navegacion(),
-            //    Detail = new NavigationPage(graficosPage)
-            //};
-
-            //MainPage = App.MasterDet;
+            MainPage = App.MasterDet;
         }
 
         protected override void OnStart()

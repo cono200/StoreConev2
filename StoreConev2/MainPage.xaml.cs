@@ -14,25 +14,12 @@ namespace StoreConev2
     {
         public MainPage()
         {
-            InitializeComponent();
 
             Master = new Navegacion();
             Detail = new NavigationPage(new IniciarSesion());
-
-            // Asegurar que el menú lateral esté siempre visible
-            IsPresented = true;
+            Detail = new NavigationPage(new VistaPreviaProducto());
+            Detail = new NavigationPage(new ListaProductos());
         }
-
-
-        //public MainPage()
-        //{
-
-        //    Master = new Navegacion();
-        //  //  Detail = new NavigationPage(new IniciarSesion());
-        //    Detail = new NavigationPage(new VistaPreviaProducto());
-        //    Detail = new NavigationPage(new ListaProductos());
-
-        //}
 
 
 

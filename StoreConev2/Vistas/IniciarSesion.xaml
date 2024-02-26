@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="StoreConev2.Vistas.IniciarSesion"
                           xmlns:magic="clr-namespace:MagicGradients;assembly=MagicGradients"
+             Title="IniciarSesion"
            >
     <ContentPage.Content>
         <Grid>
