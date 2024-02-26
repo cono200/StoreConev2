@@ -1,4 +1,5 @@
-﻿using System;
+﻿using StoreConev2.VistaModelo;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,6 +16,7 @@ namespace StoreConev2.Vistas
         public VistaPreviaProducto()
         {
             InitializeComponent();
+            BindingContext = new VMVistaPreviaP(Navigation);
         }
         
 
