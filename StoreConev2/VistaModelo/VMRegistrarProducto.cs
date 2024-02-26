@@ -88,6 +88,7 @@ namespace StoreConev2.VistaModelo
         public void SimularBoton()
         {
             DisplayAlert("Mensaje", "Producto añadido ", "Ok");
+            //ASDADASDADD
         }
         //public void IrNotificaciones()
         //{
