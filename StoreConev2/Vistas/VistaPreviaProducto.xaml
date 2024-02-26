@@ -43,28 +43,32 @@
             </StackLayout>
         </Grid>
 
-        <Label Text="Código:" Grid.Row="3" Grid.Column="0" Margin="10" FontSize="20" TextColor="#D57E00" />
-        <Entry Grid.Row="3" Grid.Column="1" Margin="10" Keyboard="Numeric" />
+        <Label Text="Código:" Grid.Row="1" Grid.Column="0" Margin="10" FontSize="20" TextColor="#D57E00" />
+        <Entry Grid.Row="1" Grid.Column="1" Margin="10" Keyboard="Numeric" />
 
-        <Label Text="Nombre:" Grid.Row="1" Grid.Column="0" Margin="10"  FontSize="20" TextColor="#D57E00" />
-        <Entry Grid.Row="1" Grid.Column="1" Margin="10" />
+        <Label Text="Nombre:" Grid.Row="3" Grid.Column="0" Margin="10"  FontSize="20" TextColor="#D57E00" />
+        <Entry Grid.Row="3" Grid.Column="1" Margin="10" />
 
-        <Label Text="Cantidad:" Grid.Row="2" Grid.Column="0" Margin="10"  FontSize="20" TextColor="#D57E00"/>
-        <Entry Grid.Row="2" Grid.Column="1" Margin="10" Keyboard="Numeric" />
+      
 
-        <Label Text="Sección:" Grid.Row="4" Grid.Column="0" Margin="10"  FontSize="20" TextColor="#D57E00"/>
-        <Entry Grid.Row="4" Grid.Column="1" Margin="10" />
+        <Label Text="Sección:" Grid.Row="2" Grid.Column="0" Margin="10"  FontSize="20" TextColor="#D57E00"/>
+        <Entry Grid.Row="2" Grid.Column="1" Margin="10" />
 
-        <StackLayout Grid.Row="1" Spacing="40" Margin="0,0,0,0" Orientation="Horizontal" Grid.Column="2"   HorizontalOptions="CenterAndExpand">
+        <StackLayout Grid.Row="1"  Spacing="50" Margin="0,0,0,0" Orientation="Horizontal" Grid.Column="2"   HorizontalOptions="CenterAndExpand">
             <Button Text="Sumar" FontFamily="kawaii3" CornerRadius="21" BackgroundColor="#F8F000" TextColor="#013715" FontSize="25" Command="{Binding SimularSumarcomand}"/>
+           
             <Button Text="Restar" FontFamily="kawaii3"  CornerRadius="21" BackgroundColor="#F8F000" TextColor="#013715" FontSize="25" Command="{Binding SimularRestacomand}"/>
         </StackLayout>
         <StackLayout Grid.Row="3"   Grid.Column="2"  Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
             <Button FontFamily="kawaii3" Text="Detalles" FontAttributes="Italic"  CornerRadius="21" BackgroundColor="Orange" HeightRequest="60" WidthRequest="220" TextColor="#013715" FontSize="25" Command="{Binding Detallescomand}" />
 
         </StackLayout>
-        <Frame CornerRadius="30"  Padding="0" Grid.Row="2" Grid.Column="2" BorderColor="Black">
+        <Frame CornerRadius="30"  Padding="0" Grid.Row="3" Grid.Column="2" BorderColor="Black">
             <Image Source="https://i.ibb.co/dWR9GdP/papas3.png" Aspect="AspectFit" WidthRequest="25"/>
         </Frame>
+        <Frame WidthRequest="1" HeightRequest="1" CornerRadius="30"  Padding="0" Grid.Row="2" Grid.Column="2" BorderColor="Black">
+            <Entry BackgroundColor="AliceBlue"  WidthRequest="1" HeightRequest="1" Placeholder="C"></Entry>
+        </Frame>
+
     </Grid>
 </ContentPage>

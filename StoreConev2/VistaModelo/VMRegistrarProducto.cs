@@ -14,13 +14,13 @@ namespace StoreConev2.VistaModelo
     {
         #region VARIABLES
         string _Texto;
-        private string _codigo;
-        private string _nombre;
-        private string _seccion;
-        private string _proveedor;
-        private int _cantidad;
+        private string _codigo=string.Empty;
+        private string _nombre = string.Empty;
+        private string _seccion =string.Empty;
+        private string _proveedor = string.Empty;
         private string _descripcion;
-        private decimal _precio;
+        private decimal? _precio =null;
+        private bool _boleano =false;
 
 
         #endregion
@@ -48,41 +48,66 @@ namespace StoreConev2.VistaModelo
             get { return _Texto; }
             set { SetValue(ref _Texto, value); }
         }
+        //public bool boleano
+        //{
+        //    get => _boleano;
+        //    set
+        //    {
+        //        _boleano = value;
+        //        OnPropertyChanged();
+        //    }
+        //}
+        public bool boleano
+        {
+            get { return _boleano; }
+            set
+            {
+                SetValue(ref _boleano, value);
+                OnPropertyChanged();
+            }
+        }
         public string Codigo
         {
             get { return _codigo; }
-            set { SetValue(ref _codigo, value); }
-
+            set
+            {
+                SetValue(ref _codigo, value);
+                CheckFields(); // Agrega esta línea para verificar los campos cada vez que 'Codigo' cambie.
+            }
         }
         public string Nombre
         {
             get { return _nombre; }
-            set { SetValue(ref _nombre, value); }
+            set { SetValue(ref _nombre, value);
+                CheckFields();
+            }
         }
         public string Seccion
         {
             get { return _seccion; }
-            set { SetValue(ref _seccion, value); }
+            set { SetValue(ref _seccion, value);
+                CheckFields();
+            }
         }
         public string Proveedor
         {
             get { return _proveedor; }
-            set { SetValue(ref _proveedor, value); }
+            set { SetValue(ref _proveedor, value);
+                CheckFields();
+            }
         }
         public string Descripcion
         {
             get { return _descripcion; }
             set { SetValue(ref _descripcion, value); }
         }
-        public int Cantidad
-        {
-            get { return _cantidad; }
-            set { SetValue(ref _cantidad, value); }
-        }
-        public decimal Precio
+       
+        public decimal? Precio
         {
             get { return _precio; }
-            set { SetValue(ref _precio, value); }
+            set { SetValue(ref _precio, value);
+                CheckFields();
+            }
         }
         #endregion
         #region PROCESOS
@@ -99,9 +124,17 @@ namespace StoreConev2.VistaModelo
         {
 
         }
-        private void CheckFields()
+        public void CheckFields()
         {
-            AreFieldsNotEmpty = !string.IsNullOrEmpty(Codigo);
+            if (Codigo != string.Empty && Nombre != string.Empty && Seccion != string.Empty && Proveedor != string.Empty &&
+                Precio != null)
+            {
+                boleano=true;
+            }
+            else
+            {
+                boleano = false;
+            }
         }
 
        

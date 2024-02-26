@@ -90,33 +90,25 @@
                Text="{Binding Proveedor}" FontSize="12"/>
 
 
-                    <Label TextColor="Orange" Text="Cantidad"
-               Grid.Row="4"
-                        FontAttributes="Bold"
-               VerticalOptions="Center" />
-                    <Entry x:Name="cantidad" TextColor="Orange" Placeholder="Cantidad"
-               Grid.Row="4"
-               Grid.Column="1"
-               Keyboard="Numeric"
-               Text="{Binding Cantidad}" FontSize="12"/>
+                 
 
 
                     <Label TextColor="Orange" Text="Descripción"
-               Grid.Row="5"
+               Grid.Row="4"
                         FontAttributes="Bold"
                VerticalOptions="Center" />
                     <Editor TextColor="Orange" Placeholder="Agregar descripción"
-                Grid.Row="5"
+                Grid.Row="4"
                 Grid.Column="1"
                 Text="{Binding Descripcion}" FontSize="12"/>
 
 
                     <Label TextColor="Orange" Text="Precio"
-               Grid.Row="6"
+               Grid.Row="5"
                         FontAttributes="Bold"
                VerticalOptions="Center" />
                     <Entry x:Name="precio" TextColor="Orange" Placeholder="Ingresar el precio"
-               Grid.Row="6"
+               Grid.Row="5"
                Grid.Column="1"
                Keyboard="Numeric"
                Text="{Binding Precio}" FontSize="12"/>
@@ -137,7 +129,7 @@
                 CornerRadius="15"
                 Margin="0,0,0,2"
                 BackgroundColor="Tomato"
-                TextColor="Black">
+                TextColor="Black" IsEnabled="{Binding boleano}" >
                     <Button.Triggers>
                         <EventTrigger Event="Clicked">
                             <local:Label2 />
