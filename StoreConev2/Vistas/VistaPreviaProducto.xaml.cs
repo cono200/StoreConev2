@@ -19,7 +19,7 @@ namespace StoreConev2.Vistas
             BindingContext = new VMVistaPreviaP(Navigation);
         }
         
-
+        //COMENTARIIO
 
     }
 }
