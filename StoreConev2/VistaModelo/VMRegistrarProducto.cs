@@ -6,6 +6,7 @@ using System.Windows.Input;
 using Xamarin.Forms;
 using StoreConev2.VistaModelo;
 using StoreConev2.Vistas;
+using System.ComponentModel;
 
 namespace StoreConev2.VistaModelo
 {
@@ -24,6 +25,7 @@ namespace StoreConev2.VistaModelo
 
         #endregion
         #region CONSTRUCTOR
+
         public VMRegistrarProducto(INavigation navigation)
         {
             Navigation = navigation;
@@ -31,6 +33,16 @@ namespace StoreConev2.VistaModelo
         }
         #endregion
         #region OBJETOS
+        private bool _areFieldsNotEmpty;
+        public bool AreFieldsNotEmpty
+        {
+            get { return _areFieldsNotEmpty; }
+            set
+            {
+                _areFieldsNotEmpty = value;
+                OnPropertyChanged(nameof(AreFieldsNotEmpty));
+            }
+        }
         public string Texto
         {
             get { return _Texto; }
@@ -40,6 +52,7 @@ namespace StoreConev2.VistaModelo
         {
             get { return _codigo; }
             set { SetValue(ref _codigo, value); }
+
         }
         public string Nombre
         {
@@ -81,10 +94,17 @@ namespace StoreConev2.VistaModelo
         {
             await Navigation.PushAsync(new Notificaciones());
         }
+
         public void procesoSimple()
         {
 
         }
+        private void CheckFields()
+        {
+            AreFieldsNotEmpty = !string.IsNullOrEmpty(Codigo);
+        }
+
+       
         public void SimularBoton()
         {
             DisplayAlert("Mensaje", "Producto añadido ", "Ok");

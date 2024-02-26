@@ -24,8 +24,8 @@
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
-            <Image Source="https://i.ibb.co/0MtrR1f/logo-2.png" HeightRequest="60" Margin="0,0,0,0" Grid.Column="0" HorizontalOptions="Start"/>
-            <Label Text="Store Cone" FontFamily="kawaii" VerticalOptions="Center" FontSize="25" HorizontalOptions="CenterAndExpand" TextColor="Black" Grid.Column="1" Padding="-300,0,0,0" />
+            <Image Source="https://i.ibb.co/0MtrR1f/logo-2.png" HeightRequest="60" Margin="20,0,0,0" Grid.Column="0" HorizontalOptions="Start"/>
+            <Label Text="Store Cone" FontFamily="kawaii" VerticalOptions="Center" FontSize="30" HorizontalOptions="CenterAndExpand" TextColor="Black" Grid.Column="1" Padding="-300,0,0,0" />
             <StackLayout Grid.Column="1" Padding="10,10,-300,10">
                 <Image Source="https://i.ibb.co/3pvWwdR/campana.png" WidthRequest="40">
                     <Image.GestureRecognizers>
