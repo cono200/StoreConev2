@@ -51,7 +51,7 @@
             </Grid>
 
             <Button Text="Registrar"
-                Command="{Binding SubmitCommand}" 
+                Command="{Binding SimularBotoncomand}" 
                 BorderColor="Black"
                     VerticalOptions="EndAndExpand"
                     Margin="145,0,145,20"

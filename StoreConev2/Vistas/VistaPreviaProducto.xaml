@@ -43,24 +43,24 @@
             </StackLayout>
         </Grid>
 
+        <Label Text="Código:" Grid.Row="3" Grid.Column="0" Margin="10" FontSize="20" TextColor="#D57E00" />
+        <Entry Grid.Row="3" Grid.Column="1" Margin="10" Keyboard="Numeric" />
+
         <Label Text="Nombre:" Grid.Row="1" Grid.Column="0" Margin="10"  FontSize="20" TextColor="#D57E00" />
         <Entry Grid.Row="1" Grid.Column="1" Margin="10" />
 
         <Label Text="Cantidad:" Grid.Row="2" Grid.Column="0" Margin="10"  FontSize="20" TextColor="#D57E00"/>
         <Entry Grid.Row="2" Grid.Column="1" Margin="10" Keyboard="Numeric" />
 
-        <Label Text="Código:" Grid.Row="3" Grid.Column="0" Margin="10" FontSize="20" TextColor="#D57E00" />
-        <Entry Grid.Row="3" Grid.Column="1" Margin="10" Keyboard="Numeric" />
-
         <Label Text="Sección:" Grid.Row="4" Grid.Column="0" Margin="10"  FontSize="20" TextColor="#D57E00"/>
         <Entry Grid.Row="4" Grid.Column="1" Margin="10" />
 
         <StackLayout Grid.Row="1" Spacing="40" Margin="0,0,0,0" Orientation="Horizontal" Grid.Column="2"   HorizontalOptions="CenterAndExpand">
-            <Button Text="Sumar" FontFamily="kawaii3" CornerRadius="21" BackgroundColor="#F8F000" TextColor="#013715" FontSize="25"/>
-            <Button Text="Restar" FontFamily="kawaii3"  CornerRadius="21" BackgroundColor="#F8F000" TextColor="#013715" FontSize="25"/>
+            <Button Text="Sumar" FontFamily="kawaii3" CornerRadius="21" BackgroundColor="#F8F000" TextColor="#013715" FontSize="25" Command="{Binding SimularSumarcomand}"/>
+            <Button Text="Restar" FontFamily="kawaii3"  CornerRadius="21" BackgroundColor="#F8F000" TextColor="#013715" FontSize="25" Command="{Binding SimularRestacomand}"/>
         </StackLayout>
         <StackLayout Grid.Row="3"   Grid.Column="2"  Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
-            <Button FontFamily="kawaii3" Text="Detalles" FontAttributes="Italic"  CornerRadius="21" BackgroundColor="Orange" HeightRequest="60" WidthRequest="220" TextColor="#013715" FontSize="25"/>
+            <Button FontFamily="kawaii3" Text="Detalles" FontAttributes="Italic"  CornerRadius="21" BackgroundColor="Orange" HeightRequest="60" WidthRequest="220" TextColor="#013715" FontSize="25" Command="{Binding Detallescomand}" />
 
         </StackLayout>
         <Frame CornerRadius="30"  Padding="0" Grid.Row="2" Grid.Column="2" BorderColor="Black">

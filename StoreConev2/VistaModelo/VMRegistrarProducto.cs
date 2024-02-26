@@ -13,6 +13,14 @@ namespace StoreConev2.VistaModelo
     {
         #region VARIABLES
         string _Texto;
+        private string _codigo;
+        private string _nombre;
+        private string _seccion;
+        private string _proveedor;
+        private int _cantidad;
+        private string _descripcion;
+        private decimal _precio;
+
 
         #endregion
         #region CONSTRUCTOR
@@ -28,6 +36,41 @@ namespace StoreConev2.VistaModelo
             get { return _Texto; }
             set { SetValue(ref _Texto, value); }
         }
+        public string Codigo
+        {
+            get { return _codigo; }
+            set { SetValue(ref _codigo, value); }
+        }
+        public string Nombre
+        {
+            get { return _nombre; }
+            set { SetValue(ref _nombre, value); }
+        }
+        public string Seccion
+        {
+            get { return _seccion; }
+            set { SetValue(ref _seccion, value); }
+        }
+        public string Proveedor
+        {
+            get { return _proveedor; }
+            set { SetValue(ref _proveedor, value); }
+        }
+        public string Descripcion
+        {
+            get { return _descripcion; }
+            set { SetValue(ref _descripcion, value); }
+        }
+        public int Cantidad
+        {
+            get { return _cantidad; }
+            set { SetValue(ref _cantidad, value); }
+        }
+        public decimal Precio
+        {
+            get { return _precio; }
+            set { SetValue(ref _precio, value); }
+        }
         #endregion
         #region PROCESOS
         public async Task ProcesoAsyncrono()
@@ -42,6 +85,10 @@ namespace StoreConev2.VistaModelo
         {
 
         }
+        public void SimularBoton()
+        {
+            DisplayAlert("Mensaje", "Producto añadido ", "Ok");
+        }
         //public void IrNotificaciones()
         //{
         //    Device.BeginInvokeOnMainThread(async () =>
@@ -54,7 +101,8 @@ namespace StoreConev2.VistaModelo
         public ICommand ProcesoAsyncomand => new Command(async () => await ProcesoAsyncrono());
         public ICommand IrNotificacionescomand => new Command(async () => await IrNotificaciones());
         public ICommand ProcesoSimpcomand => new Command(procesoSimple);
-       // public ICommand IrNotificacionescomand => new Command(IrNotificaciones);
+        public ICommand SimularBotoncomand => new Command(SimularBoton);
+        // public ICommand IrNotificacionescomand => new Command(IrNotificaciones);
 
         #endregion
     }

@@ -17,12 +17,12 @@
             </magic:GradientView>
             <StackLayout>
                 <Grid Padding="0,0,0,15" BackgroundColor="#00B91F" >
-                    
-                        <Image Source="https://i.ibb.co/0MtrR1f/logo-2.png" HeightRequest="130" HorizontalOptions="Start" />
+
+                    <Image Source="https://i.ibb.co/0MtrR1f/logo-2.png" HeightRequest="130" HorizontalOptions="Start" />
 
                     <StackLayout Orientation="Horizontal" Grid.Column="1" HorizontalOptions="StartAndExpand" BackgroundColor="#00B91F" Padding="-130,10,0,0">
                         <Label FontFamily="kawaii" Text="Registrar / Producto" FontSize="25" FontAttributes="Bold"
-                   TextColor="Black" HorizontalOptions="CenterAndExpand" Padding="0,5,0,0" BackgroundColor="#00B91F"/>
+               TextColor="Black" HorizontalOptions="CenterAndExpand" Padding="0,5,0,0" BackgroundColor="#00B91F"/>
                         <StackLayout>
                             <Image Source="https://i.ibb.co/3pvWwdR/campana.png" WidthRequest="40">
                                 <Image.GestureRecognizers>
@@ -30,12 +30,12 @@
                                 </Image.GestureRecognizers>
                             </Image>
                             <Label Text="2" 
-           HorizontalOptions="End" 
-           VerticalOptions="Start" 
-           TextColor="White" 
-           WidthRequest="20" 
-           HeightRequest="20"
-                                   Margin="0,-37,5,0"/>
+       HorizontalOptions="End" 
+       VerticalOptions="Start" 
+       TextColor="White" 
+       WidthRequest="20" 
+       HeightRequest="20"
+                               Margin="0,-37,5,0"/>
                         </StackLayout>
 
                     </StackLayout>
@@ -52,89 +52,89 @@
 
 
                     <Label TextColor="Orange" Text="Código"
-                   VerticalOptions="Center" 
-                           FontAttributes="Bold"/>
+               VerticalOptions="Center" 
+                       FontAttributes="Bold"/>
                     <Entry  TextColor="AliceBlue" Placeholder="Ingresar código"
-                   Grid.Column="1"
-                   Text="{Binding Code}" FontSize="12"/>
+               Grid.Column="1"
+               Text="{Binding Codigo}" FontSize="12"/>
 
 
                     <Label TextColor="Orange" Text="Nombre"
-                   Grid.Row="1"
-                            FontAttributes="Bold"
-                   VerticalOptions="Center" />
+               Grid.Row="1"
+                        FontAttributes="Bold"
+               VerticalOptions="Center" />
                     <Entry TextColor="Orange" Placeholder="Ingresa el nombre"
-                   Grid.Row="1"
-                   Grid.Column="1"
-                   Text="{Binding Name}"  FontSize="12"/>
+               Grid.Row="1"
+               Grid.Column="1"
+               Text="{Binding Nombre}"  FontSize="12"/>
 
 
                     <Label TextColor="Orange" Text="Sección"
-                   Grid.Row="2"
-                            FontAttributes="Bold"
-                   VerticalOptions="Center" />
+               Grid.Row="2"
+                        FontAttributes="Bold"
+               VerticalOptions="Center" />
                     <Entry TextColor="Orange" Placeholder="Ingresa  la sección"
-                   Grid.Row="2"
-                   Grid.Column="1"
-                   Text="{Binding Section}" FontSize="12"/>
+               Grid.Row="2"
+               Grid.Column="1"
+               Text="{Binding Seccion}" FontSize="12"/>
 
 
                     <Label TextColor="Orange" Text="Proveedor"
-                   Grid.Row="3"
-                            FontAttributes="Bold"
-                   VerticalOptions="Center" />
+               Grid.Row="3"
+                        FontAttributes="Bold"
+               VerticalOptions="Center" />
                     <Entry TextColor="Orange" Placeholder="Ingresar proveedor"
-                   Grid.Row="3"
-                   Grid.Column="1"
-                   Text="{Binding Provider}" FontSize="12"/>
+               Grid.Row="3"
+               Grid.Column="1"
+               Text="{Binding Proveedor}" FontSize="12"/>
 
 
                     <Label TextColor="Orange" Text="Cantidad"
-                   Grid.Row="4"
-                            FontAttributes="Bold"
-                   VerticalOptions="Center" />
+               Grid.Row="4"
+                        FontAttributes="Bold"
+               VerticalOptions="Center" />
                     <Entry TextColor="Orange" Placeholder="Cantidad"
-                   Grid.Row="4"
-                   Grid.Column="1"
-                   Keyboard="Numeric"
-                   Text="{Binding Quantity}" FontSize="12"/>
+               Grid.Row="4"
+               Grid.Column="1"
+               Keyboard="Numeric"
+               Text="{Binding Cantidad}" FontSize="12"/>
 
 
                     <Label TextColor="Orange" Text="Descripción"
-                   Grid.Row="5"
-                            FontAttributes="Bold"
-                   VerticalOptions="Center" />
+               Grid.Row="5"
+                        FontAttributes="Bold"
+               VerticalOptions="Center" />
                     <Editor TextColor="Orange" Placeholder="Agregar descripción"
-                    Grid.Row="5"
-                    Grid.Column="1"
-                    Text="{Binding Description}" FontSize="12"/>
+                Grid.Row="5"
+                Grid.Column="1"
+                Text="{Binding Descripcion}" FontSize="12"/>
 
 
                     <Label TextColor="Orange" Text="Precio"
-                   Grid.Row="6"
-                            FontAttributes="Bold"
-                   VerticalOptions="Center" />
+               Grid.Row="6"
+                        FontAttributes="Bold"
+               VerticalOptions="Center" />
                     <Entry TextColor="Orange" Placeholder="Ingresar el precio"
-                   Grid.Row="6"
-                   Grid.Column="1"
-                   Keyboard="Numeric"
-                   Text="{Binding Price}" FontSize="12"/>
+               Grid.Row="6"
+               Grid.Column="1"
+               Keyboard="Numeric"
+               Text="{Binding Precio}" FontSize="12"/>
 
 
                     <StackLayout Grid.Column="2" Grid.Row="3">
                         <Image Source="https://i.ibb.co/0MtrR1f/logo-2.png"
-                           HeightRequest="100"
-                           HorizontalOptions="Center" />
+                       HeightRequest="100"
+                       HorizontalOptions="Center" />
                     </StackLayout>
                 </Grid>
 
                 <Button FontFamily="kawaii3" Text="Registrar"
-                    Command="{Binding RegisterCommand}"
-                    HorizontalOptions="Center"
-                    CornerRadius="15"
-                    Margin="0,0,0,2"
-                    BackgroundColor="Tomato"
-                    TextColor="Black"/>
+                Command="{Binding SimularBotoncomand}"
+                HorizontalOptions="Center"
+                CornerRadius="15"
+                Margin="0,0,0,2"
+                BackgroundColor="Tomato"
+                TextColor="Black"/>
             </StackLayout>
         </Grid>
     </ContentPage.Content>
