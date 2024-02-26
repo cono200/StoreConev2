@@ -16,7 +16,7 @@ namespace StoreConev2.Triggers
                 {
                     Text = "Producto agregado",
                     HorizontalOptions = LayoutOptions.Start,
-                    VerticalOptions = LayoutOptions.StartAndExpand, FontSize = 24, TextColor = Color.OrangeRed, BackgroundColor = Color.Black,
+                    VerticalOptions = LayoutOptions.StartAndExpand, FontSize = 26, TextColor = Color.Red, BackgroundColor = Color.White,
                 };
                 labelStack.Children.Add(label);
 

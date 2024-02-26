@@ -9,7 +9,7 @@
     </ContentPage.BindingContext>
     <ContentPage.Content>
 
-        <ScrollView HorizontalScrollBarVisibility="Always" VerticalScrollBarVisibility="Always">
+        <ScrollView>
 
             <Grid RowSpacing="0" ColumnSpacing="0">
 

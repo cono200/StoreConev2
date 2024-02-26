@@ -12,7 +12,7 @@ namespace StoreConev2.VistaModelo
     {
         #region VARIABLES
         string _Texto;
-
+        private int _cantidad=1;
         #endregion
         #region CONSTRUCTOR
         public VMVistaPreviaP(INavigation navigation)
@@ -26,6 +26,23 @@ namespace StoreConev2.VistaModelo
         {
             get { return _Texto; }
             set { SetValue(ref _Texto, value); }
+        }
+        public int Cantidad
+        {
+            get { return _cantidad; }
+            set
+            {
+                var tempValue = value.ToString();
+                if (tempValue.Length > 2)
+                {
+                    _cantidad = int.Parse(tempValue.Substring(0, 2));
+                }
+                else
+                {
+                    _cantidad = value;
+                }
+                OnPropertyChanged(nameof(Cantidad));
+            }
         }
         #endregion
         #region PROCESOS

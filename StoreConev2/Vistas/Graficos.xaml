@@ -6,7 +6,7 @@
     <ContentPage.Content>
         <ScrollView>
             <StackLayout Spacing="10" BackgroundColor="Red">
-                <Label HorizontalOptions="Center" Text="Productos Más Vendidos del mes"
+                <Label HorizontalOptions="Center" Text="Productos con más Mermas del mes"
                        FontSize="25" FontFamily="kawaii"> </Label>
                 <Label Text="Grafica de Pastel" FontFamily="kawaii3"></Label>
                 
