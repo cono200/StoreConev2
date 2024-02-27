@@ -17,8 +17,6 @@
     </ContentPage.BindingContext>
     <ContentPage.Content>
 
-        <ScrollView>
-
             <Grid RowSpacing="0" ColumnSpacing="0">
 
                 <Grid.RowDefinitions>
@@ -102,7 +100,6 @@
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
-            </Grid>
-        </ScrollView>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>

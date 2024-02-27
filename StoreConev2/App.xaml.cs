@@ -21,7 +21,7 @@ namespace StoreConev2
             //// Crear una instancia de Graficos pasando la lista de productos como argumento
             //Graficos graficosPage = new Graficos(vmListaProductos.Productos);
 
-            IniciarSesion iniciar = new IniciarSesion();
+            SeccionA iniciar = new SeccionA();
 
             // Configurar la página maestra y de detalle
             App.MasterDet = new MasterDetailPage
