@@ -24,8 +24,8 @@
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-
-        <StackLayout Grid.Row="1" Spacing="15" Padding="20,40,0,0">
+            
+            <StackLayout Grid.Row="1" Spacing="15" Padding="20,40,0,0">
             <StackLayout Orientation="Horizontal">
                 <Image Source="https://i.ibb.co/0X1hPHz/casa-silueta-negra-sin-puerta.png" WidthRequest="30" HeightRequest="30" />
                     <Button FontFamily="kawaii4" Text="Inicio" TextColor="Black" BackgroundColor="Transparent"  Command="{Binding Iniciocomand}">
@@ -72,6 +72,16 @@
                 <StackLayout Orientation="Horizontal">
                     <Image Source="https://i.ibb.co/0ywvVHq/estrategia.png" WidthRequest="30" HeightRequest="30" />
                     <Button Text="Estadisticas" FontFamily="kawaii4" TextColor="Black" BackgroundColor="Transparent"  Command="{Binding GraficosCommand}">
+                        <Button.Triggers>
+                            <EventTrigger Event="Clicked">
+                                <local:Botones />
+                            </EventTrigger>
+                        </Button.Triggers>
+                    </Button>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Image Source="https://i.ibb.co/X5QbZ6K/boton-web-de-ayuda.png" WidthRequest="30" HeightRequest="30" />
+                    <Button Text="Ayuda" FontFamily="kawaii4" TextColor="Black" BackgroundColor="Transparent"  Command="{Binding AyudaCommand}">
                         <Button.Triggers>
                             <EventTrigger Event="Clicked">
                                 <local:Botones />

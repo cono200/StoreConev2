@@ -47,6 +47,11 @@ namespace StoreConev2.VistaModelo
             App.MasterDet.Detail = new NavigationPage(new IniciarSesion());
             App.MasterDet.IsPresented = false;
         }
+        public async Task Ayuda()
+        {
+            App.MasterDet.Detail = new NavigationPage(new Ayuda());
+            App.MasterDet.IsPresented = false;
+        }
         public VMListaProductos ListaProductos { get; set; }
 
         #endregion
@@ -83,6 +88,7 @@ namespace StoreConev2.VistaModelo
         public ICommand RegistroMermasCommand => new Command(async () => await RegistroMermas());
         public ICommand CerrarsesionCommand => new Command(async () => await Cerrarsesion());
         public ICommand GraficosCommand => new Command(async () => await NavegarAGraficos());
+        public ICommand AyudaCommand => new Command(async () => await Ayuda());
 
 
         #endregion
