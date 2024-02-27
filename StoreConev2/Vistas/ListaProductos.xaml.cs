@@ -1,5 +1,7 @@
-﻿using System;
+﻿using StoreConev2.Modelo;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,5 +18,7 @@ namespace StoreConev2.Vistas
         {
             InitializeComponent();
         }
+
+        public static ObservableCollection<Producto> Productos { get; internal set; }
     }
 }

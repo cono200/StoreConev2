@@ -6,7 +6,7 @@
              Title="ListaProductos">
 
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Seccion A" Order="Secondary" Command="{Binding}"></ToolbarItem>
+        <ToolbarItem Text="Seccion A" Order="Secondary" Command="{Binding IrSeccionACommand}"></ToolbarItem>
         <ToolbarItem Text="Seccion B" Order="Secondary" Command="{Binding}"></ToolbarItem>
         <ToolbarItem Text="Seccion C" Order="Secondary" Command="{Binding}"></ToolbarItem>
         <ToolbarItem Text="Seccion D" Order="Secondary" Command="{Binding}"></ToolbarItem>
