@@ -6,11 +6,18 @@
              Title="Ayuda">
     <ContentPage.Content>
         <ScrollView>
-            <Grid BackgroundColor="#B7F8F4">
+            <Grid BackgroundColor="White">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <!-- Agregado para el Label del video -->
                     <RowDefinition Height="*" />
-                    <!-- Nueva fila para el WebView -->
+                    <RowDefinition Height="Auto" />
+                    <!-- Agregado para Entry -->
+                    <RowDefinition Height="Auto" />
+                    <!-- Agregado para Button -->
+                    <RowDefinition Height="*" />
+                    <!-- Agregado para Image -->
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto" />
@@ -31,23 +38,51 @@
                             </Image.GestureRecognizers>
                         </Image>
                         <Label Text="2" 
-            HorizontalOptions="CenterAndExpand" 
-            VerticalOptions="EndAndExpand" 
-            TextColor="White" 
-            WidthRequest="20" 
-            HeightRequest="20"
-            Margin="65,-37,50,23"
-        />
+                               HorizontalOptions="CenterAndExpand" 
+                               VerticalOptions="EndAndExpand" 
+                               TextColor="White" 
+                               WidthRequest="20" 
+                               HeightRequest="20"
+                               Margin="65,-37,50,23"
+                        />
                     </StackLayout>
-
                 </Grid>
 
-                <!-- Mueve el WebView a la nueva fila -->
-                <WebView x:Name="Video" WidthRequest="80" Grid.Column="1" Grid.Row="3"/>
+                <!-- Agrega esta parte para el label de Video -->
+                <Label Text="Video de ayuda"
+                       FontSize="Large"
+                       HorizontalOptions="Center"
+                       VerticalOptions="Center"
+                       Grid.Row="1"/>
 
+                <!-- Agrega esta parte para el WebView de Video -->
+                <WebView x:Name="Video" 
+                         HorizontalOptions="FillAndExpand" 
+                         VerticalOptions="FillAndExpand" 
+                         Grid.Row="2"
+                         BackgroundColor="#B7F8F4"
+                         />
+
+               
+                <Entry Placeholder="Introducce la sección que quieras buscar"
+                        HorizontalOptions="FillAndExpand"
+                        VerticalOptions="Center"
+                        Grid.Row="3"
+                       Text="{Binding Opcion}"/>
+
+                <!-- Agrega esta parte para el botón -->
+                <Button Text="Aceptar"
+                        HorizontalOptions="Center"
+                        VerticalOptions="Center"
+                        Grid.Row="4"
+                        Command="{Binding MostrarImagenComand}"/>
+
+                <!-- Agrega esta parte para el lugar de la imagen -->
+                <Image Source="{Binding Imagen}"
+                      HorizontalOptions ="FillAndExpand" 
+                      VerticalOptions ="FillAndExpand" 
+                      Grid.Row ="5"/>
             </Grid>
-
         </ScrollView>
-        
     </ContentPage.Content>
 </ContentPage>
