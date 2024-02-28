@@ -4,7 +4,8 @@
              x:Class="StoreConev2.Vistas.IniciarSesion"
                           xmlns:magic="clr-namespace:MagicGradients;assembly=MagicGradients"
              Title="IniciarSesion"
-            NavigationPage.HasNavigationBar="False" >
+            NavigationPage.HasNavigationBar="False" 
+             Visual="Material">
     <ContentPage.Content>
         <Grid>
             <Image IsOpaque="True" Opacity=".6" Source="https://i.ibb.co/KsJXy5T/cajas.jpg" Aspect="AspectFill" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" InputTransparent="True"/>

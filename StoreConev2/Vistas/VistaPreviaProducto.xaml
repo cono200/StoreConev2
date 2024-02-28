@@ -3,7 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="StoreConev2.Vistas.VistaPreviaProducto"
              xmlns:magic="clr-namespace:MagicGradients;assembly=MagicGradients"
-             Title="VistaPreviaProducto">
+             Title="VistaPreviaProducto"
+             >
     <Grid BackgroundColor="#B7F8F4">
 
         <Grid.RowDefinitions>

@@ -3,7 +3,8 @@
              x:Class="StoreConev2.Vistas.RegistrarProducto"
              Title="RegistrarProducto"
              xmlns:magic="clr-namespace:MagicGradients;assembly=MagicGradients"
-             xmlns:local="clr-namespace:StoreConev2.Triggers">
+             xmlns:local="clr-namespace:StoreConev2.Triggers"
+             Visual="Material">
     <ContentPage.Content>
 
         <Grid>

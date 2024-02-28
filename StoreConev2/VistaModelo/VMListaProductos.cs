@@ -52,8 +52,6 @@ namespace StoreConev2.VistaModelo
 
         ObservableCollection<Producto> ObtenerProductos()
         {
-            // Aquí obtendrías tus productos de algún servicio o base de datos
-            // Por ejemplo, podrías crear algunos productos de muestra aquí
             return new ObservableCollection<Producto>
             {
                 new Producto { Codigo = "13015", Nombre = "Pintura Roja", Seccion = "A", Proveedor = "Comex", Cantidad = 10, Descripcion = "Descripción del producto 1", Precio = 20 },
@@ -63,7 +61,7 @@ namespace StoreConev2.VistaModelo
                 new Producto { Codigo = "66666", Nombre = "Pintura Café", Seccion = "A", Proveedor = "Comex", Cantidad = 18, Descripcion = "Descripción del producto 5", Precio = 60 },
                 new Producto { Codigo = "84980", Nombre = "Leche Yaqui", Seccion = "C", Proveedor = "Yaqui", Cantidad = 49, Descripcion = "Descripción del producto 5", Precio = 60 },
                 new Producto { Codigo = "66640", Nombre = "Impermeabilizante", Seccion = "D", Proveedor = "Comex", Cantidad = 18, Descripcion = "Descripción del producto 5", Precio = 60 }
-                // Agrega más productos según sea necesario
+           
             };
         }
     }
