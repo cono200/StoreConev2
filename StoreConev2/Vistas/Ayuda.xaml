@@ -69,7 +69,7 @@
                         HorizontalOptions="FillAndExpand"
                         VerticalOptions="Center"
                         Grid.Row="3"
-                       Text="{Binding Opcion}"/>
+       Text="{Binding Opcion}" />
 
                 <!-- Agrega esta parte para el botón -->
                 <Button Text="Aceptar"
@@ -82,7 +82,12 @@
                 <Image Source="{Binding Imagen}"
                       HorizontalOptions ="FillAndExpand" 
                       VerticalOptions ="FillAndExpand" 
-                      Grid.Row ="5"/>
+                      Grid.Row ="5">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer  Command="{Binding IrPaginaComand}"
+                                                                  />
+                    </Image.GestureRecognizers>
+                </Image>
             </Grid>
         </ScrollView>
     </ContentPage.Content>

@@ -60,6 +60,7 @@ namespace StoreConev2.VistaModelo
                 {
                     case "1A":
                         Imagen = "https://i.ibb.co/6NNmzDw/1A.jpg";
+                    
                         break;
 
                     case "1a":
@@ -178,6 +179,50 @@ namespace StoreConev2.VistaModelo
             
             
         }
+        public ICommand IrPaginaComand => new Command(async () => await IrPagina());
+
+        private async Task IrPagina()
+        {
+            switch (Opcion.ToUpper())
+            {
+                case "1A":
+                case "2A":
+                case "3A":
+                case "4A":
+                    await Navigation.PushAsync(new SeccionA());
+                    break;
+                case "1B":
+                case "2B":
+                case "3B":
+                case "4B":
+
+                    await Navigation.PushAsync(new SeccionB());
+                    break;
+                case "1C":
+                case "2C":
+                case "3C":
+                case "4C":
+
+                    await Navigation.PushAsync(new SeccionC());
+                    break;
+                case "1D":
+                case "2D":
+                case "3D":
+                case "4D":
+
+                    await Navigation.PushAsync(new SeccionD());
+                    break;
+                // Otros casos...
+                default:
+                    // Página por defecto o manejo de error
+                    break;
+            }
+        }
+        public async Task IrSeccionA()
+        {
+            SeccionA  seccionA = new SeccionA();
+            await Navigation.PushAsync(new SeccionA());
+        }
         public async Task IrNotificaciones()
         {
             await Navigation.PushAsync(new Notificaciones());
@@ -188,6 +233,8 @@ namespace StoreConev2.VistaModelo
         public ICommand ProcesoSimpcomand => new Command(procesoSimple);
         public ICommand MostrarImagenComand => new Command(MostrarImagen);
         public ICommand IrNotificacionescomand => new Command(async () => await IrNotificaciones());
+        public ICommand B => new Command(async () => await IrSeccionA());
+
 
         #endregion
     }

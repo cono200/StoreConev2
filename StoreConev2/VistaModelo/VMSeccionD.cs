@@ -10,14 +10,14 @@ using Xamarin.Forms;
 
 namespace StoreConev2.VistaModelo
 {
-    public class VMSeccionA : BaseViewModel
+    public class VMSeccionD : BaseViewModel
     {
         #region VARIABLES
         string _Texto;
         ObservableCollection<Producto> _lproducto;
         #endregion
         #region CONSTRUCTOR
-        public VMSeccionA(INavigation navigation)
+        public VMSeccionD(INavigation navigation)
         {
             Navigation = navigation;
             MostrarLista();
@@ -48,9 +48,9 @@ namespace StoreConev2.VistaModelo
         public void MostrarLista()
         {
             var funcion = new VMListaProductos();
-            LProducto=  funcion.ObtenerProductosSeccionB();
-                
-            
+            LProducto = funcion.ObtenerProductosSeccionD();
+
+
 
         }
         public void procesoSimple()
@@ -66,7 +66,7 @@ namespace StoreConev2.VistaModelo
         #region COMANDOS
         public ICommand ProcesoAsyncomand => new Command(async () => await ProcesoAsyncrono());
         public ICommand ProcesoSimpcomand => new Command(procesoSimple);
-        public ICommand B => new Command(async () => await IrSeccionA());
+        public ICommand SA => new Command(async () => await IrSeccionA());
 
         #endregion
     }

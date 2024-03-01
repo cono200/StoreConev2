@@ -10,13 +10,13 @@ using Xamarin.Forms.Xaml;
 
 namespace StoreConev2.Vistas
 {
-    [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class SeccionB : ContentPage
-    {
-        public SeccionB()
-        {
-            InitializeComponent();
-            BindingContext = new VMSeccionB(Navigation);
+	[XamlCompilation(XamlCompilationOptions.Compile)]
+	public partial class SeccionD : ContentPage
+	{
+		public SeccionD ()
+		{
+			InitializeComponent ();
+            BindingContext = new VMSeccionD(Navigation);
 
         }
     }
