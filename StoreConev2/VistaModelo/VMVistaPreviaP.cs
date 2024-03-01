@@ -64,13 +64,27 @@ namespace StoreConev2.VistaModelo
         }
         public void SimularSumar()
         {
-            DisplayAlert("Mensaje", "producto sumado", "Ok");
+         DisplayAlert("Mensaje", "producto sumado", "Ok");
         }
-        public void SimularResta()
+        public async Task<bool> SimularResta()
         {
-            DisplayAlert("Mensaje", "producto quitado", "Ok");
+           return  await Application.Current.MainPage.DisplayAlert("Confirmar", "Desea eliminar este producto?", "Si","No");
         }
-        
+
+        private async Task MensajeEliminar()
+        {
+            bool confirmacion = await SimularResta();
+            if (confirmacion)
+            {
+                // Aquí puedes colocar la lógica para eliminar el producto
+                // Por ejemplo: 
+                // RealizarResta();
+                // Luego notificar al usuario que el producto fue eliminado.
+                await Application.Current.MainPage.DisplayAlert("Información", "Producto eliminado", "Ok");
+            }
+        }
+
+
         #endregion
         #region COMANDOS
         public ICommand IrNotificacionescomand => new Command(async () => await IrNotificaciones());
@@ -78,7 +92,10 @@ namespace StoreConev2.VistaModelo
         public ICommand ProcesoAsyncomand => new Command(async () => await ProcesoAsyncrono());
         public ICommand ProcesoSimpcomand => new Command(procesoSimple);
         public ICommand SimularSumarcomand => new Command(SimularSumar);
-        public ICommand SimularRestacomand => new Command(SimularResta);
+        public ICommand SimularRestacomand => new Command(async () => await MensajeEliminar());
+
+
+
         #endregion
     }
 }
