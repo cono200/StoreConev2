@@ -57,6 +57,10 @@ namespace StoreConev2.VistaModelo
         public async Task IrNotificaciones()
         {
             await Navigation.PushAsync(new Notificaciones());
+        } 
+        public async Task IrDetalles()
+        {
+            await Navigation.PushAsync(new ListaProductos());
         }
         public void SimularSumar()
         {
@@ -66,18 +70,15 @@ namespace StoreConev2.VistaModelo
         {
             DisplayAlert("Mensaje", "producto quitado", "Ok");
         }
-        public void Detalles()
-        {
-            DisplayAlert("Mensaje", "En la siguiente actualizacion karnal!", "Ok");
-        }
+        
         #endregion
         #region COMANDOS
         public ICommand IrNotificacionescomand => new Command(async () => await IrNotificaciones());
+        public ICommand IrDetallescomand => new Command(async () => await IrDetalles());
         public ICommand ProcesoAsyncomand => new Command(async () => await ProcesoAsyncrono());
         public ICommand ProcesoSimpcomand => new Command(procesoSimple);
         public ICommand SimularSumarcomand => new Command(SimularSumar);
         public ICommand SimularRestacomand => new Command(SimularResta);
-        public ICommand Detallescomand => new Command(Detalles);
         #endregion
     }
 }

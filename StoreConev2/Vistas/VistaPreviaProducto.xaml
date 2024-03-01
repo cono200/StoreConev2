@@ -61,10 +61,10 @@
                 <Entry HorizontalTextAlignment="Center" BackgroundColor="AliceBlue" Text="{Binding Cantidad}"  Placeholder="C"></Entry>
             </Frame>
 
-            <Button Text="Restar"  FontFamily="kawaii3"  CornerRadius="21" BackgroundColor="#F8F000" TextColor="#013715" FontSize="25" Command="{Binding SimularRestacomand}"/>
+            <Button Text="Eliminar"  FontFamily="kawaii3"  CornerRadius="21" BackgroundColor="#F8F000" TextColor="#013715" FontSize="25" Command="{Binding SimularRestacomand}"/>
         </StackLayout>
         <StackLayout Grid.Row="3"  Padding="0,10,0,0" Grid.Column="2"  Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
-            <Button FontFamily="kawaii3" Text="Detalles" FontAttributes="Italic"  CornerRadius="21" BackgroundColor="Orange" HeightRequest="60" WidthRequest="220" TextColor="#013715" FontSize="25" Command="{Binding Detallescomand}" />
+            <Button FontFamily="kawaii3" Text="Detalles" FontAttributes="Italic"  CornerRadius="21" BackgroundColor="Orange" HeightRequest="60" WidthRequest="220" TextColor="#013715" FontSize="25" Command="{Binding IrDetallescomand}" />
 
         </StackLayout>
         <Frame CornerRadius="30"  Padding="0" Grid.Row="2" Grid.Column="2" BorderColor="Black">
