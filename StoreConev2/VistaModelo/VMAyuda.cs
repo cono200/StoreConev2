@@ -179,7 +179,6 @@ namespace StoreConev2.VistaModelo
             
             
         }
-        public ICommand IrPaginaComand => new Command(async () => await IrPagina());
 
         private async Task IrPagina()
         {
@@ -212,9 +211,9 @@ namespace StoreConev2.VistaModelo
 
                     await Navigation.PushAsync(new SeccionD());
                     break;
-                // Otros casos...
+                
                 default:
-                    // Página por defecto o manejo de error
+                    
                     break;
             }
         }
@@ -234,6 +233,8 @@ namespace StoreConev2.VistaModelo
         public ICommand MostrarImagenComand => new Command(MostrarImagen);
         public ICommand IrNotificacionescomand => new Command(async () => await IrNotificaciones());
         public ICommand B => new Command(async () => await IrSeccionA());
+        public ICommand IrPaginaComand => new Command(async () => await IrPagina());
+
 
 
         #endregion

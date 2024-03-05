@@ -4,7 +4,7 @@
              Title="RegistrarProducto"
              xmlns:magic="clr-namespace:MagicGradients;assembly=MagicGradients"
              xmlns:local="clr-namespace:StoreConev2.Triggers"
-             Visual="Material">
+            >
     <ContentPage.Content>
 
         <Grid>
@@ -56,7 +56,7 @@
                     <Label TextColor="Orange" Text="Código"
                VerticalOptions="Center" 
                        FontAttributes="Bold"/>
-                    <Entry x:Name="codigo" TextColor="AliceBlue" Placeholder="Ingresar código"
+                    <Entry x:Name="codigo" TextColor="Black" Placeholder="Ingresar código"
                Grid.Column="1"
                Text="{Binding Codigo}" FontSize="12"/>
 
@@ -65,7 +65,7 @@
                Grid.Row="1"
                         FontAttributes="Bold"
                VerticalOptions="Center" />
-                    <Entry x:Name="nombre" TextColor="Orange" Placeholder="Ingresa el nombre"
+                    <Entry x:Name="nombre" TextColor="Black" Placeholder="Ingresa el nombre"
                Grid.Row="1"
                Grid.Column="1"
                Text="{Binding Nombre}"  FontSize="12"/>
@@ -75,7 +75,7 @@
                Grid.Row="2"
                         FontAttributes="Bold"
                VerticalOptions="Center" />
-                    <Entry x:Name="seccion" TextColor="Orange" Placeholder="Ingresa  la sección"
+                    <Entry x:Name="seccion" TextColor="Black" Placeholder="Ingresa  la sección"
                Grid.Row="2"
                Grid.Column="1"
                Text="{Binding Seccion}" FontSize="12"/>
@@ -85,7 +85,7 @@
                Grid.Row="3"
                         FontAttributes="Bold"
                VerticalOptions="Center" />
-                    <Entry x:Name="proveedor" TextColor="Orange" Placeholder="Ingresar proveedor"
+                    <Entry x:Name="proveedor" TextColor="Black" Placeholder="Ingresar proveedor"
                Grid.Row="3"
                Grid.Column="1"
                Text="{Binding Proveedor}" FontSize="12"/>
@@ -98,7 +98,7 @@
                Grid.Row="4"
                         FontAttributes="Bold"
                VerticalOptions="Center" />
-                    <Editor TextColor="Orange" Placeholder="Agregar descripción"
+                    <Editor TextColor="Black" Placeholder="Agregar descripción"
                 Grid.Row="4"
                 Grid.Column="1"
                 Text="{Binding Descripcion}" FontSize="12"/>
@@ -108,7 +108,7 @@
                Grid.Row="5"
                         FontAttributes="Bold"
                VerticalOptions="Center" />
-                    <Entry x:Name="precio" TextColor="Orange" Placeholder="Ingresar el precio"
+                    <Entry x:Name="precio" TextColor="Black" Placeholder="Ingresar el precio"
                Grid.Row="5"
                Grid.Column="1"
                Keyboard="Numeric"

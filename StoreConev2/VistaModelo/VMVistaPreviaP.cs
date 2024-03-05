@@ -91,7 +91,7 @@ namespace StoreConev2.VistaModelo
         public ICommand IrDetallescomand => new Command(async () => await IrDetalles());
         public ICommand ProcesoAsyncomand => new Command(async () => await ProcesoAsyncrono());
         public ICommand ProcesoSimpcomand => new Command(procesoSimple);
-        public ICommand SimularSumarcomand => new Command(SimularSumar);
+      //  public ICommand SimularSumarcomand => new Command(SimularSumar);
         public ICommand SimularRestacomand => new Command(async () => await MensajeEliminar());
 
 

@@ -4,6 +4,7 @@
              x:Class="StoreConev2.Vistas.VistaPreviaProducto"
              xmlns:magic="clr-namespace:MagicGradients;assembly=MagicGradients"
              Title="VistaPreviaProducto"
+            
              >
     <Grid BackgroundColor="#B7F8F4">
 
