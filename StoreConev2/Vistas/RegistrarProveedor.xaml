@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="StoreConev2.Vistas.RegistrarProveedor">
+    <ContentPage.Content>
+        <StackLayout>
+            <Frame BackgroundColor="Tomato" Padding="24" CornerRadius="0">
+                <Label Text="Formula 3" HorizontalTextAlignment="Center" TextColor="AliceBlue"></Label>
+            </Frame>
+            <Label Text="Registrar Corredores" FontSize="Title" Padding="30,10,30,10"></Label>
+            <Entry Placeholder="Nombre de proveedor" Text="{Binding Nombre}"></Entry>
+            <Entry Placeholder="Telefono de proveedor" Text="{Binding Telefono}"></Entry>
+            <Entry Placeholder="Correo" Text="{Binding Correo}"></Entry>
+            <Entry Placeholder="Producto" Text="{Binding Producto}"></Entry>
+
+            <Button Text="Registrar" Command="{Binding InsertarProveedor}"></Button>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
