@@ -126,6 +126,9 @@
     <PackageReference Include="MagicGradients">
       <Version>1.3.1</Version>
     </PackageReference>
+    <PackageReference Include="Newtonsoft.Json">
+      <Version>13.0.3</Version>
+    </PackageReference>
     <PackageReference Include="Xamarin.CommunityToolkit">
       <Version>2.0.6</Version>
     </PackageReference>
