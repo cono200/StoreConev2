@@ -18,12 +18,9 @@ namespace StoreConev2.Vistas
         public ListaProductos()
         {
             InitializeComponent();
+            BindingContext = new VMListaProduct(Navigation);
+
         }
-        protected override async void OnAppearing()
-        {
-            base.OnAppearing();
-            await ((VMListaProductos)BindingContext).Initialize();
-        }
-        public static ObservableCollection<Producto> Productos { get; internal set; }
+
     }
 }

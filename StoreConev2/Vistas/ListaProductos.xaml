@@ -12,9 +12,6 @@
         <ToolbarItem Text="Seccion D" Order="Secondary" Command="{Binding}"></ToolbarItem>
 
     </ContentPage.ToolbarItems>
-    <ContentPage.BindingContext>
-        <local:VMListaProductos />
-    </ContentPage.BindingContext>
     <ContentPage.Content>
 
             <Grid RowSpacing="0" ColumnSpacing="0">
@@ -74,7 +71,7 @@
                 </Frame>
 
                 <!-- Datos de productos -->
-            <ListView ItemsSource="{Binding ObtenerProductos}" Grid.Row="1" Grid.ColumnSpan="7">
+            <ListView ItemsSource="{Binding Productos}" Grid.Row="1" Grid.ColumnSpan="7">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
@@ -93,8 +90,8 @@
                                     <Label Grid.Column="2" Text="{Binding Seccion}" />
                                 <Label Grid.Column="3" Text="{Binding ProveedorId }" />
                                     <Label Grid.Column="4" Text="{Binding Cantidad}" />
-                                    <Label Grid.Column="5" Text="{Binding Precio}" />
-                                    <Label Grid.Column="6" Text="{Binding Descripcion}" />
+                                <Image Grid.Column="5" Source="{Binding Descripcion}" />
+                                    <Label Grid.Column="6" Text="{Binding Precio}" />
                                 </Grid>
                             </ViewCell>
                         </DataTemplate>
