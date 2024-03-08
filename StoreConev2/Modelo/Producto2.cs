@@ -4,14 +4,17 @@ using System.Text;
 
 namespace StoreConev2.Modelo
 {
-    public class Producto
+    public class Producto2
     {
-        public string Codigo { get; set; }
+        public string Id { get; set; }
         public string Nombre { get; set; }
+        public int Codigo { get; set; }
         public string Seccion { get; set; }
         public string ProveedorId { get; set; }
-        public int Cantidad { get; set; }
         public string Descripcion { get; set; }
-        public decimal Precio { get; set; }
+        public int Precio { get; set; }
+        public string Imagen { get; set; }
+        public DateTime Caducidad { get; set; }
     }
+
 }

@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
 using StoreConev2.Modelo;
+//libreria de Json para que jale la api
+using Newtonsoft.Json;
+
 
 namespace StoreConev2.VistaModelo
 {
@@ -78,7 +81,7 @@ namespace StoreConev2.VistaModelo
 
             };
             Uri RequestUri = new
-                Uri("http://www.CorredoresFor3.somee.com/Api/Divers");
+                Uri("http://www.ApiStore.somee.com/Api/Proveedor/Create");
             var client = new HttpClient();
             var json = JsonConvert.SerializeObject(mcorredor);
             var contenJson = new StringContent(json, Encoding.UTF8, "application/json");
@@ -102,7 +105,7 @@ namespace StoreConev2.VistaModelo
         #region COMANDOS
         public ICommand ProcesoAsyncomand => new Command(async () => await ProcesoAsyncrono());
         public ICommand ProcesoSimpcomand => new Command(procesoSimple);
-        public ICommand InsertarCorredor => new Command(async () => await Insertar());
+        public ICommand InsertarProveedor => new Command(async () => await Insertar());
 
         #endregion
     }

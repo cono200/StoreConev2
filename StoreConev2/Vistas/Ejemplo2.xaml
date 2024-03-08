@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="StoreConev2.Vistas.Ejemplo2">
+   
+    <ListView x:Name="listView" ItemsSource="{Binding Productos}">
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <ViewCell>
+                    <StackLayout Orientation="Horizontal" Padding="0,5">
+                        <Label Text="{Binding Imagen}"></Label>
+                        <Label Text="{Binding Nombre}" />
+                        <Label Text="{Binding Precio}" />
+                        <Label Text="{Binding ProveedorId}" />
+                        <Label Text="{Binding Seccion}" />
+                        <Label Text="{Binding Codigo}" />
+                        <Image Source="{Binding Imagen}" />
+
+                    </StackLayout>
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
+</ContentPage>

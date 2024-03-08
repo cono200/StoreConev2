@@ -10,12 +10,12 @@ using Xamarin.Forms.Xaml;
 namespace StoreConev2.Vistas
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class RegistrarProveedor : ContentPage
+    public partial class Prueba : ContentPage
     {
-        public RegistrarProveedor()
+        public Prueba()
         {
             InitializeComponent();
-            BindingContext = new VMproveedor(Navigation);
+            BindingContext= new ProductosViewModel(Navigation);
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using StoreConev2.Modelo;
+using StoreConev2.VistaModelo;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -18,7 +19,11 @@ namespace StoreConev2.Vistas
         {
             InitializeComponent();
         }
-
+        protected override async void OnAppearing()
+        {
+            base.OnAppearing();
+            await ((VMListaProductos)BindingContext).Initialize();
+        }
         public static ObservableCollection<Producto> Productos { get; internal set; }
     }
 }
