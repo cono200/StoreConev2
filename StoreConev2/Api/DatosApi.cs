@@ -16,10 +16,27 @@ namespace StoreConev2.ApiMetodos
     {
         //Lista de los Productos
         public ObservableCollection<Producto2> Productos { get; set; }
+        public async Task<ObservableCollection<Historial>> ObtenerHistorial()
+        {
+            Uri RequestUri = new Uri("http://www.StoreConev3.somee.com/Api/Historial/Listar");
+            var client = new HttpClient();
+            var response = await client.GetAsync(RequestUri);
 
+            if (response.IsSuccessStatusCode)
+            {
+                var json = await response.Content.ReadAsStringAsync();
+                var historial = JsonConvert.DeserializeObject<List<Historial>>(json);
+                return new ObservableCollection<Historial>(historial);
+            }
+            else
+            {
+                // Manejo de errores
+                return new ObservableCollection<Historial>();
+            }
+        }
         public async Task<ObservableCollection<Producto2>> ObtenerProductos()
         {
-            Uri RequestUri = new Uri("http://www.StoreConev2.somee.com/Api/Producto/Listar");
+            Uri RequestUri = new Uri("http://www.StoreConev3.somee.com/Api/Producto/Listar");
             var client = new HttpClient();
             var response = await client.GetAsync(RequestUri);
 
@@ -35,6 +52,30 @@ namespace StoreConev2.ApiMetodos
                 return new ObservableCollection<Producto2>();
             }
         }
+        public async Task<Producto2> ObtenerProductobyCodigo(long codigo)
+        {
+            Uri RequestUri = new Uri("http://www.StoreConev3.somee.com/Api/Producto/BuscarPorCodigo");
+            var client = new HttpClient();
+
+
+            var jsonContent = JsonConvert.SerializeObject(new { Codigo = codigo });
+            var httpContent = new StringContent(jsonContent, Encoding.UTF8, "application/json");
+
+            var response = await client.PostAsync(RequestUri, httpContent);
+
+            if (response.IsSuccessStatusCode)
+            {
+                var json = await response.Content.ReadAsStringAsync();
+                var producto = JsonConvert.DeserializeObject<Producto2>(json);
+                return producto;
+            }
+            else
+            {
+                // Manejo de errores
+                return null;
+            }
+        }
+
         public async Task<ObservableCollection<Producto2>> ObtenerProductosSeccionA()
         {
             var AllProductos = await ObtenerProductos();
@@ -74,7 +115,7 @@ namespace StoreConev2.ApiMetodos
         {
             
             Uri RequestUri = new
-                Uri("http://www.StoreConev2.somee.com/Api/Mermas/Insertar");
+                Uri("http://www.StoreConev3.somee.com/Api/Mermas/Insertar");
             var client = new HttpClient();
             var json = JsonConvert.SerializeObject(mmerma);
             var contenJson = new StringContent(json, Encoding.UTF8, "application/json");
@@ -95,7 +136,7 @@ namespace StoreConev2.ApiMetodos
         public async Task InsertarProducto(Producto2 producto)
         {
 
-            Uri RequestUri = new Uri("http://www.StoreConev2.somee.com/Api/Producto/Crear");
+            Uri RequestUri = new Uri("http://www.StoreConev3.somee.com/Api/Producto/Crear");
 
             var client = new HttpClient();
             var json = JsonConvert.SerializeObject(producto);

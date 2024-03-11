@@ -1,10 +1,13 @@
-﻿using StoreConev2.Vistas;
+﻿using StoreConev2.ApiMetodos;
+using StoreConev2.Modelo;
+using StoreConev2.Vistas;
 using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
+using static System.Collections.Specialized.BitVector32;
 
 namespace StoreConev2.VistaModelo
 {
@@ -13,6 +16,15 @@ namespace StoreConev2.VistaModelo
         #region VARIABLES
         string _Texto;
         private int _cantidad=1;
+        private long _codigo;
+        private string _Nombre;
+        private string _Proveedor;
+        private string _Idproveedor;
+        private string _seccion;
+        private string _descripcion;
+        private int _precio;
+        public Producto2 ProductoSeleccionado { get; set; }
+
         #endregion
         #region CONSTRUCTOR
         public VMVistaPreviaP(INavigation navigation)
@@ -22,10 +34,30 @@ namespace StoreConev2.VistaModelo
         }
         #endregion
         #region OBJETOS
+        public string Proveedor
+        {
+            get { return _Proveedor; }
+            set { SetValue(ref _Proveedor, value); }
+        }
+        public string Nombre
+        {
+            get { return _Nombre; }
+            set { SetValue(ref _Nombre, value); }
+        }
+        public string IdProveedor
+        {
+            get { return _Idproveedor; }
+            set { SetValue(ref _Idproveedor, value); }
+        }
         public string Texto
         {
             get { return _Texto; }
             set { SetValue(ref _Texto, value); }
+        }
+        public long Codigo
+        {
+            get { return _codigo; }
+            set { SetValue(ref _codigo, value); }
         }
         public int Cantidad
         {
@@ -83,16 +115,96 @@ namespace StoreConev2.VistaModelo
                 await Application.Current.MainPage.DisplayAlert("Información", "Producto eliminado", "Ok");
             }
         }
+        public async Task Buscar()
+        {
+            if (Codigo == null)
+            {
+                await Application.Current.MainPage.DisplayAlert("Ventana", "El campo de Codigo es Obligatorio", "cerrar");
+                return;
+            }
+            var funcion = new DatosApi();
+
+            // Pasar el código del producto directamente al método
+            ProductoSeleccionado = await funcion.ObtenerProductobyCodigo(Codigo);
+
+            // Asignar los datos devueltos a las propiedades de tu ViewModel
+            Codigo = ProductoSeleccionado.Codigo;
+            Nombre = ProductoSeleccionado.Nombre;
+            Proveedor = ProductoSeleccionado.proveedor.Nombre.ToString();
+            _Idproveedor= ProductoSeleccionado.ProveedorId.ToString();
+            _seccion = ProductoSeleccionado.Seccion.ToString();
+            _precio = ProductoSeleccionado.Precio;
+
+
+            
+
+            // Repite este paso para todas las propiedades que quieras asignar
+        }
+
+        //public async Task Insertar()
+        //{
+        //    if ((Codigo == null))
+        //    {
+        //        await Application.Current.MainPage.DisplayAlert("Ventana", "El campo de Codigo es Obligatorio", "cerrar");
+        //        return;
+        //    }
+        //    var funcion = new DatosApi();
+        //    var parametros = new Producto2();
+        //    parametros.Codigo = _codigo;
+        //    parametros.Nombre = _Nombre;
+        //    parametros.Seccion = _seccion;
+        //    parametros.ProveedorId = IdProveedor;
+        //    parametros.Descripcion = _descripcion;
+        //    parametros.Precio = _precio;
+        //   parametros.Imagen = "nuddll";
+        //    parametros.Caducidad = DateTime.Now;
+
+        //    await funcion.InsertarProducto(parametros);
+
+        //}
+
+        public async Task BuscarEInsertar()
+        {
+            if (Codigo == null)
+            {
+                await Application.Current.MainPage.DisplayAlert("Ventana", "El campo de Codigo es Obligatorio", "cerrar");
+                return;
+            }
+            var funcion = new DatosApi();
+
+            // Buscar el producto por su código
+            ProductoSeleccionado = await funcion.ObtenerProductobyCodigo(Codigo);
+
+            // Crear un nuevo producto con los datos obtenidos
+            var nuevoProducto = new Producto2
+            {
+                Codigo = ProductoSeleccionado.Codigo,
+                Nombre = ProductoSeleccionado.Nombre,
+                ProveedorId = ProductoSeleccionado.ProveedorId,
+                Seccion = ProductoSeleccionado.Seccion,
+                Descripcion = ProductoSeleccionado.Descripcion,
+                Precio = ProductoSeleccionado.Precio,
+                Caducidad = DateTime.Now,
+                Imagen = ProductoSeleccionado.Imagen,
+                proveedor= ProductoSeleccionado.proveedor
+            };
+
+            // Insertar el nuevo producto
+            await funcion.InsertarProducto(nuevoProducto);
+        }
 
 
         #endregion
         #region COMANDOS
         public ICommand IrNotificacionescomand => new Command(async () => await IrNotificaciones());
-        public ICommand IrDetallescomand => new Command(async () => await IrDetalles());
+      //  public ICommand IrDetallescomand => new Command(async () => await IrDetalles());
         public ICommand ProcesoAsyncomand => new Command(async () => await ProcesoAsyncrono());
         public ICommand ProcesoSimpcomand => new Command(procesoSimple);
       //  public ICommand SimularSumarcomand => new Command(SimularSumar);
         public ICommand SimularRestacomand => new Command(async () => await MensajeEliminar());
+
+        public ICommand SearchProductocomand => new Command(async () => await Buscar());
+        public ICommand InsertProductocomand => new Command(async () => await BuscarEInsertar());
 
 
 

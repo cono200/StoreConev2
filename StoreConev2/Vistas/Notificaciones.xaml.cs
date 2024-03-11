@@ -15,6 +15,7 @@ namespace StoreConev2.Vistas
         public Notificaciones()
         {
             InitializeComponent();
+            BindingContext = new VMNotificaciones(Navigation);
             //BindingContext = new VMRegistrarProducto(Navigation);
         }
     }
