@@ -3,9 +3,11 @@ using StoreConev2.Modelo;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Net;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using Xamarin.Forms.PlatformConfiguration.AndroidSpecific;
 
 namespace StoreConev2.ApiMetodos
 {
@@ -29,5 +31,30 @@ namespace StoreConev2.ApiMetodos
                 return new ObservableCollection<Producto2>();
             }
         }
+        //Metodo para insertar mermas con la api
+        public async Task InsertarMerma(Merma mmerma)
+        {
+            
+            Uri RequestUri = new
+                Uri("http://www.StoreConev2.somee.com/Api/Mermas/Insertar");
+            var client = new HttpClient();
+            var json = JsonConvert.SerializeObject(mmerma);
+            var contenJson = new StringContent(json, Encoding.UTF8, "application/json");
+            var response = await client.PostAsync(RequestUri,
+                contenJson);
+            if (response.StatusCode == HttpStatusCode.Created)
+            {
+             await   Xamarin.Forms.Application.Current.MainPage.DisplayAlert("Mensaje", "Merma registrada con éxito.", "OK");
+
+            }
+            else
+            {
+                await Xamarin.Forms.Application.Current.MainPage.DisplayAlert("Mensaje", "Error al registrar.", "OK");
+
+            }
+
+        }
     }
+
+   
 }

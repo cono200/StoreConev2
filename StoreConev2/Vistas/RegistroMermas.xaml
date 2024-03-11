@@ -22,9 +22,13 @@
                    Text="Tipo de merma"
                    FontAttributes="Bold" 
                        Padding="0,15,0,0"/>
-                <Entry Grid.Column="1"
-                   Placeholder="Ingrese tipo de merma"
-                   Text="{Binding TypeOfMerma}" />
+                <Picker Grid.Column="1"
+                   Title="Tipo de Merma"
+                        SelectedItem="{Binding Tipo_de_merma}"
+                        ItemsSource="{Binding TiposMerma}">
+                    
+                  
+                </Picker>
 
                 <Label Grid.Row="1"
                    Text="Codigo"
@@ -32,14 +36,14 @@
                        Padding="0,15,0,0"/>
                 <Entry Grid.Column="1" Grid.Row="1"
                    Placeholder="Ingrese código"
-                   Text="{Binding Code}" />
+                   Text="{Binding Codigo}" />
 
                 <Label Grid.Row="2"
                    Text="Fecha de ingreso"
                    FontAttributes="Bold" 
                        Padding="0,15,0,0"/>
                 <DatePicker Grid.Column="1" Grid.Row="2"
-                        Date="{Binding EntryDate}" />
+                        Date="{Binding Fecha_ingreso}" />
 
 
                 <Label Grid.Row="3"
@@ -48,11 +52,11 @@
                        Padding="0,15,0,0"/>
                 <Entry Grid.Column="1" Grid.Row="3"
                    Placeholder="Ingrese nombre del producto"
-                   Text="{Binding ProductName}" />
+                   Text="{Binding Nombre_producto}" />
             </Grid>
 
             <Button Text="Registrar"
-                Command="{Binding SimularBotoncomand}" 
+                Command="{Binding InsertMermacomand}" 
                 BorderColor="Black"
                     VerticalOptions="EndAndExpand"
                     Margin="145,0,145,20"
