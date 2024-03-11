@@ -20,7 +20,7 @@ namespace StoreConev2.VistaModelo
         public VMNavegacion(INavigation navigation)
         {
             Navigation = navigation;
-            ListaProductos = new VMListaProductos();
+            ListaProductos = new VMListaProducto(this.Navigation);
         }
         public async Task Inicio()
         {
@@ -52,7 +52,7 @@ namespace StoreConev2.VistaModelo
             App.MasterDet.Detail = new NavigationPage(new Ayuda());
             App.MasterDet.IsPresented = false;
         }
-        public VMListaProductos ListaProductos { get; set; }
+        public VMListaProducto ListaProductos { get; set; }
 
         #endregion
         #region OBJETOS
@@ -74,7 +74,7 @@ namespace StoreConev2.VistaModelo
         
         public async Task NavegarAGraficos()
         {
-            ObservableCollection<Producto> misProductos = ListaProductos.Productos;
+            ObservableCollection<Producto2> misProductos = ListaProductos.Productos;
             App.MasterDet.Detail = new NavigationPage(new Graficos(misProductos));
             App.MasterDet.IsPresented = false;
         }

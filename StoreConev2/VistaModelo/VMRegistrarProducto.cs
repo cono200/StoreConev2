@@ -7,6 +7,8 @@ using Xamarin.Forms;
 using StoreConev2.VistaModelo;
 using StoreConev2.Vistas;
 using System.ComponentModel;
+using StoreConev2.ApiMetodos;
+using StoreConev2.Modelo;
 
 namespace StoreConev2.VistaModelo
 {
@@ -14,12 +16,12 @@ namespace StoreConev2.VistaModelo
     {
         #region VARIABLES
         string _Texto;
-        private string _codigo=string.Empty;
+        private long _codigo;
         private string _nombre = string.Empty;
         private string _seccion =string.Empty;
         private string _proveedor = string.Empty;
         private string _descripcion;
-        private decimal? _precio =null;
+        private int _precio ;
         private bool _boleano =false;
 
 
@@ -66,7 +68,7 @@ namespace StoreConev2.VistaModelo
                 OnPropertyChanged();
             }
         }
-        public string Codigo
+        public long Codigo
         {
             get { return _codigo; }
             set
@@ -102,7 +104,7 @@ namespace StoreConev2.VistaModelo
             set { SetValue(ref _descripcion, value); }
         }
        
-        public decimal? Precio
+        public int Precio
         {
             get { return _precio; }
             set { SetValue(ref _precio, value);
@@ -126,7 +128,7 @@ namespace StoreConev2.VistaModelo
         }
         public void CheckFields()
         {
-            if (Codigo != string.Empty && Nombre != string.Empty && Seccion != string.Empty && Proveedor != string.Empty &&
+            if (Codigo != null && Nombre != string.Empty && Seccion != string.Empty && Proveedor != string.Empty &&
                 Precio != null)
             {
                 boleano=true;
@@ -136,8 +138,29 @@ namespace StoreConev2.VistaModelo
                 boleano = false;
             }
         }
+        public async Task Insertar()
+        {
+            if ((Codigo==null))
+            {
+                await Application.Current.MainPage.DisplayAlert("Ventana", "El campo de Codigo es Obligatorio", "cerrar");
+                return;
+            }
+            var funcion = new DatosApi();
+            var parametros = new Producto2();
+            parametros.Codigo = _codigo;
+            parametros.Nombre = _nombre;
+            parametros.Seccion = _seccion;
+            parametros.ProveedorId =_proveedor ;
+            parametros.Descripcion = _descripcion;
+            parametros.Precio = _precio;
+          parametros.Imagen = "nuddll";
+            parametros.Caducidad= DateTime.Now; 
+            
+            await funcion.InsertarProducto(parametros);
 
-       
+        }
+
+
         public void SimularBoton()
         {
             DisplayAlert("Mensaje", "Producto añadido ", "Ok");
@@ -156,6 +179,8 @@ namespace StoreConev2.VistaModelo
         public ICommand IrNotificacionescomand => new Command(async () => await IrNotificaciones());
         public ICommand ProcesoSimpcomand => new Command(procesoSimple);
         public ICommand SimularBotoncomand => new Command(SimularBoton);
+        public ICommand InsertProductocomand => new Command(async () => await Insertar());
+
         // public ICommand IrNotificacionescomand => new Command(IrNotificaciones);
 
         #endregion

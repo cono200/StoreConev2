@@ -11,14 +11,14 @@ using Xamarin.Forms;
 
 namespace StoreConev2.VistaModelo
 {
-    public class VMSeccionB : BaseViewModel
+    public class VMSeccionA : BaseViewModel
     {
         #region VARIABLES
         string _Texto;
         ObservableCollection<Producto2> _lproducto;
         #endregion
         #region CONSTRUCTOR
-        public VMSeccionB(INavigation navigation)
+        public VMSeccionA(INavigation navigation)
         {
             Navigation = navigation;
             MostrarLista();
@@ -49,9 +49,9 @@ namespace StoreConev2.VistaModelo
         public async Task MostrarLista()
         {
             var funcion = new DatosApi();
-            LProducto=  await funcion.ObtenerProductosSeccionB();
-                
-            
+            LProducto = await funcion.ObtenerProductosSeccionA();
+
+
 
         }
         public void procesoSimple()

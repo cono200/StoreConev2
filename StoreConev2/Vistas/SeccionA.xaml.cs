@@ -16,7 +16,7 @@ namespace StoreConev2.Vistas
 		public SeccionA ()
 		{
 			InitializeComponent ();
-            BindingContext = new VMListaProductos(Navigation);
+            BindingContext = new VMSeccionA(Navigation);
 
         }
     }

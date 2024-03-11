@@ -3,6 +3,7 @@ using StoreConev2.Modelo;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Text;
@@ -13,6 +14,9 @@ namespace StoreConev2.ApiMetodos
 {
     public class DatosApi
     {
+        //Lista de los Productos
+        public ObservableCollection<Producto2> Productos { get; set; }
+
         public async Task<ObservableCollection<Producto2>> ObtenerProductos()
         {
             Uri RequestUri = new Uri("http://www.StoreConev2.somee.com/Api/Producto/Listar");
@@ -31,6 +35,40 @@ namespace StoreConev2.ApiMetodos
                 return new ObservableCollection<Producto2>();
             }
         }
+        public async Task<ObservableCollection<Producto2>> ObtenerProductosSeccionA()
+        {
+            var AllProductos = await ObtenerProductos();
+            var productiosSeccionA = new ObservableCollection<Producto2>
+                (AllProductos.Where(p => p.Seccion == "1A" || p.Seccion == "2A" || p.Seccion == "3A"
+                || p.Seccion == "4A"));
+            return productiosSeccionA;
+        }
+
+        public async Task <ObservableCollection<Producto2>>ObtenerProductosSeccionB()
+        {
+            var AllProductos = await ObtenerProductos();
+            var productiosSeccionB= new ObservableCollection<Producto2>
+                (AllProductos.Where(p=>p.Seccion=="1B" || p.Seccion=="2B" || p.Seccion == "3B"
+                || p.Seccion=="4B"));
+            return productiosSeccionB;
+        }
+        public async Task<ObservableCollection<Producto2>> ObtenerProductosSeccionC()
+        {
+            var AllProductos = await ObtenerProductos();
+            var productiosSeccionC = new ObservableCollection<Producto2>
+                (AllProductos.Where(p => p.Seccion == "1C" || p.Seccion == "2C" || p.Seccion == "3C"
+                || p.Seccion == "4C"));
+            return productiosSeccionC;
+        }
+        public async Task<ObservableCollection<Producto2>> ObtenerProductosSeccionD()
+        {
+            var AllProductos = await ObtenerProductos();
+            var productiosSeccionD = new ObservableCollection<Producto2>
+                (AllProductos.Where(p => p.Seccion == "1D" || p.Seccion == "2D" || p.Seccion == "3D"
+                || p.Seccion == "4D"));
+            return productiosSeccionD;
+        }
+
         //Metodo para insertar mermas con la api
         public async Task InsertarMerma(Merma mmerma)
         {
@@ -54,6 +92,29 @@ namespace StoreConev2.ApiMetodos
             }
 
         }
+        public async Task InsertarProducto(Producto2 producto)
+        {
+
+            Uri RequestUri = new Uri("http://www.StoreConev2.somee.com/Api/Producto/Crear");
+
+            var client = new HttpClient();
+            var json = JsonConvert.SerializeObject(producto);
+            var contenJson = new StringContent(json, Encoding.UTF8, "application/json");
+            var response = await client.PostAsync(RequestUri,
+                contenJson);
+            if (response.StatusCode == HttpStatusCode.Created)
+            {
+                await Xamarin.Forms.Application.Current.MainPage.DisplayAlert("Mensaje", "Merma registrada con éxito.", "OK");
+
+            }
+            else
+            {
+                await Xamarin.Forms.Application.Current.MainPage.DisplayAlert("Mensaje", "Error al registrar.", "OK");
+
+            }
+
+        }
+
     }
 
    

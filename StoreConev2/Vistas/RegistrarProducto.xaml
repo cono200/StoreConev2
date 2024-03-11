@@ -125,7 +125,7 @@
                 </Grid>
 
                 <Button FontFamily="kawaii3" Text="Registrar"
-                Command="{Binding SimularBotoncomand}"
+                Command="{Binding InsertProductocomand}"
                 HorizontalOptions="Center"
                 CornerRadius="15"
                 Margin="0,0,0,2"

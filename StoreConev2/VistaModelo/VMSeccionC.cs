@@ -1,4 +1,5 @@
-﻿using StoreConev2.Modelo;
+﻿using StoreConev2.ApiMetodos;
+using StoreConev2.Modelo;
 using StoreConev2.Vistas;
 using System;
 using System.Collections.Generic;
@@ -14,7 +15,7 @@ namespace StoreConev2.VistaModelo
     {
         #region VARIABLES
         string _Texto;
-        ObservableCollection<Producto> _lproducto;
+        ObservableCollection<Producto2> _lproducto;
         #endregion
         #region CONSTRUCTOR
         public VMSeccionC(INavigation navigation)
@@ -29,7 +30,7 @@ namespace StoreConev2.VistaModelo
             get { return _Texto; }
             set { SetValue(ref _Texto, value); }
         }
-        public ObservableCollection<Producto> LProducto
+        public ObservableCollection<Producto2> LProducto
         {
             get { return _lproducto; }
             set
@@ -45,10 +46,10 @@ namespace StoreConev2.VistaModelo
         {
 
         }
-        public void MostrarLista()
+        public async Task MostrarLista()
         {
-            var funcion = new VMListaProductos();
-            LProducto = funcion.ObtenerProductosSeccionC();
+            var funcion = new DatosApi();
+            LProducto = await funcion.ObtenerProductosSeccionC();
 
 
 
