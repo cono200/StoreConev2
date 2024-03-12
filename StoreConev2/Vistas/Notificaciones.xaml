@@ -2,13 +2,13 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="StoreConev2.Vistas.Notificaciones"
-            xmlns:converters="clr-namespace:StoreConev2.Convertidor"
+            xmlns:converteridor="clr-namespace:StoreConev2.Triggers"
              Title="Notificaciones"
              x:Name="Navegacion"
              BackgroundColor="#AC75AD">
     <ContentPage.Resources>
         <ResourceDictionary>
-            <converters:ActionColorConverter x:Key="ActionColorConverter"/>
+            <converteridor:LineasColor x:Key="LineasColor"/>
         </ResourceDictionary>
     </ContentPage.Resources>
     <StackLayout Padding="0,-10,0,0" x:Name="stackLayout">
@@ -25,7 +25,7 @@
                     <ViewCell>
                         <Frame BorderColor="Gray"
                                CornerRadius="10"
-                               BackgroundColor="{Binding Accion, Converter={StaticResource ActionColorConverter}}"
+                               BackgroundColor="{Binding Accion, Converter={StaticResource LineasColor}}"
                                Padding="10">
                             <StackLayout Orientation="Horizontal">
                                 <Label Text="El Producto"
