@@ -11,5 +11,6 @@ namespace StoreConev2.Modelo
         public string Producto { get; set; }
         public string Detalles { get; set; }
         public string ProductoId { get; set; }
+        public int Index { get; set; }
     }
 }

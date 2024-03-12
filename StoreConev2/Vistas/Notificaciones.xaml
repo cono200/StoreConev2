@@ -2,9 +2,15 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="StoreConev2.Vistas.Notificaciones"
+            xmlns:converters="clr-namespace:StoreConev2.Convertidor"
              Title="Notificaciones"
              x:Name="Navegacion"
              BackgroundColor="#AC75AD">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:ActionColorConverter x:Key="ActionColorConverter"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
     <StackLayout Padding="0,-10,0,0" x:Name="stackLayout">
         <StackLayout BackgroundColor="Gray" Margin="10" Padding="10,0,10,-1" VerticalOptions="Start">
             <Grid>
@@ -18,39 +24,37 @@
                 <DataTemplate>
                     <ViewCell>
                         <Frame BorderColor="Gray"
-                       CornerRadius="10"
-                       BackgroundColor="LightGreen"
-                       Padding="10">
+                               CornerRadius="10"
+                               BackgroundColor="{Binding Accion, Converter={StaticResource ActionColorConverter}}"
+                               Padding="10">
                             <StackLayout Orientation="Horizontal">
                                 <Label Text="El Producto"
-                               TextColor="Black"
-                               FontAttributes="Bold"
-                               VerticalOptions="Center" />
+                                       TextColor="Black"
+                                       FontAttributes="Bold"
+                                       VerticalOptions="Center" />
                                 <Label Text="{Binding Producto}"
-                               TextColor="Black"
-                               FontAttributes="Bold"
-                               VerticalOptions="Center" />
+                                       TextColor="Black"
+                                       FontAttributes="Bold"
+                                       VerticalOptions="Center" />
 
                                 <Label Text="Se ha "
-                               TextColor="Black"
-                               VerticalOptions="Center" />
+                                       TextColor="Black"
+                                       VerticalOptions="Center" />
                                 <Label Text="{Binding Accion}"
-                               TextColor="Black"
-                               VerticalOptions="Center" />
+                                       TextColor="Black"
+                                       VerticalOptions="Center" />
 
                                 <Label Text="En fecha de"
-                               TextColor="Black"
-                               VerticalOptions="Center" />
+                                       TextColor="Black"
+                                       VerticalOptions="Center" />
                                 <Label Text="{Binding Fecha}"
-                               TextColor="Black"
-                               VerticalOptions="Center" />
+                                       TextColor="Black"
+                                       VerticalOptions="Center" />
                             </StackLayout>
                         </Frame>
                     </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-
-
     </StackLayout>
 </ContentPage>

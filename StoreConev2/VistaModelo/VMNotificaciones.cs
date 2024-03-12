@@ -27,7 +27,7 @@ namespace StoreConev2.VistaModelo
                 OnPropertyChanged(nameof(Productos));
             }
         }
-
+      
         public VMNotificaciones(INavigation navigation)
         {
             this.navigation = navigation;
@@ -38,10 +38,18 @@ namespace StoreConev2.VistaModelo
         public async Task LoadHistorial()
         {
             var funcion = new DatosApi();
-            Productos = await funcion.ObtenerHistorial();
+            var productos = await funcion.ObtenerHistorial();
+
+            for (int i = 0; i < productos.Count; i++)
+            {
+                productos[i].Index = i;
+            }
+
+            Productos = new ObservableCollection<Historial>(productos);
         }
 
-       
+
+
         protected virtual void OnPropertyChanged(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
