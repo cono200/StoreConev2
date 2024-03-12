@@ -117,51 +117,34 @@ namespace StoreConev2.VistaModelo
         }
         public async Task Buscar()
         {
-            if (Codigo == null)
+            if (Codigo == 0) // Codigo es de tipo long, no puede ser null. Puedes verificar si es 0.
             {
                 await Application.Current.MainPage.DisplayAlert("Ventana", "El campo de Codigo es Obligatorio", "cerrar");
                 return;
             }
             var funcion = new DatosApi();
 
-            // Pasar el código del producto directamente al método
             ProductoSeleccionado = await funcion.ObtenerProductobyCodigo(Codigo);
+
+            // Verificar que ProductoSeleccionado no sea null
+            if (ProductoSeleccionado == null)
+            {
+                // Manejar el caso cuando ProductoSeleccionado es null
+                await Application.Current.MainPage.DisplayAlert("Ventana", "No se encontró el producto", "cerrar");
+                return;
+            }
 
             // Asignar los datos devueltos a las propiedades de tu ViewModel
             Codigo = ProductoSeleccionado.Codigo;
             Nombre = ProductoSeleccionado.Nombre;
-            Proveedor = ProductoSeleccionado.proveedor.Nombre.ToString();
-            _Idproveedor= ProductoSeleccionado.ProveedorId.ToString();
-            _seccion = ProductoSeleccionado.Seccion.ToString();
-            _precio = ProductoSeleccionado.Precio;
-
-
-            
-
-            // Repite este paso para todas las propiedades que quieras asignar
+            Proveedor = ProductoSeleccionado.proveedor?.Nombre; // Usar el operador de propagación nula
+            IdProveedor = ProductoSeleccionado.ProveedorId.ToString();
+            // Asignar las demás propiedades...
         }
 
-        //public async Task Insertar()
-        //{
-        //    if ((Codigo == null))
-        //    {
-        //        await Application.Current.MainPage.DisplayAlert("Ventana", "El campo de Codigo es Obligatorio", "cerrar");
-        //        return;
-        //    }
-        //    var funcion = new DatosApi();
-        //    var parametros = new Producto2();
-        //    parametros.Codigo = _codigo;
-        //    parametros.Nombre = _Nombre;
-        //    parametros.Seccion = _seccion;
-        //    parametros.ProveedorId = IdProveedor;
-        //    parametros.Descripcion = _descripcion;
-        //    parametros.Precio = _precio;
-        //   parametros.Imagen = "nuddll";
-        //    parametros.Caducidad = DateTime.Now;
 
-        //    await funcion.InsertarProducto(parametros);
 
-        //}
+
 
         public async Task BuscarEInsertar()
         {
@@ -189,7 +172,6 @@ namespace StoreConev2.VistaModelo
                 proveedor= ProductoSeleccionado.proveedor
             };
 
-            // Insertar el nuevo producto
             await funcion.InsertarProducto(nuevoProducto);
         }
 

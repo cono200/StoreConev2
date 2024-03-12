@@ -57,8 +57,7 @@ namespace StoreConev2.ApiMetodos
             Uri RequestUri = new Uri("http://www.StoreConev3.somee.com/Api/Producto/BuscarPorCodigo");
             var client = new HttpClient();
 
-
-            var jsonContent = JsonConvert.SerializeObject(new { Codigo = codigo });
+            var jsonContent = codigo.ToString();
             var httpContent = new StringContent(jsonContent, Encoding.UTF8, "application/json");
 
             var response = await client.PostAsync(RequestUri, httpContent);
@@ -75,6 +74,7 @@ namespace StoreConev2.ApiMetodos
                 return null;
             }
         }
+
 
         public async Task<ObservableCollection<Producto2>> ObtenerProductosSeccionA()
         {
