@@ -1,78 +1,69 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+﻿<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="StoreConev2.Vistas.VistaPreviaProducto"
              xmlns:magic="clr-namespace:MagicGradients;assembly=MagicGradients"
-             Title="VistaPreviaProducto"
-            
-             >
-    <Grid BackgroundColor="#B7F8F4">
-
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto" />
-            <ColumnDefinition Width="*" />
-        </Grid.ColumnDefinitions>
-
-        <Grid Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="0" BackgroundColor="#00B91F" Margin="0,0,0,0">
+             Title="VistaPreviaProducto">
+    <RefreshView Command="{Binding LoadPistolaCommand}" IsRefreshing="{Binding IsRefreshing}">
+        <Grid BackgroundColor="#B7F8F4">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
                 <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="*" />
-                
             </Grid.ColumnDefinitions>
-            <Image Source="https://i.ibb.co/0MtrR1f/logo-2.png" HeightRequest="60" Margin="20,0,0,0" Grid.Column="0" HorizontalOptions="Start"/>
-            <Label Text="Store Cone" FontFamily="kawaii" VerticalOptions="Center" FontSize="30" HorizontalOptions="CenterAndExpand" TextColor="Black" Grid.Column="1" Padding="-300,0,0,0" />
-            <StackLayout Grid.Column="1" Padding="10,10,-300,10">
-                <Image Source="https://i.ibb.co/3pvWwdR/campana.png" WidthRequest="40">
-                    <Image.GestureRecognizers>
-                        <TapGestureRecognizer Command="{Binding IrNotificacionescomand}"/>
-                    </Image.GestureRecognizers>
-                </Image>
-                <Label Text="2" 
-    HorizontalOptions="CenterAndExpand" 
-    VerticalOptions="EndAndExpand" 
-    TextColor="White" 
-    WidthRequest="20" 
-    HeightRequest="20"
-     Margin="65,-37,50,23"
-                     />
+
+            <Grid Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="0" BackgroundColor="#00B91F" Margin="0,0,0,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Image Source="https://i.ibb.co/0MtrR1f/logo-2.png" HeightRequest="60" Margin="20,0,0,0" Grid.Column="0" HorizontalOptions="Start"/>
+                <Label Text="Store Cone" FontFamily="kawaii" VerticalOptions="Center" FontSize="30" HorizontalOptions="CenterAndExpand" TextColor="Black" Grid.Column="1" Padding="-300,0,0,0" />
+                <StackLayout Grid.Column="1" Padding="10,10,-300,10">
+                    <Image Source="https://i.ibb.co/3pvWwdR/campana.png" WidthRequest="40">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding IrNotificacionescomand}"/>
+                        </Image.GestureRecognizers>
+                    </Image>
+                    <Label Text="2" 
+                           HorizontalOptions="CenterAndExpand" 
+                           VerticalOptions="EndAndExpand" 
+                           TextColor="White" 
+                           WidthRequest="20" 
+                           HeightRequest="20"
+                           Margin="65,-37,50,23" />
+                </StackLayout>
+            </Grid>
+
+            <Label Text="Código:" Grid.Row="1" Padding="0,20,0,0" Grid.Column="0" Margin="10,50,0,0" FontSize="20" TextColor="#D57E00" />
+            <Entry Grid.Row="1" Text="{Binding Pistola.CodigoPistola}" Grid.Column="1"  Margin="10,50,0,0" Keyboard="Numeric" />
+
+            <Label Text="Nombre:" Padding="0,20,0,0" Grid.Row="3" Grid.Column="0" Margin="10"  FontSize="20" TextColor="#D57E00" />
+            <Entry Grid.Row="3" Text="{Binding Nombre}" Grid.Column="1" Margin="10" />
+
+            <Label Text="Sección:" Padding="0,20,0,0" Grid.Row="2" Grid.Column="0" Margin="10"  FontSize="20" TextColor="#D57E00"/>
+            <Entry Grid.Row="2" Text="{Binding Seccion}" Grid.Column="1" Margin="10" />
+
+            <StackLayout Grid.Row="1"  Padding="0,20,0,5"  Orientation="Horizontal" Grid.Column="2"   HorizontalOptions="CenterAndExpand">
+                <Button Text="Sumar" FontFamily="kawaii3" CornerRadius="21" BackgroundColor="#F8F000" TextColor="#013715" FontSize="25" Command="{Binding SearchProductocomand}"/>
+                <Frame CornerRadius="10" WidthRequest="35" HeightRequest="17" Padding="0" BorderColor="Black">
+                    <Entry HorizontalTextAlignment="Center" BackgroundColor="AliceBlue" Text="{Binding Cantidad}"  Placeholder="C"></Entry>
+                </Frame>
+
+                <Button Text="Eliminar"  FontFamily="kawaii3"  CornerRadius="21" BackgroundColor="#F8F000" TextColor="#013715" FontSize="25" Command="{Binding SimularRestacomand}"/>
             </StackLayout>
-        </Grid>
-      
-        <Label Text="Código:" Grid.Row="1" Padding="0,20,0,0" Grid.Column="0" Margin="10,50,0,0" FontSize="20" TextColor="#D57E00" />
-        <Entry Grid.Row="1" Text="{Binding Codigo}" Grid.Column="1"  Margin="10,50,0,0" Keyboard="Numeric" />
-
-        <Label Text="Nombre:" Padding="0,20,0,0" Grid.Row="3" Grid.Column="0" Margin="10"  FontSize="20" TextColor="#D57E00" />
-        <Entry Grid.Row="3" Text="{Binding Nombre}" Grid.Column="1" Margin="10" />
-
-
-
-        <Label Text="Sección:" Padding="0,20,0,0" Grid.Row="2" Grid.Column="0" Margin="10"  FontSize="20" TextColor="#D57E00"/>
-        <Entry Grid.Row="2" Text="{Binding Proveedor}" Grid.Column="1" Margin="10" />
-
-        <StackLayout Grid.Row="1"  Padding="0,20,0,5"  Orientation="Horizontal" Grid.Column="2"   HorizontalOptions="CenterAndExpand">
-            <Button Text="Sumar" FontFamily="kawaii3" CornerRadius="21" BackgroundColor="#F8F000" TextColor="#013715" FontSize="25" Command="{Binding SearchProductocomand}"/>
-            <Frame CornerRadius="10" WidthRequest="35" HeightRequest="17" Padding="0" BorderColor="Black">
-                <Entry HorizontalTextAlignment="Center" BackgroundColor="AliceBlue" Text="{Binding Cantidad}"  Placeholder="C"></Entry>
+            <StackLayout Grid.Row="3"  Padding="0,10,0,0" Grid.Column="2"  Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                <Button FontFamily="kawaii3" Text="Detalles" FontAttributes="Italic"  CornerRadius="21" BackgroundColor="Orange" HeightRequest="60"
+                        WidthRequest="220" TextColor="#013715" FontSize="25" Command="{Binding InsertProductocomand}" />
+            </StackLayout>
+            <Frame CornerRadius="30"  Padding="0" Grid.Row="2" Grid.Column="2" BorderColor="Black">
+                <Image Source="{Binding Imagen}" Aspect="AspectFit" WidthRequest="25"/>
             </Frame>
-
-            <Button Text="Eliminar"  FontFamily="kawaii3"  CornerRadius="21" BackgroundColor="#F8F000" TextColor="#013715" FontSize="25" Command="{Binding SimularRestacomand}"/>
-        </StackLayout>
-        <StackLayout Grid.Row="3"  Padding="0,10,0,0" Grid.Column="2"  Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
-            <Button FontFamily="kawaii3" Text="Detalles" FontAttributes="Italic"  CornerRadius="21" BackgroundColor="Orange" HeightRequest="60" WidthRequest="220" TextColor="#013715" FontSize="25" Command="{Binding InsertProductocomand}" />
-
-        </StackLayout>
-        <Frame CornerRadius="30"  Padding="0" Grid.Row="2" Grid.Column="2" BorderColor="Black">
-            <Image Source="https://i.ibb.co/dWR9GdP/papas3.png" Aspect="AspectFit" WidthRequest="25"/>
-        </Frame>
-      
-
-    </Grid>
-    
+        </Grid>
+    </RefreshView>
 </ContentPage>

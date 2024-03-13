@@ -3,11 +3,13 @@ using StoreConev2.Modelo;
 using StoreConev2.Vistas;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
 using static System.Collections.Specialized.BitVector32;
+using static System.Net.WebRequestMethods;
 
 namespace StoreConev2.VistaModelo
 {
@@ -22,22 +24,69 @@ namespace StoreConev2.VistaModelo
         private string _Idproveedor;
         private string _seccion;
         private string _descripcion;
+        private string _imagen= "https://i.ibb.co/dWR9GdP/papas3.png";
         private int _precio;
+        private Scaner _pistola;
+        private bool _isRefreshing = false;
+
+
         public Producto2 ProductoSeleccionado { get; set; }
+        public ICommand RefreshCommand { get; }
+        public bool IsRefreshing
+        {
+            get { return _isRefreshing; }
+            set
+            {
+                if (_isRefreshing != value)
+                {
+                    _isRefreshing = value;
+                    OnPropertyChanged(nameof(IsRefreshing));
+                }
+            }
+        }
+
+        public VMVistaPreviaP()
+        {
+            RefreshCommand = new Command(async () => await RefreshDataAsync());
+        }
+
+        private async Task RefreshDataAsync()
+        {
+            IsRefreshing = true;
+
+            // Aquí va tu lógica para actualizar los datos
+
+            IsRefreshing = false;
+        }
 
         #endregion
         #region CONSTRUCTOR
         public VMVistaPreviaP(INavigation navigation)
         {
             Navigation = navigation;
-
+            LoadPistola();
         }
         #endregion
         #region OBJETOS
+       
+        public Scaner Pistola
+        {
+            get { return _pistola; }
+            set { SetValue(ref _pistola, value); }
+        }
+        public string Seccion
+        {
+            get { return _seccion; }
+            set { SetValue(ref _seccion, value); }
+        }
         public string Proveedor
         {
             get { return _Proveedor; }
             set { SetValue(ref _Proveedor, value); }
+        } public string Imagen
+        {
+            get { return _imagen; }
+            set { SetValue(ref _imagen, value); }
         }
         public string Nombre
         {
@@ -103,6 +152,14 @@ namespace StoreConev2.VistaModelo
            return  await Application.Current.MainPage.DisplayAlert("Confirmar", "Desea eliminar este producto?", "Si","No");
         }
 
+        public async Task LoadPistola()
+        {
+
+            var function = new DatosApi();
+            Pistola = await function.ScanerPistola();
+
+        }
+
         private async Task MensajeEliminar()
         {
             bool confirmacion = await SimularResta();
@@ -117,29 +174,29 @@ namespace StoreConev2.VistaModelo
         }
         public async Task Buscar()
         {
-            if (Codigo == 0) // Codigo es de tipo long, no puede ser null. Puedes verificar si es 0.
-            {
-                await Application.Current.MainPage.DisplayAlert("Ventana", "El campo de Codigo es Obligatorio", "cerrar");
-                return;
-            }
+            //if (Codigo == 0) 
+            //{
+            //    await Application.Current.MainPage.DisplayAlert("Ventana", "El campo de Codigo es Obligatorio", "cerrar");
+            //    return;
+            //}
             var funcion = new DatosApi();
+            Pistola = await funcion.ScanerPistola();
 
-            ProductoSeleccionado = await funcion.ObtenerProductobyCodigo(Codigo);
+            ProductoSeleccionado = await funcion.ObtenerProductobyCodigo(Pistola.CodigoPistola);
 
-            // Verificar que ProductoSeleccionado no sea null
             if (ProductoSeleccionado == null)
             {
-                // Manejar el caso cuando ProductoSeleccionado es null
                 await Application.Current.MainPage.DisplayAlert("Ventana", "No se encontró el producto", "cerrar");
                 return;
             }
 
             // Asignar los datos devueltos a las propiedades de tu ViewModel
-            Codigo = ProductoSeleccionado.Codigo;
+            Pistola.CodigoPistola = ProductoSeleccionado.Codigo;
             Nombre = ProductoSeleccionado.Nombre;
-            Proveedor = ProductoSeleccionado.proveedor?.Nombre; // Usar el operador de propagación nula
+            Seccion=ProductoSeleccionado.Seccion;
+            Proveedor = ProductoSeleccionado.proveedor?.Nombre; 
             IdProveedor = ProductoSeleccionado.ProveedorId.ToString();
-            // Asignar las demás propiedades...
+            Imagen= ProductoSeleccionado.Imagen;
         }
 
 
@@ -148,7 +205,7 @@ namespace StoreConev2.VistaModelo
 
         public async Task BuscarEInsertar()
         {
-            if (Codigo == null)
+            if (Pistola.CodigoPistola == null)
             {
                 await Application.Current.MainPage.DisplayAlert("Ventana", "El campo de Codigo es Obligatorio", "cerrar");
                 return;
@@ -156,7 +213,7 @@ namespace StoreConev2.VistaModelo
             var funcion = new DatosApi();
 
             // Buscar el producto por su código
-            ProductoSeleccionado = await funcion.ObtenerProductobyCodigo(Codigo);
+            ProductoSeleccionado = await funcion.ObtenerProductobyCodigo(Pistola.CodigoPistola);
 
             // Crear un nuevo producto con los datos obtenidos
             var nuevoProducto = new Producto2

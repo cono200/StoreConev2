@@ -34,7 +34,7 @@ namespace StoreConev2.ApiMetodos
                 return new ObservableCollection<Historial>();
             }
         }
-        public static HttpClient client = new HttpClient(); //Al hacerlo estatico, mejora el rendimiento de la aplicacion
+       public static HttpClient client = new HttpClient(); //Al hacerlo estatico, mejora el rendimiento de la aplicacion
 
         public async Task<ObservableCollection<Producto2>> ObtenerProductos()
         {
@@ -72,6 +72,25 @@ namespace StoreConev2.ApiMetodos
                 return new ObservableCollection<Proveedor>();
             }
         }
+        public async Task<Scaner> ScanerPistola()
+        {
+            Uri RequestUri = new Uri("http://www.StoreConev3.somee.com/Api/Pistola/ultimo");
+            var client = new HttpClient();
+            var response = await client.GetAsync(RequestUri);
+
+            if (response.IsSuccessStatusCode)
+            {
+                var json = await response.Content.ReadAsStringAsync();
+                var pistola = JsonConvert.DeserializeObject<Scaner>(json);
+                return pistola;
+            }
+            else
+            {
+                // Manejo de errores
+                return null;
+            }
+        }
+
         public async Task<Producto2> ObtenerProductobyCodigo(long codigo)
         {
             Uri RequestUri = new Uri("http://www.StoreConev3.somee.com/Api/Producto/BuscarPorCodigo");
@@ -165,7 +184,7 @@ namespace StoreConev2.ApiMetodos
                 contenJson);
             if (response.StatusCode == HttpStatusCode.Created)
             {
-                await Xamarin.Forms.Application.Current.MainPage.DisplayAlert("Mensaje", "Merma registrada con éxito.", "OK");
+                await Xamarin.Forms.Application.Current.MainPage.DisplayAlert("Mensaje", "Producto registrado con éxito.", "OK");
 
             }
             else

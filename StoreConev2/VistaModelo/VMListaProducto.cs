@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 using Newtonsoft.Json;
+using System.Windows.Input;
 
 namespace StoreConev2.VistaModelo
 {
@@ -16,6 +17,7 @@ namespace StoreConev2.VistaModelo
         public event PropertyChangedEventHandler PropertyChanged;
 
         private ObservableCollection<Producto2> _productos;
+        private bool _isRefreshing; // Agrega esta línea
         private INavigation navigation;
 
         public ObservableCollection<Producto2> Productos
@@ -28,13 +30,20 @@ namespace StoreConev2.VistaModelo
             }
         }
 
-
+        public bool IsRefreshing // Agrega esta propiedad
+        {
+            get { return _isRefreshing; }
+            set
+            {
+                _isRefreshing = value;
+                OnPropertyChanged(nameof(IsRefreshing));
+            }
+        }
 
         public VMListaProducto(INavigation navigation)
         {
             this.navigation = navigation;
             LoadProductos();
-
         }
 
         public async Task LoadProductos()
@@ -43,7 +52,22 @@ namespace StoreConev2.VistaModelo
             Productos = await funcion.ObtenerProductos();
         }
 
-       
+        public ICommand RefreshCommand
+        {
+            get
+            {
+                return new Command(async () =>
+                {
+                    IsRefreshing = true;
+
+                    await LoadProductos();
+
+                    IsRefreshing = false;
+                });
+            }
+        }
+
+
         protected virtual void OnPropertyChanged(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));

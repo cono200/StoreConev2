@@ -72,6 +72,7 @@
                 </Frame>
 
                 <!-- Datos de productos -->
+            <RefreshView Command="{Binding RefreshCommand}" IsRefreshing="{Binding IsRefreshing}" Grid.Row="1" Grid.ColumnSpan="7">
                 <ListView ItemsSource="{Binding Productos}" Grid.Row="1" Grid.ColumnSpan="7">
                     <ListView.ItemTemplate>
                         <DataTemplate>
@@ -98,6 +99,8 @@
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
+            </RefreshView>
+
         </Grid>
     </ContentPage.Content>
 </ContentPage>
