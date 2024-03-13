@@ -216,20 +216,23 @@ namespace StoreConev2.VistaModelo
             ProductoSeleccionado = await funcion.ObtenerProductobyCodigo(Pistola.CodigoPistola);
 
             // Crear un nuevo producto con los datos obtenidos
-            var nuevoProducto = new Producto2
+            for (int i = 0; i <= Cantidad; i++)
             {
-                Codigo = ProductoSeleccionado.Codigo,
-                Nombre = ProductoSeleccionado.Nombre,
-                ProveedorId = ProductoSeleccionado.ProveedorId,
-                Seccion = ProductoSeleccionado.Seccion,
-                Descripcion = ProductoSeleccionado.Descripcion,
-                Precio = ProductoSeleccionado.Precio,
-                Caducidad = DateTime.Now,
-                Imagen = ProductoSeleccionado.Imagen,
-                proveedor= ProductoSeleccionado.proveedor
-            };
+                var nuevoProducto = new Producto2
+                {
+                    Codigo = ProductoSeleccionado.Codigo,
+                    Nombre = ProductoSeleccionado.Nombre,
+                    ProveedorId = ProductoSeleccionado.ProveedorId,
+                    Seccion = ProductoSeleccionado.Seccion,
+                    Descripcion = ProductoSeleccionado.Descripcion,
+                    Precio = ProductoSeleccionado.Precio,
+                    Caducidad = DateTime.Now,
+                    Imagen = ProductoSeleccionado.Imagen,
+                    proveedor = ProductoSeleccionado.proveedor
+                };
 
-            await funcion.InsertarProducto(nuevoProducto);
+                await funcion.InsertarProducto(nuevoProducto);
+            }
         }
 
 
