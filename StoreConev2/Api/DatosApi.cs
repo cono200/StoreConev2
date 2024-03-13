@@ -34,6 +34,8 @@ namespace StoreConev2.ApiMetodos
                 return new ObservableCollection<Historial>();
             }
         }
+        public static HttpClient client = new HttpClient(); //Al hacerlo estatico, mejora el rendimiento de la aplicacion
+
         public async Task<ObservableCollection<Producto2>> ObtenerProductos()
         {
             Uri RequestUri = new Uri("http://www.StoreConev3.somee.com/Api/Producto/Listar");

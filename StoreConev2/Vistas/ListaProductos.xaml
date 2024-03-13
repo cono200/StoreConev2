@@ -89,7 +89,7 @@
                                     <Label Grid.Column="0" TextColor="Black" Text="{Binding Codigo}" />
                                     <Label Grid.Column="1" Text="{Binding Nombre}" />
                                     <Label Grid.Column="2" Text="{Binding Seccion}" />
-                                <Label Grid.Column="3" Text="{Binding ProveedorId}" />
+                                <Label Grid.Column="3" Text="{Binding proveedor.Nombre}" />
                                     <Label Grid.Column="4" Text="{Binding Cantidad}" />
                                     <Label Grid.Column="5" Text="{Binding Precio}" />
                                 <Label Grid.Column="6" Text="{Binding Descripcion}" />

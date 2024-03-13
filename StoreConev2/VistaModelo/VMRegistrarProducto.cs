@@ -23,6 +23,7 @@ namespace StoreConev2.VistaModelo
         private string _descripcion;
         private int _precio ;
         private bool _boleano =false;
+        private List<string> _seccionlist;
 
 
         #endregion
@@ -31,11 +32,16 @@ namespace StoreConev2.VistaModelo
         public VMRegistrarProducto(INavigation navigation)
         {
             Navigation = navigation;
-
+            SeccionList = new List<string> { "1A", "2A", "3A", "4A", "1B", "2B", "3B", "4B","1C", "2C", "3C", "4C", "1D", "2D", "3D", "4D" };
         }
         #endregion
         #region OBJETOS
         private bool _areFieldsNotEmpty;
+        public List<string> SeccionList
+        {
+            get { return _seccionlist; }
+            set { SetValue(ref _seccionlist, value); }
+        }
         public bool AreFieldsNotEmpty
         {
             get { return _areFieldsNotEmpty; }

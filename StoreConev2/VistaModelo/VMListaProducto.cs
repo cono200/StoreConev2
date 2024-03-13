@@ -43,15 +43,7 @@ namespace StoreConev2.VistaModelo
             Productos = await funcion.ObtenerProductos();
         }
 
-        // Aquí iría tu método GetProductosAsync()...
-        //AKI ESTUBO EL CONO
-        //public async Task<List<Producto2>> GetProductosAsync()
-        //{
-        //    var client = new HttpClient();
-        //    var response = await client.GetStringAsync("http://www.ApiStore.somee.com/Api/Producto/Listar");
-        //    var productos = JsonConvert.DeserializeObject<List<Producto2>>(response);
-        //    return productos;
-        //}
+       
         protected virtual void OnPropertyChanged(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));

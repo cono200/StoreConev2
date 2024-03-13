@@ -75,10 +75,12 @@
                Grid.Row="2"
                         FontAttributes="Bold"
                VerticalOptions="Center" />
-                    <Entry x:Name="seccion" TextColor="Black" Placeholder="Ingresa  la sección"
+                    <Picker  Title="Sección"
+                        x:Name="seccion" TextColor="Black" 
                Grid.Row="2"
                Grid.Column="1"
-               Text="{Binding Seccion}" FontSize="12"/>
+              SelectedItem="{Binding Seccion}"
+                ItemsSource="{Binding SeccionList}" FontSize="12"/>
 
 
                     <Label TextColor="Orange" Text="Proveedor"
