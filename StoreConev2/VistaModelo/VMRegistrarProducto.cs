@@ -9,6 +9,7 @@ using StoreConev2.Vistas;
 using System.ComponentModel;
 using StoreConev2.ApiMetodos;
 using StoreConev2.Modelo;
+using System.Collections.ObjectModel;
 
 namespace StoreConev2.VistaModelo
 {
@@ -24,6 +25,7 @@ namespace StoreConev2.VistaModelo
         private int _precio ;
         private bool _boleano =false;
         private List<string> _seccionlist;
+        private ObservableCollection<Proveedor> _Lproveedores;
 
 
         #endregion
@@ -33,7 +35,9 @@ namespace StoreConev2.VistaModelo
         {
             Navigation = navigation;
             SeccionList = new List<string> { "1A", "2A", "3A", "4A", "1B", "2B", "3B", "4B","1C", "2C", "3C", "4C", "1D", "2D", "3D", "4D" };
+            LoadProveedor();
         }
+
         #endregion
         #region OBJETOS
         private bool _areFieldsNotEmpty;
@@ -41,6 +45,15 @@ namespace StoreConev2.VistaModelo
         {
             get { return _seccionlist; }
             set { SetValue(ref _seccionlist, value); }
+        }
+        public ObservableCollection<Proveedor> Lproveedores
+        {
+            get { return _Lproveedores; }
+            set
+            {
+                _Lproveedores = value;
+                OnPropertyChanged(nameof(Lproveedores));
+            }
         }
         public bool AreFieldsNotEmpty
         {
@@ -166,7 +179,11 @@ namespace StoreConev2.VistaModelo
 
         }
 
-
+        public async Task LoadProveedor()
+        {
+            var funcion = new DatosApi();
+            Lproveedores = await funcion.ObtenerProveedor();
+        }
         public void SimularBoton()
         {
             DisplayAlert("Mensaje", "Producto añadido ", "Ok");

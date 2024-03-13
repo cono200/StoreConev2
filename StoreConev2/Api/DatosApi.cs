@@ -54,6 +54,24 @@ namespace StoreConev2.ApiMetodos
                 return new ObservableCollection<Producto2>();
             }
         }
+        public async Task<ObservableCollection<Proveedor>> ObtenerProveedor()
+        {
+            Uri RequestUri = new Uri("http://www.StoreConev3.somee.com/Api/Proveedor/Listar");
+            var client = new HttpClient();
+            var response = await client.GetAsync(RequestUri);
+
+            if (response.IsSuccessStatusCode)
+            {
+                var json = await response.Content.ReadAsStringAsync();
+                var proveedor = JsonConvert.DeserializeObject<List<Proveedor>>(json);
+                return new ObservableCollection<Proveedor>(proveedor);
+            }
+            else
+            {
+                // Manejo de errores
+                return new ObservableCollection<Proveedor>();
+            }
+        }
         public async Task<Producto2> ObtenerProductobyCodigo(long codigo)
         {
             Uri RequestUri = new Uri("http://www.StoreConev3.somee.com/Api/Producto/BuscarPorCodigo");

@@ -87,10 +87,12 @@
                Grid.Row="3"
                         FontAttributes="Bold"
                VerticalOptions="Center" />
-                    <Entry x:Name="proveedor" TextColor="Black" Placeholder="Ingresar proveedor"
+                    <Picker x:Name="proveedor" TextColor="Black" Title="Proveedor"
                Grid.Row="3"
                Grid.Column="1"
-               Text="{Binding Proveedor}" FontSize="12"/>
+                FontSize="12"
+                            ItemDisplayBinding="{Binding Nombre}"
+                          ItemsSource="{Binding Lproveedores}"/>
 
 
                  
