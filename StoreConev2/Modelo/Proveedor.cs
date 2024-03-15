@@ -6,6 +6,7 @@ namespace StoreConev2.Modelo
 {
     public class Proveedor
     {
+        public string Id { get; set; }
         public string Nombre { get; set; }
         public string Telefono { get; set; }
         public string Correo { get; set; }

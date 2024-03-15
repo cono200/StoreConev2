@@ -87,15 +87,11 @@
                Grid.Row="3"
                         FontAttributes="Bold"
                VerticalOptions="Center" />
-                    <Picker x:Name="proveedor" TextColor="Black" Title="Proveedor"
-               Grid.Row="3"
-               Grid.Column="1"
-                FontSize="12"
-                            ItemDisplayBinding="{Binding Nombre}"
-                          ItemsSource="{Binding Lproveedores}"/>
-
-
-                 
+                    <Picker x:Name="proveedor" 
+        Title="Proveedor"
+        SelectedItem="{Binding ProveedorSeleccionado}"
+        ItemDisplayBinding="{Binding Nombre}"
+        ItemsSource="{Binding Lproveedores}"/>
 
 
                     <Label TextColor="Orange" Text="Descripción"
