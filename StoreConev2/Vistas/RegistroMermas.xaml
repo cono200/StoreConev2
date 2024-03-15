@@ -38,19 +38,14 @@
                    Placeholder="Ingrese código"
                    Text="{Binding Codigo}" />
 
+               
+
+
                 <Label Grid.Row="2"
-                   Text="Fecha de ingreso"
-                   FontAttributes="Bold" 
-                       Padding="0,15,0,0"/>
-                <DatePicker Grid.Column="1" Grid.Row="2"
-                        Date="{Binding Fecha_ingreso}" />
-
-
-                <Label Grid.Row="3"
                    Text="Nombre del producto"
                    FontAttributes="Bold" 
                        Padding="0,15,0,0"/>
-                <Entry Grid.Column="1" Grid.Row="3"
+                <Entry Grid.Column="1" Grid.Row="2"
                    Placeholder="Ingrese nombre del producto"
                    Text="{Binding Nombre_producto}" />
             </Grid>

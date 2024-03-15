@@ -30,6 +30,7 @@ namespace StoreConev2.VistaModelo
         private Scaner _pistola;
         private bool _isRefreshing = false;
         private string ProductoId;
+        private DateTime _Fecha_caducidad;
 
         public Producto2 ProductoSeleccionado { get; set; }
         public ICommand RefreshCommand { get; }
@@ -108,6 +109,11 @@ namespace StoreConev2.VistaModelo
         {
             get { return _codigo; }
             set { SetValue(ref _codigo, value); }
+        }
+        public DateTime Fecha_Caducidad
+        {
+            get { return _Fecha_caducidad; }
+            set { SetValue(ref _Fecha_caducidad, value); }
         }
         public int Cantidad
         {
@@ -199,6 +205,7 @@ namespace StoreConev2.VistaModelo
             IdProveedor = ProductoSeleccionado.ProveedorId.ToString();
             Imagen= ProductoSeleccionado.Imagen;
             ProductoId = ProductoSeleccionado.Id;
+            Fecha_Caducidad = ProductoSeleccionado.Caducidad;
         }
 
 
@@ -227,9 +234,12 @@ namespace StoreConev2.VistaModelo
                     Seccion = ProductoSeleccionado.Seccion,
                     Descripcion = ProductoSeleccionado.Descripcion,
                     Precio = ProductoSeleccionado.Precio,
-                    Caducidad = DateTime.Now,
+                    Caducidad = Fecha_Caducidad,
                     Imagen = ProductoSeleccionado.Imagen,
-                    proveedor = ProductoSeleccionado.proveedor
+                    proveedor = ProductoSeleccionado.proveedor,
+                    
+                     
+                   
                 };
 
                 bool resultado = await funcion.InsertarProducto2(nuevoProducto);

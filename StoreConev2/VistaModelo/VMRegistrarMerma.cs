@@ -67,7 +67,7 @@ namespace StoreConev2.VistaModelo
         }
         public async Task Insertar()
         {
-            if (string.IsNullOrEmpty(Nombre_producto))
+            if (Codigo==0)
             {
                 await Application.Current.MainPage.DisplayAlert("Ventana", "El campo de Codigo es Obligatorio", "cerrar");
                 return;
@@ -75,7 +75,7 @@ namespace StoreConev2.VistaModelo
             var funcion = new DatosApi();
             var parametros = new Merma();
             parametros.Codigo = _Codigo;
-            parametros.Fecha_ingreso = _Fecha_ingreso;
+            parametros.Fecha_ingreso = DateTime.Now;
             parametros.Tipo_de_merma = _Tipo_de_merma;
             parametros.Nombre_producto = _Nombre_producto;
             await funcion.InsertarMerma(parametros);
