@@ -14,7 +14,7 @@
     <StackLayout Padding="0,-10,0,0" x:Name="stackLayout">
         <StackLayout BackgroundColor="Gray" Margin="10" Padding="10,0,10,-1" VerticalOptions="Start">
             <Grid>
-                <Label Text="Notificaciones" FontSize="30" FontAttributes="Bold" FontFamily="kawaii" TextColor="Black" HorizontalOptions="Center" Grid.Column="1" Margin="-350,0,50,0"/>
+                <Label Text="Notificaciones" FontSize="20" FontAttributes="Bold" FontFamily="kawaii" TextColor="Black" HorizontalOptions="Center" Grid.Column="1" Margin="-350,0,50,0"/>
                 <Image Source="https://i.ibb.co/0MtrR1f/logo-2.png" HeightRequest="60" Margin="-800,0,360,0" Grid.Column="1"/>
             </Grid>
         </StackLayout>

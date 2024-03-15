@@ -26,6 +26,7 @@ namespace StoreConev2.VistaModelo
         private bool _boleano =false;
         private List<string> _seccionlist;
         private ObservableCollection<Proveedor> _Lproveedores;
+        public Proveedor ProveedorSeleccionado { get; set; }
 
 
         #endregion
@@ -147,7 +148,7 @@ namespace StoreConev2.VistaModelo
         }
         public void CheckFields()
         {
-            if (Codigo != null && Nombre != string.Empty && Seccion != string.Empty && Proveedor != string.Empty &&
+            if (Codigo != null && Nombre != string.Empty && Seccion != string.Empty && 
                 Precio != null)
             {
                 boleano=true;
@@ -165,17 +166,17 @@ namespace StoreConev2.VistaModelo
                 return;
             }
             var funcion = new DatosApi();
-            var parametros = new Producto2();
+            var parametros = new ProductoParaInsertar();
             parametros.Codigo = _codigo;
             parametros.Nombre = _nombre;
             parametros.Seccion = _seccion;
-            parametros.ProveedorId =_proveedor ;
+            parametros.ProveedorId =ProveedorSeleccionado.Id;
             parametros.Descripcion = _descripcion;
             parametros.Precio = _precio;
           parametros.Imagen = "nuddll";
             parametros.Caducidad= DateTime.Now; 
             
-            await funcion.InsertarProducto(parametros);
+            await funcion.InsertarProducto2(parametros);
 
         }
 
