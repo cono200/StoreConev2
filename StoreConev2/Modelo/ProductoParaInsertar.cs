@@ -4,10 +4,8 @@ using System.Text;
 
 namespace StoreConev2.Modelo
 {
-    public class Producto2
+    public class ProductoParaInsertar
     {
-        //    public string Id { get; set; }
-        public string Id { get; set; }
         public string Nombre { get; set; }
         public long Codigo { get; set; }
         public string Seccion { get; set; }

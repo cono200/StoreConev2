@@ -3,6 +3,7 @@ using StoreConev2.Modelo;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -172,6 +173,27 @@ namespace StoreConev2.ApiMetodos
             }
 
         }
+        public async Task<bool> InsertarProducto2(ProductoParaInsertar producto)
+        {
+
+            Uri RequestUri = new Uri("http://www.StoreConev3.somee.com/Api/Producto/Crear");
+
+            var client = new HttpClient();
+            var json = JsonConvert.SerializeObject(producto);
+            var contenJson = new StringContent(json, Encoding.UTF8, "application/json");
+            var response = await client.PostAsync(RequestUri,
+                contenJson);
+            if (response.StatusCode == HttpStatusCode.Created)
+            {
+                return true;
+            }
+            else
+            {
+                await Xamarin.Forms.Application.Current.MainPage.DisplayAlert("Mensaje", "Error al registrar.", "OK");
+                return false;
+            }
+
+        }
         public async Task InsertarProducto(Producto2 producto)
         {
 
@@ -195,7 +217,34 @@ namespace StoreConev2.ApiMetodos
 
         }
 
+        public async Task EliminarProducto(string id)
+        {
+            try
+            {
+                var apiClient = new HttpClient();
+                var url = $"http://www.StoreConev3.somee.com/Api/Producto/Borrar/{id}";
+
+                var response = await apiClient.DeleteAsync(url);
+
+                if (response.IsSuccessStatusCode)
+                {
+                }
+                else
+                {
+                    await Xamarin.Forms.Application.Current.MainPage.DisplayAlert("Error", "No se pudo eliminar el producto.", "OK");
+                }
+            }
+            catch (Exception ex)
+            {
+                // Manejo de errores
+                Debug.WriteLine($"Error general: {ex.Message}");
+            }
+        }
+
+
+
+
     }
 
-   
+
 }

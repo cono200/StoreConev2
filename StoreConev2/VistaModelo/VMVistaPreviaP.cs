@@ -4,6 +4,7 @@ using StoreConev2.Vistas;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
@@ -28,7 +29,7 @@ namespace StoreConev2.VistaModelo
         private int _precio;
         private Scaner _pistola;
         private bool _isRefreshing = false;
-
+        private string ProductoId;
 
         public Producto2 ProductoSeleccionado { get; set; }
         public ICommand RefreshCommand { get; }
@@ -197,6 +198,7 @@ namespace StoreConev2.VistaModelo
             Proveedor = ProductoSeleccionado.proveedor?.Nombre; 
             IdProveedor = ProductoSeleccionado.ProveedorId.ToString();
             Imagen= ProductoSeleccionado.Imagen;
+            ProductoId = ProductoSeleccionado.Id;
         }
 
 
@@ -212,13 +214,12 @@ namespace StoreConev2.VistaModelo
             }
             var funcion = new DatosApi();
 
-            // Buscar el producto por su código
             ProductoSeleccionado = await funcion.ObtenerProductobyCodigo(Pistola.CodigoPistola);
 
             // Crear un nuevo producto con los datos obtenidos
             for (int i = 0; i <= Cantidad; i++)
             {
-                var nuevoProducto = new Producto2
+                var nuevoProducto = new ProductoParaInsertar
                 {
                     Codigo = ProductoSeleccionado.Codigo,
                     Nombre = ProductoSeleccionado.Nombre,
@@ -231,10 +232,27 @@ namespace StoreConev2.VistaModelo
                     proveedor = ProductoSeleccionado.proveedor
                 };
 
-                await funcion.InsertarProducto(nuevoProducto);
+                bool resultado = await funcion.InsertarProducto2(nuevoProducto);
+
+                if (!resultado) 
+                {
+                    return;
+                }
             }
+            await Application.Current.MainPage.DisplayAlert("Mensaje", "Producto registrado con éxito", "OK");
+
         }
 
+        public async Task EliminarProducto()
+        {
+            var confirmar = await Application.Current.MainPage.DisplayAlert("Mensaje", "¿Estás seguro de que quieres eliminar este producto?", "Sí", "No");
+            if (confirmar)
+            {
+                var funcion = new DatosApi();
+                await funcion.EliminarProducto(ProductoId);
+                await Application.Current.MainPage.DisplayAlert("Mensaje", "Producto eliminado con éxito", "OK");
+            }
+        }
 
         #endregion
         #region COMANDOS
@@ -247,6 +265,8 @@ namespace StoreConev2.VistaModelo
 
         public ICommand SearchProductocomand => new Command(async () => await Buscar());
         public ICommand InsertProductocomand => new Command(async () => await BuscarEInsertar());
+        public ICommand EliminarProductocomand => new Command(async () => await EliminarProducto());
+
 
 
 
