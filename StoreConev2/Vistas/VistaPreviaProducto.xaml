@@ -4,7 +4,7 @@
              xmlns:magic="clr-namespace:MagicGradients;assembly=MagicGradients"
              Title="VistaPreviaProducto">
     <RefreshView Command="{Binding LoadPistolaCommand}" IsRefreshing="{Binding IsRefreshing}">
-        <Grid BackgroundColor="#B7F8F4">
+        <Grid BackgroundColor="FloralWhite">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
@@ -17,7 +17,7 @@
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
 
-            <Grid Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="0" BackgroundColor="#00B91F" Margin="0,0,0,0">
+            <Grid Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="0" BackgroundColor="#2196F3" Margin="0,0,0,0">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="*" />
@@ -40,33 +40,35 @@
                 </StackLayout>
             </Grid>
 
-            <Label Text="Código:" Grid.Row="1" Padding="0,20,0,0" Grid.Column="0" Margin="10,40,0,0" FontSize="20" TextColor="#D57E00" />
-            <Entry Grid.Row="1" Text="{Binding Pistola.CodigoPistola}" Grid.Column="1"  Margin="0,40,0,0" Keyboard="Numeric" />
+            <Label Text="Código:" Grid.Row="1" Padding="0,20,0,0" Grid.Column="0" Margin="10,40,0,0" FontSize="20" TextColor="Black" />
+            <Entry Grid.Row="1" Text="{Binding Pistola.CodigoPistola}" Grid.Column="1"  Margin="0,40,0,0" Keyboard="Numeric"  TextColor="#8c8c8c" IsEnabled="False"/>
 
-            <Label Text="Nombre:" Padding="0,20,0,0" Grid.Row="3" Grid.Column="0" Margin="10,0,0,0"  FontSize="20" TextColor="#D57E00" />
-            <Entry Grid.Row="3" Text="{Binding Nombre}" Grid.Column="1"  />
+            <Label Text="Nombre:" Padding="0,20,0,0" Grid.Row="3" Grid.Column="0" Margin="10,0,0,0"  FontSize="20" TextColor="Black" />
+            <Entry Grid.Row="3" Text="{Binding Nombre}" Grid.Column="1"  TextColor="#8c8c8c" IsEnabled="False" />
 
-            <Label Text="Sección:" Padding="0,20,0,0" Grid.Row="2" Grid.Column="0" Margin="10,0,0,0"  FontSize="20" TextColor="#D57E00"/>
-            <Entry Grid.Row="2" Text="{Binding Seccion}" Grid.Column="1"  />
-            <Label Text="Caducidad:" Padding="0,20,0,0" Grid.Row="4" Grid.Column="0" Margin="10,0,0,0" FontSize="20" TextColor="#D57E00"/>
-            <DatePicker Grid.Row="4" Date="{Binding Fecha_Caducidad}" Grid.Column="1"  />
+            <Label Text="Sección:" Padding="0,20,0,0" Grid.Row="2" Grid.Column="0" Margin="10,0,0,0"  FontSize="20" TextColor="Black"/>
+            <Entry Grid.Row="2" Text="{Binding Seccion}" Grid.Column="1" TextColor="#8c8c8c" IsEnabled="False" />
+            <Label Text="Caducidad:" Padding="0,20,0,0" Grid.Row="4" Grid.Column="0" Margin="10,0,0,0" FontSize="20" TextColor="Black"/>
+            <DatePicker Grid.Row="4" Date="{Binding Fecha_Caducidad}" Grid.Column="1"  TextColor="#8c8c8c" IsEnabled="False" />
 
             <StackLayout Grid.Row="1"  Padding="-12,40,0,5"  Orientation="Horizontal" Grid.Column="2"   HorizontalOptions="CenterAndExpand">
-                <Button Text="Sumar" FontFamily="kawaii3" CornerRadius="21" BackgroundColor="#F8F000" TextColor="#013715" FontSize="24" Command="{Binding InsertProductocomand}"/>
+                <Button Text="Sumar" FontFamily="kawaii3" CornerRadius="21" BackgroundColor="#ffcc77" TextColor="Black" FontSize="24" Command="{Binding InsertProductocomand}"/>
                 <Frame CornerRadius="10" WidthRequest="35" HeightRequest="17" Padding="0" BorderColor="Black">
                     <Entry HorizontalTextAlignment="Center" BackgroundColor="AliceBlue" Text="{Binding Cantidad}"  Placeholder="C"></Entry>
                 </Frame>
 
-                <Button Text="Eliminar"  FontFamily="kawaii3"  CornerRadius="21" BackgroundColor="#F8F000" TextColor="#013715" FontSize="24" 
+                <Button Text="Eliminar"  FontFamily="kawaii3"  CornerRadius="21" BackgroundColor="#ffcc77" TextColor="Black" FontSize="24" 
                       WidthRequest="188"  Command="{Binding EliminarProductocomand}"/>
             </StackLayout>
             <StackLayout Grid.Row="4"   Grid.Column="2"  Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
-                <Button FontFamily="kawaii3" Text="Buscar" FontAttributes="Italic"  CornerRadius="21" BackgroundColor="Orange" HeightRequest="60"
-                        WidthRequest="220" TextColor="#013715" FontSize="25" Command="{Binding SearchProductocomand}" />
+                <Button FontFamily="kawaii3" Text="Buscar" FontAttributes="Italic"  CornerRadius="21" BackgroundColor="#ffcc77" HeightRequest="60"
+                        WidthRequest="220" TextColor="Black" FontSize="25" Command="{Binding SearchProductocomand}" />
             </StackLayout>
-            <Frame CornerRadius="30"  Grid.RowSpan="2" Padding="0" Grid.Row="2" Grid.Column="2" BorderColor="Black">
-                <Image Source="{Binding Imagen}" Aspect="AspectFit" WidthRequest="25"/>
+            <Frame CornerRadius="25" Grid.RowSpan="2" Padding="0" Grid.Row="2" Grid.Column="2" BorderColor="Black" WidthRequest="50" HeightRequest="50">
+                <Image Source="{Binding Imagen}" Aspect="AspectFit" WidthRequest="25" HeightRequest="25"/>
             </Frame>
+
+
         </Grid>
     </RefreshView>
 </ContentPage>

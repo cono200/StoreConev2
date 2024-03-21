@@ -11,11 +11,11 @@ namespace StoreConev2.Triggers
             var action = (string)value;
             switch (action)
             {
-                case "Registro":
+                case "Registrado":
                     return Color.LightGreen;
-                case "Mermas":
+                case "mermado":
                     return Color.LightBlue;
-                case "Eliminación":
+                case "Eliminado":
                     return Color.LightSalmon;
                 default:
                     return Color.Gray;

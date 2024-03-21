@@ -25,7 +25,7 @@
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
 
-                <Grid Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="0" BackgroundColor="#00B91F" Margin="0,0,0,0">
+                <Grid Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="0" BackgroundColor="#2196F3" Margin="0,0,0,0">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*" />
                         <ColumnDefinition Width="*" />
@@ -54,7 +54,8 @@
                        FontSize="Large"
                        HorizontalOptions="Center"
                        VerticalOptions="Center"
-                       Grid.Row="1"/>
+                       Grid.Row="1"
+                       TextColor="Black"/>
 
                 <!-- Agrega esta parte para el WebView de Video -->
                 <WebView x:Name="Video" 
@@ -68,6 +69,7 @@
                 <Entry Placeholder="Introducce la sección que quieras buscar"
                         HorizontalOptions="FillAndExpand"
                         VerticalOptions="Center"
+                       TextColor="#8c8c8c"
                         Grid.Row="3"
        Text="{Binding Opcion}" />
 
@@ -76,6 +78,8 @@
                         HorizontalOptions="Center"
                         VerticalOptions="Center"
                         Grid.Row="4"
+                        TextColor="Black"
+                        BackgroundColor="#ffcc77"
                         Command="{Binding MostrarImagenComand}"/>
 
                 <!-- Agrega esta parte para el lugar de la imagen -->

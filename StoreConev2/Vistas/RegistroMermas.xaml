@@ -6,7 +6,7 @@
              Visual="Material">
     <ContentPage.Content>
         <StackLayout>
-            <StackLayout BackgroundColor="Gray" Padding="15">
+            <StackLayout BackgroundColor="#2196F3" Padding="15">
                 <Grid>
                     <Label Text="Registro | Mermas" FontSize="30" FontAttributes="Bold" TextColor="Black" HorizontalOptions="Center" Grid.Column="1" Margin="-350,0,50,0"/>
                     <Image Source="https://i.ibb.co/0MtrR1f/logo-2.png" HeightRequest="60" Margin="-800,0,360,0" Grid.Column="1"/>
@@ -21,9 +21,11 @@
                 <Label Grid.Row="0"
                    Text="Tipo de merma"
                    FontAttributes="Bold" 
-                       Padding="0,15,0,0"/>
+                       Padding="0,15,0,0"
+                       TextColor="Black"/>
                 <Picker Grid.Column="1"
                    Title="Tipo de Merma"
+                        TextColor="#8c8c8c"
                         SelectedItem="{Binding Tipo_de_merma}"
                         ItemsSource="{Binding TiposMerma}">
                     
@@ -33,9 +35,11 @@
                 <Label Grid.Row="1"
                    Text="Codigo"
                    FontAttributes="Bold" 
-                       Padding="0,15,0,0"/>
+                       Padding="0,15,0,0"
+                       TextColor="Black"/>
                 <Entry Grid.Column="1" Grid.Row="1"
                    Placeholder="Ingrese código"
+                       TextColor="#8c8c8c"
                    Text="{Binding Codigo}" />
 
                
@@ -44,9 +48,11 @@
                 <Label Grid.Row="2"
                    Text="Nombre del producto"
                    FontAttributes="Bold" 
-                       Padding="0,15,0,0"/>
+                       Padding="0,15,0,0"
+                       TextColor="Black"/>
                 <Entry Grid.Column="1" Grid.Row="2"
                    Placeholder="Ingrese nombre del producto"
+                       TextColor="#8c8c8c"
                    Text="{Binding Nombre_producto}" />
             </Grid>
 
@@ -55,9 +61,10 @@
                 BorderColor="Black"
                     VerticalOptions="EndAndExpand"
                     Margin="145,0,145,20"
-                    BackgroundColor="Gray"
+                    BackgroundColor="#ffcc77"
                     FontAttributes="Bold"
-                    CornerRadius="15"/>
+                    CornerRadius="15"
+                    TextColor="Black"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

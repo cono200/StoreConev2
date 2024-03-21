@@ -11,20 +11,20 @@
             <magic:GradientView VerticalOptions="FillAndExpand">
                 <magic:GradientView.GradientSource>
                     <magic:LinearGradient Angle="180">
-                        <magic:GradientStop Color="#B7F8F4" Offset="0"></magic:GradientStop>
-                        <magic:GradientStop Color="#B7F8F4" Offset="0"></magic:GradientStop>
-                        <magic:GradientStop Color="#B7F8F4" Offset="1"></magic:GradientStop>
+                        <magic:GradientStop Color="FloralWhite" Offset="0"></magic:GradientStop>
+                        <magic:GradientStop Color="FloralWhite" Offset="0"></magic:GradientStop>
+                        <magic:GradientStop Color="FloralWhite" Offset="1"></magic:GradientStop>
                     </magic:LinearGradient>
                 </magic:GradientView.GradientSource>
             </magic:GradientView>
             <StackLayout>
-                <Grid Padding="0,0,0,15" BackgroundColor="#00B91F" >
+                <Grid Padding="0,0,0,15" BackgroundColor="#2196F3" >
 
                     <Image Margin="20,0,0,0" Source="https://i.ibb.co/0MtrR1f/logo-2.png" HeightRequest="130" HorizontalOptions="Start" />
 
-                    <StackLayout Orientation="Horizontal" Grid.Column="1" HorizontalOptions="StartAndExpand" BackgroundColor="#00B91F" Padding="-130,10,0,0">
+                    <StackLayout Orientation="Horizontal" Grid.Column="1" HorizontalOptions="StartAndExpand" BackgroundColor="#2196F3" Padding="-130,10,0,0">
                         <Label FontFamily="kawaii" Text="Registrar / Producto" FontSize="25" FontAttributes="Bold"
-               TextColor="Black" HorizontalOptions="CenterAndExpand" Padding="0,5,0,0" BackgroundColor="#00B91F"/>
+               TextColor="Black" HorizontalOptions="CenterAndExpand" Padding="0,5,0,0" BackgroundColor="#2196F3"/>
                         <StackLayout Margin="120,0,0,0">
                             <Image Source="https://i.ibb.co/3pvWwdR/campana.png" WidthRequest="40">
                                 <Image.GestureRecognizers>
@@ -53,41 +53,41 @@
                     </Grid.RowDefinitions>
 
 
-                    <Label TextColor="Orange" Text="Código"
+                    <Label TextColor="Black" Text="Código"
                VerticalOptions="Center" 
                        FontAttributes="Bold"/>
-                    <Entry x:Name="codigo" TextColor="Black" Placeholder="Ingresar código"
+                    <Entry x:Name="codigo" TextColor="#8c8c8c" Placeholder="Ingresar código"
                Grid.Column="1"
                Text="{Binding Codigo}" FontSize="12"/>
 
 
-                    <Label TextColor="Orange" Text="Nombre"
+                    <Label TextColor="Black" Text="Nombre"
                Grid.Row="1"
                         FontAttributes="Bold"
                VerticalOptions="Center" />
-                    <Entry x:Name="nombre" TextColor="Black" Placeholder="Ingresa el nombre"
+                    <Entry x:Name="nombre" TextColor="#8c8c8c" Placeholder="Ingresa el nombre"
                Grid.Row="1"
                Grid.Column="1"
                Text="{Binding Nombre}"  FontSize="12"/>
 
 
-                    <Label TextColor="Orange" Text="Sección"
+                    <Label TextColor="Black" Text="Sección"
                Grid.Row="2"
                         FontAttributes="Bold"
                VerticalOptions="Center" />
                     <Picker  Title="Sección"
-                        x:Name="seccion" TextColor="Black" 
+                        x:Name="seccion" TextColor="#8c8c8c" 
                Grid.Row="2"
                Grid.Column="1"
               SelectedItem="{Binding Seccion}"
                 ItemsSource="{Binding SeccionList}" FontSize="12"/>
 
 
-                    <Label TextColor="Orange" Text="Proveedor"
+                    <Label TextColor="Black" Text="Proveedor"
                Grid.Row="3"
                         FontAttributes="Bold"
                VerticalOptions="Center" />
-                    <Picker x:Name="proveedor" TextColor="Black" Title="Proveedor"
+                    <Picker x:Name="proveedor" TextColor="#8c8c8c" Title="Proveedor"
                Grid.Row="3"
                Grid.Column="1"
                 FontSize="12"
@@ -99,21 +99,21 @@
                  
 
 
-                    <Label TextColor="Orange" Text="Descripción"
+                    <Label TextColor="Black" Text="Descripción"
                Grid.Row="4"
                         FontAttributes="Bold"
                VerticalOptions="Center" />
-                    <Editor TextColor="Black" Placeholder="Agregar descripción"
+                    <Editor TextColor="#8c8c8c" Placeholder="Agregar descripción"
                 Grid.Row="4"
                 Grid.Column="1"
                 Text="{Binding Descripcion}" FontSize="12"/>
 
 
-                    <Label TextColor="Orange" Text="Precio"
+                    <Label TextColor="Black" Text="Precio"
                Grid.Row="5"
                         FontAttributes="Bold"
                VerticalOptions="Center" />
-                    <Entry x:Name="precio" TextColor="Black" Placeholder="Ingresar el precio"
+                    <Entry x:Name="precio" TextColor="#8c8c8c" Placeholder="Ingresar el precio"
                Grid.Row="5"
                Grid.Column="1"
                Keyboard="Numeric"
@@ -134,7 +134,7 @@
                 HorizontalOptions="Center"
                 CornerRadius="15"
                 Margin="0,0,0,2"
-                BackgroundColor="Tomato"
+                BackgroundColor="#ffcc77"
                 TextColor="Black" IsEnabled="{Binding boleano}" >
                     <Button.Triggers>
                         <EventTrigger Event="Clicked">
