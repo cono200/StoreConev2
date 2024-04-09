@@ -18,7 +18,7 @@ namespace StoreConev2.VistaModelo
     {
         #region VARIABLES
         string _Texto;
-        private int _cantidad=1;
+        private int _cantidad;
         private long _codigo;
         private string _Nombre;
         private string _Proveedor;
@@ -120,16 +120,11 @@ namespace StoreConev2.VistaModelo
             get { return _cantidad; }
             set
             {
-                var tempValue = value.ToString();
-                if (tempValue.Length > 2)
-                {
-                    _cantidad = int.Parse(tempValue.Substring(0, 2));
-                }
-                else
+                if (_cantidad != value)
                 {
                     _cantidad = value;
+                    OnPropertyChanged(nameof(Cantidad));
                 }
-                OnPropertyChanged(nameof(Cantidad));
             }
         }
         #endregion
@@ -172,20 +167,13 @@ namespace StoreConev2.VistaModelo
             bool confirmacion = await SimularResta();
             if (confirmacion)
             {
-                // Aquí puedes colocar la lógica para eliminar el producto
-                // Por ejemplo: 
-                // RealizarResta();
-                // Luego notificar al usuario que el producto fue eliminado.
+                
                 await Application.Current.MainPage.DisplayAlert("Información", "Producto eliminado", "Ok");
             }
         }
         public async Task Buscar()
         {
-            //if (Codigo == 0) 
-            //{
-            //    await Application.Current.MainPage.DisplayAlert("Ventana", "El campo de Codigo es Obligatorio", "cerrar");
-            //    return;
-            //}
+            
             var funcion = new DatosApi();
             Pistola = await funcion.ScanerPistola();
 
@@ -208,10 +196,6 @@ namespace StoreConev2.VistaModelo
             Fecha_Caducidad = ProductoSeleccionado.Caducidad;
         }
 
-
-
-
-
         public async Task BuscarEInsertar()
         {
             if (Pistola.CodigoPistola == null)
@@ -224,7 +208,7 @@ namespace StoreConev2.VistaModelo
             ProductoSeleccionado = await funcion.ObtenerProductobyCodigo(Pistola.CodigoPistola);
 
             // Crear un nuevo producto con los datos obtenidos
-            for (int i = 0; i <= Cantidad; i++)
+            for (int i = 0; i <= Cantidad-1; i++)
             {
                 var nuevoProducto = new ProductoParaInsertar
                 {
@@ -255,31 +239,40 @@ namespace StoreConev2.VistaModelo
 
         public async Task EliminarProducto()
         {
-            var confirmar = await Application.Current.MainPage.DisplayAlert("Mensaje", "¿Estás seguro de que quieres eliminar este producto?", "Sí", "No");
-            if (confirmar)
-            {
-                var funcion = new DatosApi();
-                await funcion.EliminarProducto(ProductoId);
-                await Application.Current.MainPage.DisplayAlert("Mensaje", "Producto eliminado con éxito", "OK");
-            }
-        }
+            var funcion = new DatosApi();
 
+            for (int i = 0; i < Cantidad; i++)
+            {
+                if (Pistola.CodigoPistola == null)
+                {
+                    await Application.Current.MainPage.DisplayAlert("Ventana", "El campo de Codigo es Obligatorio", "cerrar");
+                    return;
+                }
+
+                ProductoSeleccionado = await funcion.ObtenerProductobyCodigo(Pistola.CodigoPistola);
+
+                if (ProductoSeleccionado != null)
+                {
+                    await funcion.EliminarProducto(ProductoSeleccionado.Id);
+                }
+                else
+                {
+                    await Application.Current.MainPage.DisplayAlert("Mensaje", "No se encontró ningún producto con el código especificado.", "OK");
+                    break;
+                }
+            }
+            await Application.Current.MainPage.DisplayAlert("Mensaje", "Producto eliminado con éxito", "OK");
+
+        }
         #endregion
         #region COMANDOS
         public ICommand IrNotificacionescomand => new Command(async () => await IrNotificaciones());
-      //  public ICommand IrDetallescomand => new Command(async () => await IrDetalles());
         public ICommand ProcesoAsyncomand => new Command(async () => await ProcesoAsyncrono());
         public ICommand ProcesoSimpcomand => new Command(procesoSimple);
-      //  public ICommand SimularSumarcomand => new Command(SimularSumar);
         public ICommand SimularRestacomand => new Command(async () => await MensajeEliminar());
-
         public ICommand SearchProductocomand => new Command(async () => await Buscar());
         public ICommand InsertProductocomand => new Command(async () => await BuscarEInsertar());
         public ICommand EliminarProductocomand => new Command(async () => await EliminarProducto());
-
-
-
-
         #endregion
     }
 }

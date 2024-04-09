@@ -55,6 +55,24 @@ namespace StoreConev2.ApiMetodos
                 return new ObservableCollection<Producto2>();
             }
         }
+        public async Task<ObservableCollection<Merma>> ObtenerMermas()
+        {
+            Uri RequestUri = new Uri("http://www.StoreConev3.somee.com/Api/Mermas/Listar");
+            var client = new HttpClient();
+            var response = await client.GetAsync(RequestUri);
+
+            if (response.IsSuccessStatusCode)
+            {
+                var json = await response.Content.ReadAsStringAsync();
+                var productos = JsonConvert.DeserializeObject<List<Merma>>(json);
+                return new ObservableCollection<Merma>(productos);
+            }
+            else
+            {
+                // Manejo de errores
+                return new ObservableCollection<Merma>();
+            }
+        }
         public async Task<ObservableCollection<Proveedor>> ObtenerProveedor()
         {
             Uri RequestUri = new Uri("http://www.StoreConev3.somee.com/Api/Proveedor/Listar");

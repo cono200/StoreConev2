@@ -17,6 +17,7 @@ namespace StoreConev2.VistaModelo
         public event PropertyChangedEventHandler PropertyChanged;
 
         private ObservableCollection<Producto2> _productos;
+        private ObservableCollection<Merma> _merma;
         private bool _isRefreshing; // Agrega esta línea
         private INavigation navigation;
 
@@ -26,6 +27,15 @@ namespace StoreConev2.VistaModelo
             set
             {
                 _productos = value;
+                OnPropertyChanged(nameof(Productos));
+            }
+        } 
+        public ObservableCollection<Merma> Mermas
+        {
+            get { return _merma; }
+            set
+            {
+                _merma = value;
                 OnPropertyChanged(nameof(Productos));
             }
         }

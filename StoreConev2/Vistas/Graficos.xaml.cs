@@ -17,7 +17,7 @@ namespace StoreConev2.Vistas
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Graficos : ContentPage
     {
-        public Graficos(ObservableCollection<Producto2> productos)
+        public Graficos(ObservableCollection<Merma> productos)
         {
             InitializeComponent();
             CargarDatos();
@@ -26,22 +26,22 @@ namespace StoreConev2.Vistas
         public async void CargarDatos()
         {
             var funcion = new DatosApi();
-            var productos = await funcion.ObtenerProductos();
+            var productos = await funcion.ObtenerMermas();
             Displaychart(productos);
         }
 
-        public void Displaychart(ObservableCollection<Producto2> productos)
+        public void Displaychart(ObservableCollection<Merma> productos)
         {
             // Crear un diccionario para contar las mermas por producto
             var mermaCounts = new Dictionary<string, int>();
 
             foreach (var producto in productos)
             {
-                if (!mermaCounts.ContainsKey(producto.Nombre))
+                if (!mermaCounts.ContainsKey(producto.Nombre_producto))
                 {
-                    mermaCounts[producto.Nombre] = 0;
+                    mermaCounts[producto.Nombre_producto] = 0;
                 }
-                mermaCounts[producto.Nombre]++;
+                mermaCounts[producto.Nombre_producto]++;
             }
 
             var entries = new List<ChartEntry>();

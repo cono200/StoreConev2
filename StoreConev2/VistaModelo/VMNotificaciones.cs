@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 using Newtonsoft.Json;
+using System.Linq;
 
 namespace StoreConev2.VistaModelo
 {
@@ -17,6 +18,7 @@ namespace StoreConev2.VistaModelo
 
         private ObservableCollection<Historial> _historial;
         private INavigation navigation;
+        private int _numItemsToShow = 10;  // MOSTRAR LOS 10 ULTIMOS
 
         public ObservableCollection<Historial> Productos
         {
@@ -27,12 +29,22 @@ namespace StoreConev2.VistaModelo
                 OnPropertyChanged(nameof(Productos));
             }
         }
-      
+
+        public int NumItemsToShow
+        {
+            get { return _numItemsToShow; }
+            set
+            {
+                _numItemsToShow = value;
+                OnPropertyChanged(nameof(NumItemsToShow));
+                LoadHistorial();  // Recargar los datos cuando cambie el valor
+            }
+        }
+
         public VMNotificaciones(INavigation navigation)
         {
             this.navigation = navigation;
             LoadHistorial();
-
         }
 
         public async Task LoadHistorial()
@@ -40,15 +52,19 @@ namespace StoreConev2.VistaModelo
             var funcion = new DatosApi();
             var productos = await funcion.ObtenerHistorial();
 
-            for (int i = 0; i < productos.Count; i++)
+            // Hacemos una copia de la lista
+            var copiaProductos = new List<Historial>(productos);
+
+            // Tomamos solo los últimos 10 elementos de la copia
+            var ultimosDiez = copiaProductos.AsEnumerable().Reverse().Take(NumItemsToShow).Reverse().ToList();
+
+            for (int i = 0; i < ultimosDiez.Count; i++)
             {
-                productos[i].Index = i;
+                ultimosDiez[i].Index = i;
             }
 
-            Productos = new ObservableCollection<Historial>(productos);
+            Productos = new ObservableCollection<Historial>(ultimosDiez);
         }
-
-
 
         protected virtual void OnPropertyChanged(string propertyName)
         {

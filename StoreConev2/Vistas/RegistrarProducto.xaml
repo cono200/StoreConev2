@@ -2,147 +2,57 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="StoreConev2.Vistas.RegistrarProducto"
              Title="RegistrarProducto"
-             xmlns:magic="clr-namespace:MagicGradients;assembly=MagicGradients"
              xmlns:local="clr-namespace:StoreConev2.Triggers"
             >
     <ContentPage.Content>
-
-        <Grid>
-            <magic:GradientView VerticalOptions="FillAndExpand">
-                <magic:GradientView.GradientSource>
-                    <magic:LinearGradient Angle="180">
-                        <magic:GradientStop Color="FloralWhite" Offset="0"></magic:GradientStop>
-                        <magic:GradientStop Color="FloralWhite" Offset="0"></magic:GradientStop>
-                        <magic:GradientStop Color="FloralWhite" Offset="1"></magic:GradientStop>
-                    </magic:LinearGradient>
-                </magic:GradientView.GradientSource>
-            </magic:GradientView>
+        <ScrollView>
             <StackLayout>
                 <Grid Padding="0,0,0,15" BackgroundColor="#2196F3" >
-
-                    <Image Margin="20,0,0,0" Source="https://i.ibb.co/0MtrR1f/logo-2.png" HeightRequest="130" HorizontalOptions="Start" />
-
-                    <StackLayout Orientation="Horizontal" Grid.Column="1" HorizontalOptions="StartAndExpand" BackgroundColor="#2196F3" Padding="-130,10,0,0">
-                        <Label FontFamily="kawaii" Text="Registrar / Producto" FontSize="25" FontAttributes="Bold"
-               TextColor="Black" HorizontalOptions="CenterAndExpand" Padding="0,5,0,0" BackgroundColor="#2196F3"/>
-                        <StackLayout Margin="120,0,0,0">
-                            <Image Source="https://i.ibb.co/3pvWwdR/campana.png" WidthRequest="40">
-                                <Image.GestureRecognizers>
-                                    <TapGestureRecognizer Command="{Binding IrNotificacionescomand}"/>
-                                </Image.GestureRecognizers>
-                            </Image>
-                            <Label Text="2" 
-       HorizontalOptions="End" 
-       VerticalOptions="Start" 
-       TextColor="White" 
-       WidthRequest="20" 
-       HeightRequest="20"
-                               Margin="0,-37,5,0"/>
-                        </StackLayout>
-                       
-                    </StackLayout>
+                    <Image Margin="20,0,0,0" Source="https://i.ibb.co/0MtrR1f/logo-2.png" HeightRequest="50" HorizontalOptions="Center" />
                 </Grid>
-
                 <Grid Margin="0" Padding="15,0,15,0">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="Auto" />
                         <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="*" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
                     </Grid.RowDefinitions>
-
-
-                    <Label TextColor="Black" Text="Código"
-               VerticalOptions="Center" 
-                       FontAttributes="Bold"/>
-                    <Entry x:Name="codigo" TextColor="#8c8c8c" Placeholder="Ingresar código"
-               Grid.Column="1"
-               Text="{Binding Codigo}" FontSize="12"/>
-
-
-                    <Label TextColor="Black" Text="Nombre"
-               Grid.Row="1"
-                        FontAttributes="Bold"
-               VerticalOptions="Center" />
-                    <Entry x:Name="nombre" TextColor="#8c8c8c" Placeholder="Ingresa el nombre"
-               Grid.Row="1"
-               Grid.Column="1"
-               Text="{Binding Nombre}"  FontSize="12"/>
-
-
-                    <Label TextColor="Black" Text="Sección"
-               Grid.Row="2"
-                        FontAttributes="Bold"
-               VerticalOptions="Center" />
-                    <Picker  Title="Sección"
-                        x:Name="seccion" TextColor="#8c8c8c" 
-               Grid.Row="2"
-               Grid.Column="1"
-              SelectedItem="{Binding Seccion}"
-                ItemsSource="{Binding SeccionList}" FontSize="12"/>
-
-
-                    <Label TextColor="Black" Text="Proveedor"
-               Grid.Row="3"
-                        FontAttributes="Bold"
-               VerticalOptions="Center" />
-                    <Picker x:Name="proveedor" TextColor="#8c8c8c" Title="Proveedor"
-               Grid.Row="3"
-               Grid.Column="1"
-                FontSize="12"
-                            SelectedItem="{Binding ProveedorSeleccionado}"
-        ItemDisplayBinding="{Binding Nombre}"
-        ItemsSource="{Binding Lproveedores}"/>
-
-
-                 
-
-
-                    <Label TextColor="Black" Text="Descripción"
-               Grid.Row="4"
-                        FontAttributes="Bold"
-               VerticalOptions="Center" />
-                    <Editor TextColor="#8c8c8c" Placeholder="Agregar descripción"
-                Grid.Row="4"
-                Grid.Column="1"
-                Text="{Binding Descripcion}" FontSize="12"/>
-
-
-                    <Label TextColor="Black" Text="Precio"
-               Grid.Row="5"
-                        FontAttributes="Bold"
-               VerticalOptions="Center" />
-                    <Entry x:Name="precio" TextColor="#8c8c8c" Placeholder="Ingresar el precio"
-               Grid.Row="5"
-               Grid.Column="1"
-               Keyboard="Numeric"
-               Text="{Binding Precio}" FontSize="12"/>
-
-                    <StackLayout Grid.Column="2" Grid.Row="2" x:Name="labelStack" HorizontalOptions="End" VerticalOptions="Start">
-                        <!-- La etiqueta se añadirá aquí desde el código -->
-                    </StackLayout>
-                    <StackLayout Grid.Column="2" Grid.Row="3">
-                        <Image Source="https://i.ibb.co/0MtrR1f/logo-2.png"
-                       HeightRequest="100"
-                       HorizontalOptions="Center" />
-                    </StackLayout>
+                    <Label TextColor="Black" Text="Código" Grid.Row="0" FontAttributes="Bold" FontSize="18"/>
+                    <Entry x:Name="codigo" TextColor="#8c8c8c" Placeholder="Ingresar código" Grid.Column="1" Grid.Row="0" Text="{Binding Codigo}" Keyboard="Numeric" FontSize="16"/>
+                    <Label TextColor="Black" Text="Nombre" Grid.Row="1" FontAttributes="Bold" FontSize="18"/>
+                    <Entry x:Name="nombre" TextColor="#8c8c8c" Placeholder="Ingresa el nombre" Grid.Column="1" Grid.Row="1" Text="{Binding Nombre}"  FontSize="16"/>
+                    <Label TextColor="Black" Text="Sección" Grid.Row="2" FontAttributes="Bold" FontSize="18"/>
+                    <Picker  Title="Sección" x:Name="seccion" TextColor="#8c8c8c" Grid.Column="1" Grid.Row="2" SelectedItem="{Binding Seccion}" ItemsSource="{Binding SeccionList}" FontSize="16"/>
+                    <Label TextColor="Black" Text="Proveedor" Grid.Row="3" FontAttributes="Bold" FontSize="18"/>
+                    <Picker x:Name="proveedor" TextColor="#8c8c8c" Title="Proveedor" Grid.Column="1" Grid.Row="3" FontSize="16" SelectedItem="{Binding ProveedorSeleccionado}" ItemDisplayBinding="{Binding Nombre}" ItemsSource="{Binding Lproveedores}"/>
+                    <Label TextColor="Black" Text="Descripción" Grid.Row="4" FontAttributes="Bold" FontSize="18"/>
+                    <Editor TextColor="#8c8c8c" Placeholder="Agregar descripción" Grid.Column="1" Grid.Row="4" Text="{Binding Descripcion}" FontSize="16"/>
+                    <Label TextColor="Black" Text="Precio" Grid.Row="5" FontAttributes="Bold" FontSize="18"/>
+                    <Entry x:Name="precio" TextColor="#8c8c8c" Placeholder="Ingresar el precio" Grid.Column="1" Grid.Row="5" Keyboard="Numeric" Text="{Binding Precio}" FontSize="16"/>
+                   
+                    <Label TextColor="Black" Text="Imagen" Grid.Row="7" FontAttributes="Bold" FontSize="18"/>
+                    <Entry x:Name="imagen" TextColor="#8c8c8c" Placeholder="Ingresar URL de la imagen" Grid.Column="1" Grid.Row="7" Text="{Binding Imagen}" FontSize="16"/>
+                    
                 </Grid>
-
-                <Button FontFamily="kawaii3" Text="Registrar"
-                Command="{Binding InsertProductocomand}"
-                HorizontalOptions="Center"
-                CornerRadius="15"
-                Margin="0,0,0,2"
-                BackgroundColor="#ffcc77"
-                TextColor="Black" IsEnabled="{Binding boleano}" >
+                <Button FontFamily="kawaii3" Text="Registrar" Command="{Binding InsertProductocomand}" HorizontalOptions="Center" CornerRadius="15" Margin="0,0,0,2" BackgroundColor="#ffcc77" TextColor="Black" IsEnabled="{Binding boleano}" FontSize="20">
                     <Button.Triggers>
                         <EventTrigger Event="Clicked">
                             <local:Label2 />
                         </EventTrigger>
                     </Button.Triggers>
                 </Button>
+                <StackLayout x:Name="labelStack" HorizontalOptions="Center" VerticalOptions="Start">
+                    <!-- La etiqueta se añadirá aquí desde el código -->
+                </StackLayout>
             </StackLayout>
-        </Grid>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

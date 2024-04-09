@@ -13,10 +13,10 @@
             <Grid>
 
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="100" />
+                    <RowDefinition Height="Auto" />
                     <RowDefinition Height="*"  />
-                    <RowDefinition Height="auto" />
-                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="250+" />
+                    <RowDefinition Height="Auto" />
 
                 </Grid.RowDefinitions>
 
@@ -33,13 +33,13 @@
                     </magic:GradientView>
                     <StackLayout   Orientation="Horizontal" Padding="5">
 
-                        <Image Margin="250,0,0,0"  IsOpaque="True" Source="https://i.ibb.co/0MtrR1f/logo-2.png"  HeightRequest="50"></Image>
+                        <Image Margin="0,0,0,0"  IsOpaque="True" Source="https://i.ibb.co/0MtrR1f/logo-2.png"  HeightRequest="50"></Image>
                         <Label  Text="StoreCone" VerticalOptions="CenterAndExpand" TextColor="Beige" FontFamily="kawaii" FontAttributes="Italic" FontSize="40" />
                     </StackLayout>
                 </Grid>
 
 
-                <StackLayout WidthRequest="310" HorizontalOptions="CenterAndExpand"  Spacing="15" Grid.Row="2" Orientation="Vertical">
+                <StackLayout WidthRequest="310" HorizontalOptions="CenterAndExpand"  Spacing="15" Grid.Row="1" Orientation="Vertical" VerticalOptions="CenterAndExpand">
                     <Label  Text="Nombre de Usuario o Correo" FontSize="16" TextColor="Brown" FontAttributes="Bold"/>
                     <Entry FontSize="16" TextColor="Black" Placeholder="Ingrese su usuario o correo" FontAttributes="Bold" Text="{ Binding Usuario}"/>
                     <Label Text="Contraseña" FontSize="16" TextColor="Brown" FontAttributes="Bold"/>
@@ -47,7 +47,7 @@
 
                 </StackLayout>
 
-                <StackLayout Grid.Row="3"  VerticalOptions="End" HorizontalOptions="Center">
+                <StackLayout Grid.Row="2"  VerticalOptions="Start" HorizontalOptions="Center" Padding="0,20,0,0">
 
                     <Image Source="https://i.ibb.co/zN6BcB8/boton3.png" HeightRequest="90" WidthRequest="250">
                         <Image.GestureRecognizers>
@@ -60,5 +60,6 @@
         </Grid>
 
     </ContentPage.Content>
+
 
 </ContentPage>

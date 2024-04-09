@@ -50,7 +50,7 @@ namespace StoreConev2.VistaModelo
         }
         public void SimularInicio()
         {
-            if (Usuario == "papas" && Contrasena == "con ketchup")
+            if (Usuario == "123" && Contrasena == "123")
             {
                 IniciarSesion();
             }

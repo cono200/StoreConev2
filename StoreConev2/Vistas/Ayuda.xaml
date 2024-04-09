@@ -1,5 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+﻿<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="StoreConev2.Vistas.Ayuda"
             xmlns:media="clr-namespace:Xamarin.CommunityToolkit.UI.Views;assembly=Xamarin.CommunityToolkit"
@@ -30,8 +29,8 @@
                         <ColumnDefinition Width="*" />
                         <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
-                    <Image Source="https://i.ibb.co/0MtrR1f/logo-2.png" HeightRequest="60" Margin="20,0,0,0" Grid.Column="0" HorizontalOptions="Start"/>
-                    <Label Text="Store Cone" FontFamily="kawaii" VerticalOptions="Center" FontSize="30" HorizontalOptions="CenterAndExpand" TextColor="Black" Grid.Column="1" Padding="-300,0,0,0" />
+                    <Image Source="https://i.ibb.co/0MtrR1f/logo-2.png" HeightRequest="100" HorizontalOptions="Center"/>
+                    <Label Text="Store Cone" FontFamily="kawaii" VerticalOptions="Center" FontSize="30" HorizontalOptions="CenterAndExpand" TextColor="Black" Grid.Column="1" />
                     <StackLayout Grid.Column="1" Padding="10,10,-300,10">
                         <Image Source="https://i.ibb.co/3pvWwdR/campana.png" WidthRequest="40">
                             <Image.GestureRecognizers>
@@ -65,7 +64,7 @@
                          BackgroundColor="#B7F8F4"
                          />
 
-               
+
                 <Entry Placeholder="Introducce la sección que quieras buscar"
                         HorizontalOptions="FillAndExpand"
                         VerticalOptions="Center"
@@ -74,13 +73,11 @@
        Text="{Binding Opcion}" />
 
                 <!-- Agrega esta parte para el botón -->
-                <Button Text="Aceptar"
-                        HorizontalOptions="Center"
-                        VerticalOptions="Center"
-                        Grid.Row="4"
-                        TextColor="Black"
-                        BackgroundColor="#ffcc77"
-                        Command="{Binding MostrarImagenComand}"/>
+                <Image Source="https://cdn-icons-png.flaticon.com/128/3682/3682321.png"  WidthRequest="100" Grid.Row="4">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding MostrarImagenComand}"/>
+                    </Image.GestureRecognizers>
+                </Image>
 
                 <!-- Agrega esta parte para el lugar de la imagen -->
                 <Image Source="{Binding Imagen}"

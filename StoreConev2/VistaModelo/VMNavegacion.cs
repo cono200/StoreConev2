@@ -31,6 +31,10 @@ namespace StoreConev2.VistaModelo
         {
             App.MasterDet.Detail = new NavigationPage(new ListaProductos());
             App.MasterDet.IsPresented = false;
+        }public async Task Historial()
+        {
+            App.MasterDet.Detail = new NavigationPage(new Notificaciones());
+            App.MasterDet.IsPresented = false;
         }
         public async Task RegistrarProducto()
         {
@@ -74,7 +78,7 @@ namespace StoreConev2.VistaModelo
         
         public async Task NavegarAGraficos()
         {
-            ObservableCollection<Producto2> misProductos = ListaProductos.Productos;
+            ObservableCollection<Merma> misProductos = ListaProductos.Mermas;
             App.MasterDet.Detail = new NavigationPage(new Graficos(misProductos));
             App.MasterDet.IsPresented = false;
         }
@@ -89,6 +93,7 @@ namespace StoreConev2.VistaModelo
         public ICommand CerrarsesionCommand => new Command(async () => await Cerrarsesion());
         public ICommand GraficosCommand => new Command(async () => await NavegarAGraficos());
         public ICommand AyudaCommand => new Command(async () => await Ayuda());
+        public ICommand HistorialCommand => new Command(async () => await Historial());
 
 
         #endregion

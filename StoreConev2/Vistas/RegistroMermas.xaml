@@ -1,70 +1,28 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+﻿<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="StoreConev2.Vistas.RegistroMermas"
              Title="RegistroMermas"
-             Visual="Material">
+             >
     <ContentPage.Content>
-        <StackLayout>
-            <StackLayout BackgroundColor="#2196F3" Padding="15">
-                <Grid>
-                    <Label Text="Registro | Mermas" FontSize="30" FontAttributes="Bold" TextColor="Black" HorizontalOptions="Center" Grid.Column="1" Margin="-350,0,50,0"/>
-                    <Image Source="https://i.ibb.co/0MtrR1f/logo-2.png" HeightRequest="60" Margin="-800,0,360,0" Grid.Column="1"/>
+        <ScrollView>
+            <StackLayout>
+                <Grid Padding="0,0,0,15" BackgroundColor="#2196F3" >
+                    <Image Margin="20,0,0,0" Source="https://i.ibb.co/0MtrR1f/logo-2.png" HeightRequest="50" HorizontalOptions="Center" />
                 </Grid>
+                <StackLayout Padding="50,100,15,0">
+                    <Label Text="Tipo de merma" FontAttributes="Bold" Padding="0,15,0,0" TextColor="Black" FontSize="35"/>
+                    <Picker Title="Tipo de Merma" TextColor="#8c8c8c" SelectedItem="{Binding Tipo_de_merma}" ItemsSource="{Binding TiposMerma}" FontSize="20"/>
+                    <Label Text="Codigo" FontAttributes="Bold" Padding="0,15,0,0" TextColor="Black" FontSize="35"/>
+                    <Entry Placeholder="Ingrese código" TextColor="#8c8c8c" Text="{Binding Codigo}" FontSize="20" Keyboard="Numeric"/>
+                    <Label Text="Nombre del producto" FontAttributes="Bold" Padding="0,15,0,0" TextColor="Black" FontSize="35"/>
+                    <Entry Placeholder="Ingrese nombre del producto" TextColor="#8c8c8c" Text="{Binding Nombre_producto}" FontSize="20"/>
+                </StackLayout>
+                <Image Source="https://i.ibb.co/3sfsjY1/agregar.png"  WidthRequest="100">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding InsertMermacomand}"/>
+                    </Image.GestureRecognizers>
+                </Image>
             </StackLayout>
-            <Grid Padding="15,15,15,0">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto" />
-                    <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions>
-
-                <Label Grid.Row="0"
-                   Text="Tipo de merma"
-                   FontAttributes="Bold" 
-                       Padding="0,15,0,0"
-                       TextColor="Black"/>
-                <Picker Grid.Column="1"
-                   Title="Tipo de Merma"
-                        TextColor="#8c8c8c"
-                        SelectedItem="{Binding Tipo_de_merma}"
-                        ItemsSource="{Binding TiposMerma}">
-                    
-                  
-                </Picker>
-
-                <Label Grid.Row="1"
-                   Text="Codigo"
-                   FontAttributes="Bold" 
-                       Padding="0,15,0,0"
-                       TextColor="Black"/>
-                <Entry Grid.Column="1" Grid.Row="1"
-                   Placeholder="Ingrese código"
-                       TextColor="#8c8c8c"
-                   Text="{Binding Codigo}" />
-
-               
-
-
-                <Label Grid.Row="2"
-                   Text="Nombre del producto"
-                   FontAttributes="Bold" 
-                       Padding="0,15,0,0"
-                       TextColor="Black"/>
-                <Entry Grid.Column="1" Grid.Row="2"
-                   Placeholder="Ingrese nombre del producto"
-                       TextColor="#8c8c8c"
-                   Text="{Binding Nombre_producto}" />
-            </Grid>
-
-            <Button Text="Registrar"
-                Command="{Binding InsertMermacomand}" 
-                BorderColor="Black"
-                    VerticalOptions="EndAndExpand"
-                    Margin="145,0,145,20"
-                    BackgroundColor="#ffcc77"
-                    FontAttributes="Bold"
-                    CornerRadius="15"
-                    TextColor="Black"/>
-        </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

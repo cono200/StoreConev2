@@ -19,6 +19,7 @@ namespace StoreConev2.Vistas
             InitializeComponent();
             BindingContext = new VMNavegacion(Navigation);
 
+
         }
 
         //void OnPage1Clicked(object sender, EventArgs e)

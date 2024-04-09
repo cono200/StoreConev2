@@ -15,18 +15,23 @@ namespace StoreConev2.Triggers
                 var label = new Label
                 {
                     Text = "Producto agregado",
-                    HorizontalOptions = LayoutOptions.Start,
-                    VerticalOptions = LayoutOptions.StartAndExpand, FontSize = 26, TextColor = Color.Red, BackgroundColor = Color.White,
+                    HorizontalOptions = LayoutOptions.Center,
+                    VerticalOptions = LayoutOptions.Start,
+                    FontSize = 26,
+                    TextColor = Color.Red,
+                    BackgroundColor = Color.White,
                 };
                 labelStack.Children.Add(label);
 
-                Device.StartTimer(TimeSpan.FromSeconds(3), () =>
+                Device.StartTimer(TimeSpan.FromSeconds(1), () =>
                 {
-                    // Remove the label after 2 seconds
-                    labelStack.Children.Remove(label);
+                    // Oculta el label después de 3 segundos
+                    label.IsVisible = false;
                     return false; // return false to stop repeating
                 });
             }
         }
     }
+
+
 }

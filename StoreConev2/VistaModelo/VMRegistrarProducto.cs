@@ -18,6 +18,7 @@ namespace StoreConev2.VistaModelo
         #region VARIABLES
         string _Texto;
         private long _codigo;
+        private string _imagen;
         private string _nombre = string.Empty;
         private string _seccion =string.Empty;
         private string _proveedor = string.Empty;
@@ -70,6 +71,11 @@ namespace StoreConev2.VistaModelo
             get { return _Texto; }
             set { SetValue(ref _Texto, value); }
         }
+        public string Imagen
+        {
+            get { return _imagen; }
+            set { SetValue(ref _imagen, value); }
+        }
         //public bool boleano
         //{
         //    get => _boleano;
@@ -97,6 +103,7 @@ namespace StoreConev2.VistaModelo
                 CheckFields(); // Agrega esta línea para verificar los campos cada vez que 'Codigo' cambie.
             }
         }
+
         public string Nombre
         {
             get { return _nombre; }
@@ -133,6 +140,8 @@ namespace StoreConev2.VistaModelo
         }
         #endregion
         #region PROCESOS
+       
+
         public async Task ProcesoAsyncrono()
         {
 
@@ -165,6 +174,7 @@ namespace StoreConev2.VistaModelo
                 await Application.Current.MainPage.DisplayAlert("Ventana", "El campo de Codigo es Obligatorio", "cerrar");
                 return;
             }
+
             var funcion = new DatosApi();
             var parametros = new ProductoParaInsertar();
             parametros.Codigo = _codigo;
@@ -173,12 +183,30 @@ namespace StoreConev2.VistaModelo
             parametros.ProveedorId =ProveedorSeleccionado.Id;
             parametros.Descripcion = _descripcion;
             parametros.Precio = _precio;
-          parametros.Imagen = "nuddll";
-            parametros.Caducidad= DateTime.Now; 
+          parametros.Imagen = _imagen;
             
             await funcion.InsertarProducto2(parametros);
 
+
+
         }
+
+        public void LimpiarCampos()
+        {
+            Codigo = 0;
+            Nombre = null;
+            Seccion = null;
+            ProveedorSeleccionado = null;
+            Descripcion = null;
+            Precio = 0;
+            Imagen = null;
+        }
+        public void Intento()
+        {
+            Insertar();
+            LimpiarCampos();
+        }
+
 
         public async Task LoadProveedor()
         {
@@ -201,9 +229,9 @@ namespace StoreConev2.VistaModelo
         #region COMANDOS
         public ICommand ProcesoAsyncomand => new Command(async () => await ProcesoAsyncrono());
         public ICommand IrNotificacionescomand => new Command(async () => await IrNotificaciones());
-        public ICommand ProcesoSimpcomand => new Command(procesoSimple);
+        public ICommand InsertProductocomand => new Command(Intento);
         public ICommand SimularBotoncomand => new Command(SimularBoton);
-        public ICommand InsertProductocomand => new Command(async () => await Insertar());
+        //public ICommand InsertProductocomand => new Command(async () => await Insertar());
 
         // public ICommand IrNotificacionescomand => new Command(IrNotificaciones);
 
