@@ -1,5 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+﻿<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:StoreConev2.VistaModelo"
              x:Class="StoreConev2.Vistas.ListaProductos"
@@ -10,97 +9,34 @@
         <ToolbarItem Text="Seccion B" Order="Secondary" Command="{Binding}"></ToolbarItem>
         <ToolbarItem Text="Seccion C" Order="Secondary" Command="{Binding}"></ToolbarItem>
         <ToolbarItem Text="Seccion D" Order="Secondary" Command="{Binding}"></ToolbarItem>
-
     </ContentPage.ToolbarItems>
-   
+
     <ContentPage.Content>
-
-            <Grid RowSpacing="0" ColumnSpacing="0">
-
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto" />
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="4*" />
-                    <ColumnDefinition Width="3*" />
-                    <ColumnDefinition Width="3*" />
-                    <ColumnDefinition Width="4*" />
-                    <ColumnDefinition Width="3*" />
-                    <ColumnDefinition Width="3*" />
-                    <ColumnDefinition Width="4*" />
-
-
-
-                </Grid.ColumnDefinitions>
-
-                <!-- Celda 1 -->
-                <Frame Grid.Row="0" Grid.Column="0" BackgroundColor="LightGray" BorderColor="Tomato" >
-
-                    <Label VerticalTextAlignment="Start" HorizontalTextAlignment="Start" Text="Codigo" />
-                </Frame>
-                <!-- Celda 2 -->
-                <Frame Grid.Row="0" Grid.Column="1" BackgroundColor="Gray" BorderColor="Tomato" >
-                    <Label  Text="Nombre"  />
-                </Frame>
-
-                <!-- Celda 3 -->
-                <Frame Grid.Row="0" Grid.Column="2" BackgroundColor="LightGray" BorderColor="Tomato" >
-
-                    <Label VerticalTextAlignment="Start" HorizontalTextAlignment="Start" Text="Sección" />
-                </Frame>
-                <!-- Celda 4 -->
-                <Frame Grid.Row="0" Grid.Column="3" BackgroundColor="Gray" BorderColor="Tomato" >
-
-                    <Label  Text="Proveedor"  />
-                </Frame>
-
-                <!-- Celda 5 -->
-                <Frame Grid.Row="0" Grid.Column="4" BackgroundColor="LightGray" BorderColor="Tomato" >
-
-                    <Label Text="Cantidad"  />
-                </Frame>
-
-                <!-- Celda 6 -->
-                <Frame Grid.Row="0" Grid.Column="6" BackgroundColor="Gray" BorderColor="Tomato" >
-
-                    <Label Text="Descripción"  />
-                </Frame>
-                <Frame Grid.Row="0" Grid.Column="5" BackgroundColor="LightGray" BorderColor="Tomato" >
-
-
-                    <Label  Text="Precio"  />
-                </Frame>
-
-                <!-- Datos de productos -->
-            <RefreshView Command="{Binding RefreshCommand}" IsRefreshing="{Binding IsRefreshing}" Grid.Row="1" Grid.ColumnSpan="7">
-                <ListView ItemsSource="{Binding Productos}" Grid.Row="1" Grid.ColumnSpan="7">
-                    <ListView.ItemTemplate>
-                        <DataTemplate>
-                            <ViewCell>
-                                <Grid>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="4*" />
-                                        <ColumnDefinition Width="3*" />
-                                        <ColumnDefinition Width="3*" />
-                                        <ColumnDefinition Width="4*" />
-                                        <ColumnDefinition Width="3*" />
-                                        <ColumnDefinition Width="3*" />
-                                        <ColumnDefinition Width="4*" />
-                                    </Grid.ColumnDefinitions>
-                                    <Label Grid.Column="0" TextColor="Black" Text="{Binding Codigo}" />
-                                    <Label Grid.Column="1" Text="{Binding Nombre}" />
-                                    <Label Grid.Column="2" Text="{Binding Seccion}" /> 
-                                <Label Grid.Column="3" Text="{Binding proveedor.Nombre}" />
-                                    <Label Grid.Column="4" Text="{Binding Cantidad}" />
-                                    <Label Grid.Column="5" Text="{Binding Precio}" />
-                                <Label Grid.Column="6" Text="{Binding Descripcion}" />
-                                </Grid>
-                            </ViewCell>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
-            </RefreshView>
-
-        </Grid>
+        <CollectionView ItemsSource="{Binding Productos}">
+            <CollectionView.ItemsLayout>
+                <GridItemsLayout Orientation="Vertical" Span="2" />
+            </CollectionView.ItemsLayout>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame Padding="10" CornerRadius="10" BorderColor="LightGray" BackgroundColor="White" HasShadow="True">
+                        <Grid Padding="10" RowSpacing="10">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Image Grid.Row="0" Source="{Binding Imagen}" Aspect="AspectFill" />
+                            <StackLayout Grid.Row="1">
+                                <Label Text="{Binding Nombre}" FontAttributes="Bold" FontSize="Large" />
+                                <Label Text="{Binding Codigo}" FontSize="Small" />
+                                <Label Text="{Binding Seccion}" FontSize="Small" />
+                                <Label Text="{Binding proveedor.Nombre}" FontSize="Small" />
+                                <Label Text="{Binding Precio}" FontSize="Medium" />
+                                <Label Text="{Binding Descripcion}" FontSize="Small" />
+                            </StackLayout>
+                        </Grid>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
     </ContentPage.Content>
 </ContentPage>

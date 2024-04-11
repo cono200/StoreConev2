@@ -17,5 +17,14 @@ namespace StoreConev2.Modelo
         public string Imagen { get; set; }
         public DateTime Caducidad { get; set; }
         public Proveedor proveedor { get; set; }
+
+       
+        public string NombreYFechaCaducidad
+        {
+            get
+            {
+                return $"{Nombre} - {Caducidad.ToString("dd/MM/yyyy")}";
+            }
+        }
     }
 }

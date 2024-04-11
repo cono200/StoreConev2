@@ -25,7 +25,7 @@ namespace StoreConev2.VistaModelo
         private string _Idproveedor;
         private string _seccion;
         private string _descripcion;
-        private string _imagen= "https://i.ibb.co/dWR9GdP/papas3.png";
+        private string _imagen= "https://i.ibb.co/0MtrR1f/logo-2.png";
         private int _precio;
         private Scaner _pistola;
         private bool _isRefreshing = false;

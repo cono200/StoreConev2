@@ -13,9 +13,9 @@
                     <Label Text="Tipo de merma" FontAttributes="Bold" Padding="0,15,0,0" TextColor="Black" FontSize="35"/>
                     <Picker Title="Tipo de Merma" TextColor="#8c8c8c" SelectedItem="{Binding Tipo_de_merma}" ItemsSource="{Binding TiposMerma}" FontSize="20"/>
                     <Label Text="Codigo" FontAttributes="Bold" Padding="0,15,0,0" TextColor="Black" FontSize="35"/>
-                    <Entry Placeholder="Ingrese código" TextColor="#8c8c8c" Text="{Binding Codigo}" FontSize="20" Keyboard="Numeric"/>
+                    <Entry Placeholder="Código" TextColor="#8c8c8c" Text="{Binding Codigo}" FontSize="20" Keyboard="Numeric" IsEnabled="False"/>
                     <Label Text="Nombre del producto" FontAttributes="Bold" Padding="0,15,0,0" TextColor="Black" FontSize="35"/>
-                    <Entry Placeholder="Ingrese nombre del producto" TextColor="#8c8c8c" Text="{Binding Nombre_producto}" FontSize="20"/>
+                    <Picker x:Name="Productos" TextColor="#8c8c8c" Title="Productos" Grid.Column="1" Grid.Row="3" FontSize="16" SelectedItem="{Binding ProductoSeleccionado}" ItemDisplayBinding="{Binding NombreYFechaCaducidad}" ItemsSource="{Binding LProducto}"/>
                 </StackLayout>
                 <Image Source="https://i.ibb.co/3sfsjY1/agregar.png"  WidthRequest="100">
                     <Image.GestureRecognizers>

@@ -49,7 +49,7 @@
                             <TapGestureRecognizer Command="{Binding EliminarProductocomand}"/>
                         </Image.GestureRecognizers>
                     </Image>
-                    <Image Source="https://i.ibb.co/bd0JTCm/busqueda.png"  WidthRequest="100">
+                    <Image Source="https://i.ibb.co/jyWByXc/flecha-de-carga.png"  WidthRequest="100">
                         <Image.GestureRecognizers>
                             <TapGestureRecognizer Command="{Binding SearchProductocomand}"/>
                         </Image.GestureRecognizers>

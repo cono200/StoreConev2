@@ -15,37 +15,30 @@ namespace StoreConev2
         {
             InitializeComponent();
 
-            // Crear instancia de VMListaProductos para obtener los productos
-            //VMListaProductos vmListaProductos = new VMListaProductos();
-
-            //// Crear una instancia de Graficos pasando la lista de productos como argumento
-            //Graficos graficosPage = new Graficos(vmListaProductos.Productos);
-
-            IniciarSesion iniciar = new IniciarSesion();
-
-            // Configurar la página maestra y de detalle
-            App.MasterDet = new MasterDetailPage
+            // Inicializa MasterDet
+            MasterDet = new MasterDetailPage
             {
                 Master = new Navegacion(),
-                Detail = new NavigationPage(iniciar)
             };
 
-            MainPage = App.MasterDet;
-        }
+            if (Application.Current.Properties.ContainsKey("usuario"))
+            {
+                // El usuario ya ha iniciado sesión, así que vamos directamente a la página principal
+                MasterDet.Detail = new NavigationPage(new VistaPreviaProducto());
+            }
+            else
+            {
+                // El usuario no ha iniciado sesión, así que mostramos la página de inicio de sesión
+                MasterDet.Detail = new NavigationPage(new IniciarSesion());
+            }
 
-        protected override void OnStart()
-        {
-            // Manejar inicio de la aplicación
-        }
-
-        protected override void OnSleep()
-        {
-            // Manejar suspensión de la aplicación
-        }
-
-        protected override void OnResume()
-        {
-            // Manejar reanudación de la aplicación
+            MainPage = MasterDet;
         }
     }
+
+
+
+
+
+
 }

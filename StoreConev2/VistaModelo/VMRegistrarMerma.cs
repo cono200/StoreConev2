@@ -2,6 +2,7 @@
 using StoreConev2.Modelo;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
@@ -18,21 +19,33 @@ namespace StoreConev2.VistaModelo
         DateTime _Fecha_ingreso;
         string _Nombre_producto;
         List<string> _Merma;
+        private ObservableCollection<Producto2> _LProducto;
+        //public Producto2 ProductoSeleccionado { get; set; }
         #endregion
         #region CONSTRUCTOR
         public VMRegistrarMerma(INavigation navigation)
         {
             Navigation = navigation;
             TiposMerma = new List<string> {"Robo","Caducidad","Defectuoso"};
+            LoadProducto();
         }
         #endregion
         #region OBJETOS
-
+        //AKI MERO
      
         public List<string> TiposMerma
         {
             get { return _Merma; }
             set { SetValue(ref _Merma, value); }
+        }
+        public ObservableCollection<Producto2> LProducto
+        {
+            get { return _LProducto; }
+            set
+            {
+                _LProducto = value;
+                OnPropertyChanged(nameof(LProducto));
+            }
         }
         public string Texto
         {
@@ -65,6 +78,11 @@ namespace StoreConev2.VistaModelo
         {
 
         }
+        public async Task LoadProducto()
+        {
+            var funcion = new DatosApi();
+            LProducto = await funcion.ObtenerProductos();
+        }
         public async Task Insertar()
         {
             if (Codigo==0)
@@ -74,14 +92,28 @@ namespace StoreConev2.VistaModelo
             }
             var funcion = new DatosApi();
             var parametros = new Merma();
-            parametros.Codigo = _Codigo;
+            parametros.Codigo = ProductoSeleccionado.Codigo;
             parametros.Fecha_ingreso = DateTime.Now;
             parametros.Tipo_de_merma = _Tipo_de_merma;
-            parametros.Nombre_producto = _Nombre_producto;
+            parametros.Nombre_producto = ProductoSeleccionado.Nombre;
             await funcion.InsertarMerma(parametros);
             
-        } 
-
+        }
+        private Producto2 _productoSeleccionado;
+        public Producto2 ProductoSeleccionado
+        {
+            get { return _productoSeleccionado; }
+            set
+            {
+                _productoSeleccionado = value;
+                OnPropertyChanged(nameof(ProductoSeleccionado));
+                // Cuando cambia el producto seleccionado, actualiza el código.
+                if (_productoSeleccionado != null)
+                {
+                    Codigo = _productoSeleccionado.Codigo;
+                }
+            }
+        }
         public void procesoSimple()
         {
 

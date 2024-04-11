@@ -10,6 +10,8 @@ using System.ComponentModel;
 using StoreConev2.ApiMetodos;
 using StoreConev2.Modelo;
 using System.Collections.ObjectModel;
+using Plugin.Media;
+using System.IO;
 
 namespace StoreConev2.VistaModelo
 {
@@ -167,6 +169,15 @@ namespace StoreConev2.VistaModelo
                 boleano = false;
             }
         }
+        private async Task RefreshCodigo()
+        {
+            var funcion = new DatosApi();
+            var scaner = await funcion.ScanerPistola();
+            if (scaner != null)
+            {
+                Codigo = scaner.CodigoPistola; // Usa CodigoPistola en lugar de Codigo
+            }
+        }
         public async Task Insertar()
         {
             if ((Codigo==null))
@@ -186,10 +197,11 @@ namespace StoreConev2.VistaModelo
           parametros.Imagen = _imagen;
             
             await funcion.InsertarProducto2(parametros);
-
-
-
         }
+
+       
+
+
 
         public void LimpiarCampos()
         {
@@ -218,6 +230,30 @@ namespace StoreConev2.VistaModelo
             DisplayAlert("Mensaje", "Producto añadido ", "Ok");
             //ASDADASDADD
         }
+        private async Task PickImage()
+        {
+            if (!CrossMedia.Current.IsPickPhotoSupported)
+            {
+                await Application.Current.MainPage.DisplayAlert("Oops", "La selección de fotos no está soportada!", "OK");
+                return;
+            }
+
+            var file = await CrossMedia.Current.PickPhotoAsync();
+
+            if (file == null)
+                return;
+
+            // Aquí puedes convertir el archivo a un formato que prefieras, como base64 o byte array, y asignarlo a tu propiedad Imagen.
+            // Por ejemplo, podrías convertirlo a base64 así:
+            using (var memoryStream = new MemoryStream())
+            {
+                file.GetStream().CopyTo(memoryStream);
+                file.Dispose();
+                var base64 = Convert.ToBase64String(memoryStream.ToArray());
+                Imagen = base64;
+            }
+        }
+
         //public void IrNotificaciones()
         //{
         //    Device.BeginInvokeOnMainThread(async () =>
@@ -231,6 +267,9 @@ namespace StoreConev2.VistaModelo
         public ICommand IrNotificacionescomand => new Command(async () => await IrNotificaciones());
         public ICommand InsertProductocomand => new Command(Intento);
         public ICommand SimularBotoncomand => new Command(SimularBoton);
+        public ICommand PickImageCommand => new Command(async () => await PickImage());
+        public ICommand RefreshCodigoCommand => new Command(async () => await RefreshCodigo());
+
         //public ICommand InsertProductocomand => new Command(async () => await Insertar());
 
         // public ICommand IrNotificacionescomand => new Command(IrNotificaciones);

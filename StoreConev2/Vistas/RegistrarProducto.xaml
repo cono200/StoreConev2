@@ -2,8 +2,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="StoreConev2.Vistas.RegistrarProducto"
              Title="RegistrarProducto"
-             xmlns:local="clr-namespace:StoreConev2.Triggers"
-            >
+             xmlns:local="clr-namespace:StoreConev2.Triggers">
     <ContentPage.Content>
         <ScrollView>
             <StackLayout>
@@ -14,6 +13,8 @@
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="Auto" />
                         <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                        <!-- Columna adicional para el botón de imagen -->
                     </Grid.ColumnDefinitions>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto" />
@@ -27,6 +28,11 @@
                     </Grid.RowDefinitions>
                     <Label TextColor="Black" Text="Código" Grid.Row="0" FontAttributes="Bold" FontSize="18"/>
                     <Entry x:Name="codigo" TextColor="#8c8c8c" Placeholder="Ingresar código" Grid.Column="1" Grid.Row="0" Text="{Binding Codigo}" Keyboard="Numeric" FontSize="16"/>
+                    <Image Grid.Column="2" Grid.Row="0" Source="https://i.ibb.co/jyWByXc/flecha-de-carga.png" HeightRequest="30" WidthRequest="30">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding RefreshCodigoCommand}" />
+                        </Image.GestureRecognizers>
+                    </Image>
                     <Label TextColor="Black" Text="Nombre" Grid.Row="1" FontAttributes="Bold" FontSize="18"/>
                     <Entry x:Name="nombre" TextColor="#8c8c8c" Placeholder="Ingresa el nombre" Grid.Column="1" Grid.Row="1" Text="{Binding Nombre}"  FontSize="16"/>
                     <Label TextColor="Black" Text="Sección" Grid.Row="2" FontAttributes="Bold" FontSize="18"/>
@@ -37,10 +43,8 @@
                     <Editor TextColor="#8c8c8c" Placeholder="Agregar descripción" Grid.Column="1" Grid.Row="4" Text="{Binding Descripcion}" FontSize="16"/>
                     <Label TextColor="Black" Text="Precio" Grid.Row="5" FontAttributes="Bold" FontSize="18"/>
                     <Entry x:Name="precio" TextColor="#8c8c8c" Placeholder="Ingresar el precio" Grid.Column="1" Grid.Row="5" Keyboard="Numeric" Text="{Binding Precio}" FontSize="16"/>
-                   
                     <Label TextColor="Black" Text="Imagen" Grid.Row="7" FontAttributes="Bold" FontSize="18"/>
                     <Entry x:Name="imagen" TextColor="#8c8c8c" Placeholder="Ingresar URL de la imagen" Grid.Column="1" Grid.Row="7" Text="{Binding Imagen}" FontSize="16"/>
-                    
                 </Grid>
                 <Button FontFamily="kawaii3" Text="Registrar" Command="{Binding InsertProductocomand}" HorizontalOptions="Center" CornerRadius="15" Margin="0,0,0,2" BackgroundColor="#ffcc77" TextColor="Black" IsEnabled="{Binding boleano}" FontSize="20">
                     <Button.Triggers>

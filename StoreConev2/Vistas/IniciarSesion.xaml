@@ -41,7 +41,7 @@
 
                 <StackLayout WidthRequest="310" HorizontalOptions="CenterAndExpand"  Spacing="15" Grid.Row="1" Orientation="Vertical" VerticalOptions="CenterAndExpand">
                     <Label  Text="Nombre de Usuario o Correo" FontSize="16" TextColor="Brown" FontAttributes="Bold"/>
-                    <Entry FontSize="16" TextColor="Black" Placeholder="Ingrese su usuario o correo" FontAttributes="Bold" Text="{ Binding Usuario}"/>
+                    <Entry FontSize="16" TextColor="Black" Placeholder="Ingrese su usuario o correo" FontAttributes="Bold" Text="{ Binding NombreUsuario}"/>
                     <Label Text="Contraseña" FontSize="16" TextColor="Brown" FontAttributes="Bold"/>
                     <Entry FontSize="16" TextColor="Black" Placeholder="Ingrese su Contraseña" IsPassword="True" FontAttributes="Bold" Text="{ Binding Contrasena}"/>
 

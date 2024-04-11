@@ -56,7 +56,7 @@ namespace StoreConev2.VistaModelo
             var copiaProductos = new List<Historial>(productos);
 
             // Tomamos solo los últimos 10 elementos de la copia
-            var ultimosDiez = copiaProductos.AsEnumerable().Reverse().Take(NumItemsToShow).Reverse().ToList();
+            var ultimosDiez = copiaProductos.AsEnumerable().Reverse().Take(NumItemsToShow).ToList();
 
             for (int i = 0; i < ultimosDiez.Count; i++)
             {
@@ -65,6 +65,7 @@ namespace StoreConev2.VistaModelo
 
             Productos = new ObservableCollection<Historial>(ultimosDiez);
         }
+
 
         protected virtual void OnPropertyChanged(string propertyName)
         {

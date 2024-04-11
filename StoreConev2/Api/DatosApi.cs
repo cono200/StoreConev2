@@ -259,6 +259,33 @@ namespace StoreConev2.ApiMetodos
             }
         }
 
+        public async Task<ObservableCollection<Usuario>> ObtenerUsuarios()
+        {
+            Uri RequestUri = new Uri("http://www.StoreConev3.somee.com/api/Usuario/Listar");
+            var client = new HttpClient();
+            var response = await client.GetAsync(RequestUri);
+
+            if (response.IsSuccessStatusCode)
+            {
+                var json = await response.Content.ReadAsStringAsync();
+                var usuarios = JsonConvert.DeserializeObject<List<Usuario>>(json);
+                return new ObservableCollection<Usuario>(usuarios);
+            }
+            else
+            {
+                // Manejo de errores
+                await Xamarin.Forms.Application.Current.MainPage.DisplayAlert("Error", "No se pudo ", "OK");
+                return new ObservableCollection<Usuario>();
+            }
+        }
+
+
+
+
+
+
+
+
 
 
 

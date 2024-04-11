@@ -75,7 +75,21 @@ namespace StoreConev2.VistaModelo
         {
 
         }
-        
+        public async Task CerrarSesion()
+        {
+            // Restablecer las propiedades de la sesión
+            Application.Current.Properties["isLogged"] = false;
+            Application.Current.Properties["usuario"] = null;
+            await Application.Current.SavePropertiesAsync();
+
+            // Navegar a la página de inicio de sesión
+            App.MasterDet.Detail = new NavigationPage(new IniciarSesion());
+            App.MasterDet.IsPresented = false;
+        }
+
+
+
+
         public async Task NavegarAGraficos()
         {
             ObservableCollection<Merma> misProductos = ListaProductos.Mermas;
@@ -90,6 +104,7 @@ namespace StoreConev2.VistaModelo
         public ICommand MenuListaProductoscomand => new Command(async () => await MListaProductos());
         public ICommand RegistrarProductoCommand => new Command(async () => await RegistrarProducto());
         public ICommand RegistroMermasCommand => new Command(async () => await RegistroMermas());
+        //  public ICommand CerrarsesionCommand => new Command(async () => await Cerrarsesion());
         public ICommand CerrarsesionCommand => new Command(async () => await Cerrarsesion());
         public ICommand GraficosCommand => new Command(async () => await NavegarAGraficos());
         public ICommand AyudaCommand => new Command(async () => await Ayuda());
