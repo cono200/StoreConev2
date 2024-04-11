@@ -52,30 +52,6 @@ namespace StoreConev2.VistaModelo
 
         }
 
-        //public async Task IniciarSesion()
-        //{
-        //    DatosApi datosApi = new DatosApi();  // Crea una nueva instancia de DatosApi aquí
-        //    var usuarios = await datosApi.ObtenerUsuarios();
-        //    var usuario = usuarios.FirstOrDefault(u => u.NombreUsuario == _NombreUsuario && u.Contrasena == _contrasena);
-        //    if (usuario != null)
-        //    {
-        //        // Guardar el estado de la sesión en la caché local
-        //        Application.Current.Properties["isLogged"] = true;
-        //        Application.Current.Properties["usuario"] = NombreUsuario;
-        //        await Application.Current.SavePropertiesAsync();
-
-        //        // Navegar a la página principal
-        //        App.MasterDet.Detail = new NavigationPage(new VistaPreviaProducto());
-        //        App.MasterDet.IsPresented = false;
-        //    }
-        //    else
-        //    {
-        //        // Manejo de errores
-        //        DisplayAlert("Mensaje", "No se pudo ai", "Ok");
-        //        _Texto = "Nombre de usuario o contraseña incorrectos";
-        //    }
-        //}
-
         public async Task IniciarSesion()
         {
             DatosApi datosApi = new DatosApi();  // Crea una nueva instancia de DatosApi aquí
@@ -95,22 +71,12 @@ namespace StoreConev2.VistaModelo
             else
             {
                 // Manejo de errores
-                await Application.Current.MainPage.DisplayAlert("Mensaje", "No se pudo iniciar sesión", "Ok");
+                await Application.Current.MainPage.DisplayAlert("Alerta", "Nombre de usuario o contraseña incorrectos", "Ok");
                 _Texto = "Nombre de usuario o contraseña incorrectos";
             }
         }
 
 
-
-
-
-
-
-        //public async void IniciarSesion()
-        //{
-        //    App.MasterDet.Detail = new NavigationPage(new VistaPreviaProducto());
-        //    App.MasterDet.IsPresented = false;
-        //}
         #endregion
         #region COMANDOS
         public ICommand ProcesoAsyncomand => new Command(async () => await ProcesoAsyncrono());
@@ -118,7 +84,6 @@ namespace StoreConev2.VistaModelo
        // public ICommand BotonIniciarSesioncomand => new Command(async () => await SimularInicio());
         public ICommand ProcesoSimpcomand => new Command(procesoSimple);
        // public ICommand BotonIniciarSesioncomand => new Command(SimularInicio);
-
         #endregion
     }
 }

@@ -24,9 +24,11 @@ namespace StoreConev2.VistaModelo
         }
         public async Task Inicio()
         {
-            App.MasterDet.Detail = new NavigationPage(new VistaPreviaProducto());
+            App.MasterDet.Detail.Navigation.InsertPageBefore(new VistaPreviaProducto(), App.MasterDet.Detail.Navigation.NavigationStack[0]);
+            await App.MasterDet.Detail.Navigation.PopToRootAsync();
             App.MasterDet.IsPresented = false;
         }
+
         public async Task MListaProductos()
         {
             App.MasterDet.Detail = new NavigationPage(new ListaProductos());

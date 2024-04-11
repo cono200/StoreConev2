@@ -7,34 +7,40 @@ using Xamarin.Forms.Xaml;
 
 namespace StoreConev2
 {
+
     public partial class App : Application
     {
-        public static MasterDetailPage MasterDet { get; set; }
+        public static NavigationPage NavigationPage { get; private set; }
+        public static MasterDetailPage MasterDet { get; private set; }
 
         public App()
         {
             InitializeComponent();
 
-            // Inicializa MasterDet
+            // Inicializa MasterDet y NavigationPage
             MasterDet = new MasterDetailPage
             {
                 Master = new Navegacion(),
             };
+            NavigationPage = new NavigationPage();
 
             if (Application.Current.Properties.ContainsKey("usuario"))
             {
                 // El usuario ya ha iniciado sesión, así que vamos directamente a la página principal
-                MasterDet.Detail = new NavigationPage(new VistaPreviaProducto());
+                NavigationPage.Navigation.PushAsync(new VistaPreviaProducto());
             }
             else
             {
                 // El usuario no ha iniciado sesión, así que mostramos la página de inicio de sesión
-                MasterDet.Detail = new NavigationPage(new IniciarSesion());
+                NavigationPage.Navigation.PushAsync(new IniciarSesion());
             }
 
+            MasterDet.Detail = NavigationPage;
             MainPage = MasterDet;
         }
     }
+
+
 
 
 
