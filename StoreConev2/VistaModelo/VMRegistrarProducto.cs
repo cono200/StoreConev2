@@ -78,15 +78,7 @@ namespace StoreConev2.VistaModelo
             get { return _imagen; }
             set { SetValue(ref _imagen, value); }
         }
-        //public bool boleano
-        //{
-        //    get => _boleano;
-        //    set
-        //    {
-        //        _boleano = value;
-        //        OnPropertyChanged();
-        //    }
-        //}
+    
         public bool boleano
         {
             get { return _boleano; }
@@ -242,9 +234,6 @@ namespace StoreConev2.VistaModelo
 
             if (file == null)
                 return;
-
-            // Aquí puedes convertir el archivo a un formato que prefieras, como base64 o byte array, y asignarlo a tu propiedad Imagen.
-            // Por ejemplo, podrías convertirlo a base64 así:
             using (var memoryStream = new MemoryStream())
             {
                 file.GetStream().CopyTo(memoryStream);
@@ -254,13 +243,6 @@ namespace StoreConev2.VistaModelo
             }
         }
 
-        //public void IrNotificaciones()
-        //{
-        //    Device.BeginInvokeOnMainThread(async () =>
-        //    {
-        //        await Navigation.PushModalAsync(new Notificaciones());
-        //    });
-        //}
         #endregion
         #region COMANDOS
         public ICommand ProcesoAsyncomand => new Command(async () => await ProcesoAsyncrono());
@@ -269,11 +251,6 @@ namespace StoreConev2.VistaModelo
         public ICommand SimularBotoncomand => new Command(SimularBoton);
         public ICommand PickImageCommand => new Command(async () => await PickImage());
         public ICommand RefreshCodigoCommand => new Command(async () => await RefreshCodigo());
-
-        //public ICommand InsertProductocomand => new Command(async () => await Insertar());
-
-        // public ICommand IrNotificacionescomand => new Command(IrNotificaciones);
-
         #endregion
     }
 }

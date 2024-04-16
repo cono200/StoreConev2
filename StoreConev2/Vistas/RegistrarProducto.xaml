@@ -44,7 +44,8 @@
                     <Label TextColor="Black" Text="Precio" Grid.Row="5" FontAttributes="Bold" FontSize="18"/>
                     <Entry x:Name="precio" TextColor="#8c8c8c" Placeholder="Ingresar el precio" Grid.Column="1" Grid.Row="5" Keyboard="Numeric" Text="{Binding Precio}" FontSize="16"/>
                     <Label TextColor="Black" Text="Imagen" Grid.Row="7" FontAttributes="Bold" FontSize="18"/>
-                    <Entry x:Name="imagen" TextColor="#8c8c8c" Placeholder="Ingresar URL de la imagen" Grid.Column="1" Grid.Row="7" Text="{Binding Imagen}" FontSize="16"/>
+                    <Entry x:Name="imagen" TextColor="#8c8c8c" Placeholder="Ingresar URL de la imagen" Grid.Column="1" Grid.Row="7" Text="{Binding Imagen}" FontSize="16" IsEnabled="False"/>
+                    <Button Text="Seleccionar imagen" Command="{Binding PickImageCommand}" Grid.Row="8" Grid.Column="1"/>
                 </Grid>
                 <Button FontFamily="kawaii3" Text="Registrar" Command="{Binding InsertProductocomand}" HorizontalOptions="Center" CornerRadius="15" Margin="0,0,0,2" BackgroundColor="#ffcc77" TextColor="Black" IsEnabled="{Binding boleano}" FontSize="20">
                     <Button.Triggers>

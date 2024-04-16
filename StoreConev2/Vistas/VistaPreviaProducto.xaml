@@ -1,24 +1,26 @@
 ﻿<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="StoreConev2.Vistas.VistaPreviaProducto"
-             xmlns:converters="clr-namespace:StoreConev2.Triggers"
-             xmlns:vm="clr-namespace:StoreConev2"
+             xmlns:converters="clr-namespace:StoreConev2.VistaModelo" 
+    xmlns:triggers="clr-namespace:StoreConev2.Triggers"
+    xmlns:vm="clr-namespace:StoreConev2"
              Title="Inicio"
              BackgroundColor="FloralWhite">
 
-
     <ContentPage.Resources>
         <ResourceDictionary>
-            <converters:FechaConverter x:Key="FechaConverter"/>
+            <triggers:FechaConverter x:Key="FechaConverter"/>
+            <converters:Base64ToImageSourceConverter x:Key="Base64ToImageSourceConverter"/>
         </ResourceDictionary>
     </ContentPage.Resources>
+
     <ScrollView>
         <RefreshView Command="{Binding LoadPistolaCommand}" IsRefreshing="{Binding IsRefreshing}">
             <StackLayout Padding="0,-10,10,20">
                 <!-- Nombre del producto -->
                 <Label Text="{Binding Nombre}" HorizontalOptions="CenterAndExpand" FontSize="50" TextColor="Orange"/>
                 <!-- Imagen del producto -->
-                <Image Source="{Binding Imagen}" Aspect="AspectFit" Margin="0,20,0,20"/>
+                <Image Source="{Binding Imagen, Converter={StaticResource Base64ToImageSourceConverter}}" HeightRequest="200" Margin="0,20,0,20"/>
                 <!-- Otros campos del producto -->
                 <StackLayout Orientation="Horizontal" Margin="20,0,0,0">
                     <Label Text="Código: " FontSize="25" TextColor="Black" FontAttributes="Bold"/>

@@ -3,14 +3,11 @@
              xmlns:local="clr-namespace:StoreConev2.VistaModelo"
              x:Class="StoreConev2.Vistas.ListaProductos"
              Title="ListaProductos">
-
-    <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Seccion A" Order="Secondary" Command="{Binding IrSeccionACommand}"></ToolbarItem>
-        <ToolbarItem Text="Seccion B" Order="Secondary" Command="{Binding}"></ToolbarItem>
-        <ToolbarItem Text="Seccion C" Order="Secondary" Command="{Binding}"></ToolbarItem>
-        <ToolbarItem Text="Seccion D" Order="Secondary" Command="{Binding}"></ToolbarItem>
-    </ContentPage.ToolbarItems>
-
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:Base64ToImageSourceConverter x:Key="Base64ToImageSourceConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
     <ContentPage.Content>
         <CollectionView ItemsSource="{Binding Productos}">
             <CollectionView.ItemsLayout>
@@ -24,7 +21,7 @@
                                 <RowDefinition Height="Auto" />
                                 <RowDefinition Height="*" />
                             </Grid.RowDefinitions>
-                            <Image Grid.Row="0" Source="{Binding Imagen}" Aspect="AspectFill" />
+                            <Image Grid.Row="0" Source="{Binding Imagen, Converter={StaticResource Base64ToImageSourceConverter}}" HeightRequest="110"  />
                             <StackLayout Grid.Row="1">
                                 <Label Text="{Binding Nombre}" FontAttributes="Bold" FontSize="Large" />
                                 <Label Text="{Binding Codigo}" FontSize="Small" />
